@@ -18,7 +18,7 @@
 Release Version: &nbsp; </td> <td>
 <a href="ftp://ftp.gnu.org/gnu/pth/pth-<get-var VERS>.tar.gz">\
 GNU Pth <b><get-var VERS></b></a> &nbsp; </td> <td> (<get-var DATE>) </td>
-<td>&nbsp;&nbsp; <a href="ChangeLog-1.4.txt">ChangeLog</a> </td>
+<td>&nbsp;&nbsp; <a href="http://cvs.ossp.org/pkg/lib/pth/ChangeLog">ChangeLog</a> </td>
 </tr>
 # <tr>
 # <td> Development Version: &nbsp; </td> <td>
@@ -67,13 +67,15 @@ href="/brave-gnu-world/issue-7.en.html">Issue No. 7</a>.
 
 <h2>Distribution</h2>
 
-The distribution of the latest GNU Pth release version can be found on
-<A HREF="ftp://ftp.gnu.org/gnu/pth/">ftp://ftp.gnu.org/gnu/pth/</A>
-or one of <A HREF="/prep/ftp.html">the
-mirrors</A>. Alpha versions can be found on <A
+The distribution of the latest GNU Pth
+release version can be found on <A
+HREF="ftp://ftp.ossp.org/pkg/lib/pth/">ftp://ftp.ossp.org/pkg/lib/pth/</
+A> and <A
+HREF="ftp://ftp.gnu.org/gnu/pth/">ftp://ftp.gnu.org/gnu/pth/</A>
+(or one of <A HREF="/prep/ftp.html">the mirrors</A>). Alpha versions can be found on <A
 HREF="ftp://alpha.gnu.org/gnu/pth/">ftp://alpha.gnu.org/gnu/pth/</A>.
-For more details about the latest changes have a look at the change logfile <a
-href="ChangeLog-1.4.txt">ChangeLog-1.4.txt</a>.
+For more details about the latest changes have a look at the change logfile 
+<A HREF="http://cvs.ossp.org/pkg/lib/pth/ChangeLog">ChangeLog</A>.
 
 <h2>Bug Reports and Support</h2>
 

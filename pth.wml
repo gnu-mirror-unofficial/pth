@@ -4,8 +4,8 @@
 #use wml::std::toc style=pre
 #use wml::std::box
 
-<set-var VERS="2.0.0">
-<set-var DATE="17-Feb-2003">
+<set-var VERS="2.0.1">
+<set-var DATE="13-Jul-2004">
 
 # <set-var DEVVERS="1.4a4">
 # <set-var DEVDATE="24-Mar-2001">

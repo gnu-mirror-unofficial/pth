@@ -4,11 +4,11 @@
 #use wml::std::toc style=pre
 #use wml::std::box
 
-<set-var VERS="1.3.7">
-<set-var DATE="29-Jul-2000">
+<set-var VERS="1.4.0">
+<set-var DATE="24-Mar-2001">
 
-<set-var DEVVERS="1.4a3">
-<set-var DEVDATE="29-Jul-2000">
+# <set-var DEVVERS="1.4a4">
+# <set-var DEVDATE="24-Mar-2001">
 
 <p>
 <box header="<b id=sf>Current State</b>" bdwidth=1 bdspace=6 bdcolor="#cccccc" bgcolor="#ffffff">
@@ -18,14 +18,14 @@
 Release Version: &nbsp; </td> <td>
 <a href="ftp://ftp.gnu.org/gnu/pth/pth-<get-var VERS>.tar.gz">\
 GNU Pth <b><get-var VERS></b></a> &nbsp; </td> <td> (<get-var DATE>) </td>
-<td>&nbsp;&nbsp; <a href="ChangeLog-1.3.txt">ChangeLog</a> </td>
-</tr>
-<tr>
-<td> Development Version: &nbsp; </td> <td>
-<a href="ftp://alpha.gnu.org/gnu/pth/pth-<get-var DEVVERS>.tar.gz">\
-GNU Pth <b><get-var DEVVERS></b></a> &nbsp; </td> <td> (<get-var DEVDATE>)</td>
 <td>&nbsp;&nbsp; <a href="ChangeLog-1.4.txt">ChangeLog</a> </td>
 </tr>
+# <tr>
+# <td> Development Version: &nbsp; </td> <td>
+# <a href="ftp://alpha.gnu.org/gnu/pth/pth-<get-var DEVVERS>.tar.gz">\
+# GNU Pth <b><get-var DEVVERS></b></a> &nbsp; </td> <td> (<get-var DEVDATE>)</td>
+# <td>&nbsp;&nbsp; <a href="ChangeLog-1.4.txt">ChangeLog</a> </td>
+# </tr>
 </table>
 </box>
 
@@ -73,8 +73,7 @@ or one of <A HREF="/prep/ftp.html">the
 mirrors</A>. Alpha versions can be found on <A
 HREF="ftp://alpha.gnu.org/gnu/pth/">ftp://alpha.gnu.org/gnu/pth/</A>.
 For more details about the latest changes have a look at the change logfile <a
-href="ChangeLog-1.2.txt">ChangeLog-1.2.txt</a> (for Pth 1.2) or
-<a href="ChangeLog-1.3.txt">ChangeLog-1.3.txt</a> (for Pth 1.3).
+href="ChangeLog-1.4.txt">ChangeLog-1.4.txt</a>.
 
 <h2>Bug Reports and Support</h2>
 

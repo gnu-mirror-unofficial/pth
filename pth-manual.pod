@@ -1,6 +1,6 @@
 ##
 ##  GNU Pth - The GNU Portable Threads
-##  Copyright (c) 1999-2000 Ralf S. Engelschall <rse@engelschall.com>
+##  Copyright (c) 1999-2001 Ralf S. Engelschall <rse@engelschall.com>
 ##
 ##  This file is part of GNU Pth, a non-preemptive thread scheduling
 ##  library which can be found at http://www.gnu.org/software/pth/.
@@ -25,7 +25,7 @@
 
 #                            ``Real programmers don't document.
 #                              Documentation is for wimps who can't
-#                              read the listings of the object deck.
+#                              read the listings of the object deck.''
 
 =pod
 
@@ -148,13 +148,18 @@ pth_poll_ev,
 pth_read_ev,
 pth_readv_ev,
 pth_write_ev,
-pth_writev_ev.
+pth_writev_ev,
+pth_recv_ev,
+pth_recvfrom_ev,
+pth_send_ev,
+pth_sendto_ev.
 
 =item B<Standard POSIX Replacement API>
 
 pth_usleep,
 pth_sleep,
 pth_waitpid,
+pth_system,
 pth_sigmask,
 pth_sigwait,
 pth_accept,
@@ -166,7 +171,11 @@ pth_readv,
 pth_write,
 pth_writev,
 pth_pread,
-pth_pwrite.
+pth_pwrite,
+pth_recv,
+pth_recvfrom,
+pth_send,
+pth_sendto.
 
 =back
 
@@ -282,7 +291,7 @@ usually scheduled in preemptive way side-by-side with the underlying
 processes. User-space threads on the other hand use either preemptive or
 non-preemptive scheduling.
 
-=item B<o> B<preemtive> vs. B<non-preemtive> thread scheduling
+=item B<o> B<preemptive> vs. B<non-preemptive> thread scheduling
 
 In preemptive scheduling, the scheduler lets a thread execute until a
 blocking situation occurs (usually a function call which would block)
@@ -527,7 +536,7 @@ priority of all remaining threads by 1, to prevent them from `starving'.
 The thread which was removed from the B<READY> queue is the new
 B<RUNNING> thread (there is always just one B<RUNNING> thread, of
 course). The B<RUNNING> thread is assigned execution control. After
-this thread yields execution (either explicitly by yielding excution
+this thread yields execution (either explicitly by yielding execution
 or implicitly by calling a function which would block) there are three
 possibilities: Either it has terminated, then it is moved to the B<DEAD>
 queue, or it has events on which it wants to wait, then it is moved into
@@ -1152,7 +1161,7 @@ a check function and the second argument is a user-supplied context
 value which is passed to this function. The scheduler calls this
 function on a regular basis (on his own scheduler stack, so be very
 careful!) and the thread is kept sleeping while the function returns
-C<FALSE>. Once it returned C<TRUE> the thread will be awakend. The
+C<FALSE>. Once it returned C<TRUE> the thread will be awakened. The
 check interval is defined by the third argument, i.e., the check
 function is polled again not until this amount of time elapsed. Example:
 `C<pth_event(PTH_EVENT_FUNC, func, arg, pth_time(0,500000))>'.
@@ -1430,7 +1439,7 @@ This notified one or all threads which are waiting on I<cond>.  When
 I<broadcast> is C<TRUE> all thread are notified, else only a single
 (unspecified) one.
 
-=item int B<pth_barrier_init>(pth_barrier_t *I<barrier>, int I<threshold);
+=item int B<pth_barrier_init>(pth_barrier_t *I<barrier>, int I<threshold>);
 
 This dynamically initializes a barrier variable of type `C<pth_barrier_t>'.
 Alternatively one can also use static initialization via `C<pth_barrier_t
@@ -1470,7 +1479,7 @@ I<ev> actually is an event I<ring>).
 
 This is equal to pth_connect(3) (see below), but has an additional event
 argument I<ev>. When pth_connect(3) suspends the current threads execution it
-usually only uses the I/O event on I<fd> to awake. With this function any
+usually only uses the I/O event on I<s> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
 I<ev> actually is an event I<ring>).
 
@@ -1478,7 +1487,7 @@ I<ev> actually is an event I<ring>).
 
 This is equal to pth_accept(3) (see below), but has an additional event
 argument I<ev>. When pth_accept(3) suspends the current threads execution it
-usually only uses the I/O event on I<fd> to awake. With this function any
+usually only uses the I/O event on I<s> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
 I<ev> actually is an event I<ring>).
 
@@ -1530,6 +1539,38 @@ usually only uses the I/O event on I<fd> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
 I<ev> actually is an event I<ring>).
 
+=item ssize_t B<pth_recv_ev>(int I<fd>, void *I<buf>, size_t I<nbytes>, int I<flags>, pth_event_t I<ev>);
+
+This is equal to pth_recv(3) (see below), but has an additional event
+argument I<ev>. When pth_recv(3) suspends the current threads execution it
+usually only uses the I/O event on I<fd> to awake. With this function any
+number of extra events can be used to awake the current thread (remember that
+I<ev> actually is an event I<ring>).
+
+=item ssize_t B<pth_recvfrom_ev>(int I<fd>, void *I<buf>, size_t I<nbytes>, int I<flags>, struct sockaddr *I<from>, socklen_t *I<fromlen>, pth_event_t I<ev>);
+
+This is equal to pth_recvfrom(3) (see below), but has an additional event
+argument I<ev>. When pth_recvfrom(3) suspends the current threads execution it
+usually only uses the I/O event on I<fd> to awake. With this function any
+number of extra events can be used to awake the current thread (remember that
+I<ev> actually is an event I<ring>).
+
+=item ssize_t B<pth_send_ev>(int I<fd>, const void *I<buf>, size_t I<nbytes>, int I<flags>, pth_event_t I<ev>);
+
+This is equal to pth_send(3) (see below), but has an additional event
+argument I<ev>. When pth_send(3) suspends the current threads execution it
+usually only uses the I/O event on I<fd> to awake. With this function any
+number of extra events can be used to awake the current thread (remember that
+I<ev> actually is an event I<ring>).
+
+=item ssize_t B<pth_sendto_ev>(int I<fd>, const void *I<buf>, size_t I<nbytes>, int I<flags>, const struct sockaddr *I<to>, socklen_t I<tolen>, pth_event_t I<ev>);
+
+This is equal to pth_sendto(3) (see below), but has an additional event
+argument I<ev>. When pth_sendto(3) suspends the current threads execution it
+usually only uses the I/O event on I<fd> to awake. With this function any
+number of extra events can be used to awake the current thread (remember that
+I<ev> actually is an event I<ring>).
+
 =back
 
 =head2 Standard POSIX Replacement API
@@ -1543,7 +1584,7 @@ the whole process in case the file descriptors will block.
 =item int B<pth_usleep>(unsigned int I<usec>);
 
 This is a variant of the 4.3BSD usleep(3) function. It suspends the current
-threads execution until I<usec> microsecond (= I<usec> * 1/1000000 sec)
+threads execution until I<usec> microseconds (= I<usec>*1/1000000 sec)
 elapsed.  The thread is guaranteed to not awakened before this time, but
 because of the non-preemptive scheduling nature of B<Pth>, it can be awakened
 later, of course.  The difference between usleep(3) and pth_usleep(3) is that
@@ -1552,13 +1593,12 @@ the whole process.
 
 =item unsigned int B<pth_sleep>(unsigned int I<sec>);
 
-This is a variant of the POSIX sleep(3) function. It
-suspends the current threads execution until I<sec> seconds elapsed.  The
-thread is guaranteed to not awakened before this time, but because of the
-non-preemptive scheduling nature of B<Pth>, it can be awakened later, of
-course.  The difference between sleep(3) and pth_sleep(3) is that that
-pth_sleep(3) suspends only the execution of the current thread and not the
-whole process.
+This is a variant of the POSIX sleep(3) function. It suspends the current
+threads execution until I<sec> seconds elapsed.  The thread is guaranteed to
+not awakened before this time, but because of the non-preemptive scheduling
+nature of B<Pth>, it can be awakened later, of course.  The difference between
+sleep(3) and pth_sleep(3) is that that pth_sleep(3) suspends only the
+execution of the current thread and not the whole process.
 
 =item pid_t B<pth_waitpid>(pid_t I<pid>, int *I<status>, int I<options>);
 
@@ -1568,6 +1608,15 @@ terminated child process I<pid>.  The difference between waitpid(2) and
 pth_waitpid(3) is that that pth_waitpid(3) suspends only the execution of the
 current thread and not the whole process.  For more details about the
 arguments and return code semantics see waitpid(2).
+
+=item int B<pth_system>(const char *I<cmd>);
+
+This is a variant of the POSIX system(3) function. It executes the
+shell command I<cmd> with Bourne Shell (C<sh>) and suspends the current
+threads execution until this command terminates. The difference between
+system(3) and pth_system(3) is that that pth_system(3) suspends only
+the execution of the current thread and not the whole process. For more
+details about the arguments and return code semantics see system(3).
 
 =item int B<pth_sigmask>(int I<how>, const sigset_t *I<set>, sigset_t *I<oset>)
 
@@ -1672,6 +1721,34 @@ action as a regular write(2), except that it writes to a given position in the
 file without changing the file pointer. The first three arguments are the same
 as for pth_write(3) with the addition of a fourth argument I<offset> for the
 desired position inside the file.
+
+=item ssize_t B<pth_recv>(int I<fd>, void *I<buf>, size_t I<nbytes>, int I<flags>);
+
+This is a variant of the SUSv2 recv(2) function and equal to
+``pth_recvfrom(fd, buf, nbytes, flags, NULL, 0)''.
+
+=item ssize_t B<pth_recvfrom>(int I<fd>, void *I<buf>, size_t I<nbytes>, int I<flags>, struct sockaddr *I<from>, socklen_t *I<fromlen>);
+
+This is a variant of the SUSv2 recvfrom(2) function. It reads up to
+I<nbytes> bytes into I<buf> from file descriptor I<fd> while using
+I<flags> and I<from>/I<fromlen>. The difference between recvfrom(2) and
+pth_recvfrom(2) is that that pth_recvfrom(2) suspends execution of the
+current thread until the file descriptor is ready for reading. For more
+details about the arguments and return code semantics see recvfrom(2).
+
+=item ssize_t B<pth_send>(int I<fd>, const void *I<buf>, size_t I<nbytes>, int I<flags>);
+
+This is a variant of the SUSv2 send(2) function and equal to
+``pth_sendto(fd, buf, nbytes, flags, NULL, 0)''.
+
+=item ssize_t B<pth_sendto>(int I<fd>, const void *I<buf>, size_t I<nbytes>, int I<flags>, const struct sockaddr *I<to>, socklen_t I<tolen>);
+
+This is a variant of the SUSv2 sendto(2) function. It writes I<nbytes>
+bytes from I<buf> to file descriptor I<fd> while using I<flags> and
+I<to>/I<tolen>. The difference between sendto(2) and pth_sendto(2) is
+that that pth_sendto(2) suspends execution of the current thread until
+the file descriptor is ready for writing. For more details about the
+arguments and return code semantics see sendto(2).
 
 =back
 
@@ -1794,7 +1871,7 @@ just adding the following C<Makefile>:
 
 This imports the necessary compiler and linker flags on-the-fly from the
 B<Pth> installation via its C<pth-config> program. This approach is
-straight-foreward and works fine for small projects.
+straight-forward and works fine for small projects.
 
 =head2 Autoconf Build Environment (Advanced)
 
@@ -1892,7 +1969,7 @@ Finally let us assume the C<foo> program stays under either a I<GPL> or
 I<LGPL> distribution license and we want to make it a stand-alone package for
 easier distribution and installation.  That is, we don't want that the
 end-user first has to install B<Pth> just to allow our C<foo> package to
-compile. For this, it is a convinient practice to include the required
+compile. For this, it is a convenient practice to include the required
 libraries (here B<Pth>) into the source tree of the package (here C<foo>).
 B<Pth> ships with all necessary support to allow us to easily achieve this
 approach. Say, we want B<Pth> in a subdirectory named C<pth/> and this
@@ -2060,9 +2137,10 @@ Nevertheless B<Pth> provides a two step approach to solve this problem:
 This variant is available on all platforms and can I<always> be enabled by
 building B<Pth> with C<--enable-syscall-soft>. This then triggers some
 C<#define>'s in the C<pth.h> header which map for instance read(3) to
-pth_read(3), etc.  Currently the following functions are mapped: fork(2),
-sleep(3), sigwait(3), waitpid(2), select(2), poll(2), connect(2),
-accept(2), read(2), write(2).
+pth_read(3), etc. Currently the following functions are mapped: fork(2),
+sleep(3), sigwait(3), waitpid(2), system(3), select(2), poll(2),
+connect(2), accept(2), read(2), write(2), recv(2), send(2), recvfrom(2),
+sendto(2).
 
 The drawback of this approach is just that really all source files
 of the application where these function calls occur have to include
@@ -2076,9 +2154,9 @@ This variant is available only on those platforms where the syscall(2)
 function exists and there it can be enabled by building B<Pth> with
 C<--enable-syscall-hard>. This then builds wrapper functions (for instances
 read(3)) into the B<Pth> library which internally call the real B<Pth>
-replacement functions (pth_read(3)).  Currently the following functions are
-mapped: fork(2), sleep(3), waitpid(2), select(2), poll(2), connect(2),
-accept(2), read(2), write(2).
+replacement functions (pth_read(3)). Currently the following functions
+are mapped: fork(2), sleep(3), waitpid(2), system(3), select(2),
+poll(2), connect(2), accept(2), read(2), write(2).
 
 The drawback of this approach is that it depends on syscall(2) interface
 and prototype conflicts can occur while building the wrapper functions
@@ -2173,8 +2251,9 @@ I<pth-users-request@gnu.org> with `C<subscribe pth-users>' (or
 `C<subscribe pth-users> I<address>' if you want to subscribe
 from a particular Email I<address>) in the body. Then you can
 discuss your issues with other B<Pth> users by sending messages to
-I<pth-users@gnu.org>. Currently (as of January 2000) you can reach about
-50 Pth users on this mailing list.
+I<pth-users@gnu.org>. Currently (as of August 2000) you can reach about
+110 Pth users on this mailing list. Old postings you can find at
+I<http://www.mail-archive.com/pth-users@gnu.org/>.
 
 =head1 SEE ALSO
 

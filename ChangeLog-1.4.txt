@@ -19,6 +19,61 @@
     | ||__   _|
   __|_(_) |_|_____________________________________________________________ 
     
+  Changes between 1.4.0 and 1.4.1 (24-Mar-2001 to 27-Jan-2002)
+
+   *) Internally make sure an invalid file-descriptor (integer not
+      between 0 and (FD_SETSIZE-1) does not lead to any segfaults or
+      other undefined behaviour. Instead an error is returned and errno
+      is set to EBADF, similar to what the OS functions do. Especially
+      pth_poll() now return with this error (instead of skipping the fd)
+      if an fd in the "struct pollfd" is invalid.
+      [Ralf S. Engelschall, Archie Cobbs <archie@packetdesign.com>]
+
+   *) Correctly support PTH_FDMODE_NONBLOCK in pth_connect and pth_accept. 
+      [Archie Cobbs <archie@packetdesign.com>]
+
+   *) Fixed typos in manual page.
+      [Michael Schloh v. Bennewitz <michael.schloh@de.cw.net>, 
+       Takashi Ishihara <tishihara@ucdavis.edu>]
+   
+   *) For portability reasons changed definition of PTH_EXT_SFIO to 0/1
+      instead of FALSE/TRUE because some external definitions use a
+      casted value and hence make trouble on plain #if constructs.
+      [Staehli Patrik <patrik.staehli@siemens.ch>]
+
+   *) Fixed return value (number of occurred events) of pth_wait().
+      [David Dureau <david.dureau@cea.fr>]
+
+   *) Replaced thread-unsafe usage of a static struct iovec in
+      pth_writev_ev() with a thread-safe stack/heap-based solution.
+      [Ralf S. Engelschall, Mark Burton <markb@ordern.com>]
+
+   *) Replaced antiquated PTH_FLAG_NOJOIN references with the correct
+      PTH_ATTR_JOINABLE references in the manual page.
+      [Takashi Ishihara <tishihara@ucdavis.edu>]
+
+   *) Fixed a (not very subtle) bug in pth_writev_ev() that screwed up 
+      output if a partial write happened.
+      [Mark Burton <markb@ordern.com>]
+
+   *) Fixed static initializers PTH_BARRIER_INIT and PTH_COND_INIT.
+      [Shawn Wagner <shawnw@speakeasy.org>]
+
+   *) Typo fixes in pth.pod
+      [<collver@linuxfreemail.com>]
+
+   *) Upgraded to GNU shtool, version 1.5.4.
+      [Ralf S. Engelschall]
+
+   *) Fixed "make striptease": pth_string.c was not included and some
+      commands which were removed at all (and this way causes syntax
+      errors) will be now correctly commented out with ":" commands.
+      [Paolo Bonzini <bonzini@pc-amo3.elet.polimi.it>]
+
+   *) Fixed pth.pod: a closing angle bracket was missing, leading to
+      incorrect POD to XXXX formatting.
+      [Ralf S. Engelschall]
+
   Changes between 1.4a3 and 1.4.0 (29-Jul-2000 to 24-Mar-2001)
 
    *) Added PTHREAD_PRIO_XXXX definitions to pthread.h for

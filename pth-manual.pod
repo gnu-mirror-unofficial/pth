@@ -1,6 +1,6 @@
 ##
 ##  GNU Pth - The GNU Portable Threads
-##  Copyright (c) 1999-2001 Ralf S. Engelschall <rse@engelschall.com>
+##  Copyright (c) 1999-2002 Ralf S. Engelschall <rse@engelschall.com>
 ##
 ##  This file is part of GNU Pth, a non-preemptive thread scheduling
 ##  library which can be found at http://www.gnu.org/software/pth/.
@@ -705,9 +705,10 @@ purposes.
 
 =item C<PTH_ATTR_JOINABLE> (read-write> [C<int>]
 
-The thread detachment type, C<TRUE> indicates a joinable thread, C<FALSE>
-indicates a detached thread.  When a the is detached after termination it is
-immediately kicked out of the system instead of inserted into the dead queue.
+The thread detachment type, C<TRUE> indicates a joinable thread,
+C<FALSE> indicates a detached thread. When a thread is detached,
+after termination it is immediately kicked out of the system instead of
+inserted into the dead queue.
 
 =item C<PTH_ATTR_CANCEL_STATE> (read-write) [C<unsigned int>]
 
@@ -978,22 +979,24 @@ joinable and to allow asynchronous cancellation and then cancels it via
 
 =item int B<pth_join>(pth_t I<tid>, void **I<value>);
 
-This joins the current thread with the thread specified via I<tid>.  It first
-suspends the current thread until the I<tid> thread has terminated. Then it is
-awakened and stores the value of I<tid>'s pth_exit(3) call into *I<value> (if
-I<value> and not C<NULL>) and returns to the caller.  A thread can be joined
-only when it was I<not> spawned with C<PTH_FLAG_NOJOIN>. A thread can only be
-joined once, i.e., after the pth_join(3) call the thread I<tid> is removed
-from the system.
+This joins the current thread with the thread specified via I<tid>.
+It first suspends the current thread until the I<tid> thread has
+terminated. Then it is awakened and stores the value of I<tid>'s
+pth_exit(3) call into *I<value> (if I<value> and not C<NULL>) and
+returns to the caller. A thread can be joined only when it has the
+attribute C<PTH_ATTR_JOINABLE> set to C<TRUE> (the default). A thread
+can only be joined once, i.e., after the pth_join(3) call the thread
+I<tid> is completely removed from the system.
 
 =item void B<pth_exit>(void *I<value>);
 
-This terminates the current thread. Whether it's immediately removed from the
-system or inserted into the dead queue of the scheduler depends on its join
-type which was specified at spawning time. When it was spawned with
-C<PTH_FLAG_NOJOIN> it's immediately removed and I<value> is ignored.
-Else the thread is inserted into the dead queue and I<value> remembered
-for a pth_join(3) call by another thread.
+This terminates the current thread. Whether it's immediately removed
+from the system or inserted into the dead queue of the scheduler depends
+on its join type which was specified at spawning time. If it has the
+attribute C<PTH_ATTR_JOINABLE> set to C<FALSE>, it's immediately removed
+and I<value> is ignored. Else the thread is inserted into the dead queue
+and I<value> remembered for a subsequent pth_join(3) call by another
+thread.
 
 =back
 
@@ -1094,7 +1097,7 @@ available:
 =item C<PTH_EVENT_FD>
 
 This is a file descriptor event. One or more of C<PTH_UNTIL_FD_READABLE>,
-C<PTH_UNTIL_FD_WRITEABLE> or C<PTH_UNTIL_FD_EXECPTION> have to be OR-ed into
+C<PTH_UNTIL_FD_WRITEABLE> or C<PTH_UNTIL_FD_EXCEPTION> have to be OR-ed into
 I<spec> to specify on which state of the file descriptor you want to wait.  The
 file descriptor itself has to be given as an additional argument.  Example:
 `C<pth_event(PTH_EVENT_FD|PTH_UNTIL_FD_READABLE, fd)>'.
@@ -1910,9 +1913,8 @@ C<Makefile.in>, because it is now an input file for B<autoconf>:
  |     rm -f Makefile
 
 Because B<autoconf> generates additional files, we added a canonical
-C<distclean> target which cleanups this, too. Second, we write
-a (minimalistic) B<autoconf> script specification in a file
-C<configure.in>:
+C<distclean> target which cleans this up. Secondly, we wrote
+C<configure.in>, a (minimal) B<autoconf> script specification:
 
  $ vi configure.in
  | AC_INIT(Makefile.in)
@@ -1967,8 +1969,8 @@ the C<--prefix> option when B<Pth> was installed).
 
 Finally let us assume the C<foo> program stays under either a I<GPL> or
 I<LGPL> distribution license and we want to make it a stand-alone package for
-easier distribution and installation.  That is, we don't want that the
-end-user first has to install B<Pth> just to allow our C<foo> package to
+easier distribution and installation.  That is, we don't want to oblige the
+end-user to install B<Pth> just to allow our C<foo> package to
 compile. For this, it is a convenient practice to include the required
 libraries (here B<Pth>) into the source tree of the package (here C<foo>).
 B<Pth> ships with all necessary support to allow us to easily achieve this
@@ -2198,7 +2200,7 @@ manager) are speeded up by inlined functions (implemented as ANSI C
 pre-processor macros). Additionally any debugging code is I<completely>
 removed from the source when not built with C<-DPTH_DEBUG> (see Autoconf
 C<--enable-debug> option), i.e., not only stub functions remain [see
-C<pth_debug.h> for details].
+C<pth_debug.c> for details].
 
 =head1 RESTRICTIONS
 

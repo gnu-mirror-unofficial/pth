@@ -796,9 +796,10 @@ purposes.
 <P></P>
 <DT><P><STRONG><A NAME="item_PTH_ATTR_JOINABLE"><CODE>PTH_ATTR_JOINABLE</CODE> (read-write&gt; [<CODE>int</CODE>]</A></STRONG><BR>
 <DD>
-The thread detachment type, <CODE>TRUE</CODE> indicates a joinable thread, <CODE>FALSE</CODE>
-indicates a detached thread. When a the is detached after termination it is
-immediately kicked out of the system instead of inserted into the dead queue.
+The thread detachment type, <CODE>TRUE</CODE> indicates a joinable thread,
+<CODE>FALSE</CODE> indicates a detached thread. When a thread is detached,
+after termination it is immediately kicked out of the system instead of
+inserted into the dead queue.
 <P></P>
 <DT><P><STRONG><A NAME="item_PTH_ATTR_CANCEL_STATE"><CODE>PTH_ATTR_CANCEL_STATE</CODE> (read-write) [<CODE>unsigned int</CODE>]</A></STRONG><BR>
 <DD>
@@ -1072,24 +1073,26 @@ joinable and to allow asynchronous cancellation and then cancels it via
 <P></P>
 <DT><P><STRONG><A NAME="item_pth_join">int <STRONG>pth_join</STRONG>(pth_t <EM>tid</EM>, void **<EM>value</EM>);</A></STRONG><BR>
 <DD>
-This joins the current thread with the thread specified via <EM>tid</EM>. It first
-suspends the current thread until the <EM>tid</EM> thread has terminated. Then it is
-awakened and stores the value of <EM>tid</EM>'s <A HREF="#item_pth_exit"><CODE>pth_exit(3)</CODE></A> call into *<EM>value</EM> (if
-<EM>value</EM> and not <CODE>NULL</CODE>) and returns to the caller.
-<FONT SIZE="-1">A</FONT> thread can be joined
-only when it was <EM>not</EM> spawned with <CODE>PTH_FLAG_NOJOIN</CODE>.
-<FONT SIZE="-1">A</FONT> thread can only be
-joined once, i.e., after the <A HREF="#item_pth_join"><CODE>pth_join(3)</CODE></A> call the thread <EM>tid</EM> is removed
-from the system.
+This joins the current thread with the thread specified via <EM>tid</EM>.
+It first suspends the current thread until the <EM>tid</EM> thread has
+terminated. Then it is awakened and stores the value of <EM>tid</EM>'s
+<A HREF="#item_pth_exit"><CODE>pth_exit(3)</CODE></A> call into *<EM>value</EM> (if <EM>value</EM> and not <CODE>NULL</CODE>) and
+returns to the caller.
+<FONT SIZE="-1">A</FONT> thread can be joined only when it has the
+attribute <A HREF="#item_PTH_ATTR_JOINABLE"><CODE>PTH_ATTR_JOINABLE</CODE></A> set to <CODE>TRUE</CODE> (the default).
+<FONT SIZE="-1">A</FONT> thread
+can only be joined once, i.e., after the <A HREF="#item_pth_join"><CODE>pth_join(3)</CODE></A> call the thread
+<EM>tid</EM> is completely removed from the system.
 <P></P>
 <DT><P><STRONG><A NAME="item_pth_exit">void <STRONG>pth_exit</STRONG>(void *<EM>value</EM>);</A></STRONG><BR>
 <DD>
-This terminates the current thread. Whether it's immediately removed from the
-system or inserted into the dead queue of the scheduler depends on its join
-type which was specified at spawning time. When it was spawned with
-<CODE>PTH_FLAG_NOJOIN</CODE> it's immediately removed and <EM>value</EM> is ignored.
-Else the thread is inserted into the dead queue and <EM>value</EM> remembered
-for a <A HREF="#item_pth_join"><CODE>pth_join(3)</CODE></A> call by another thread.
+This terminates the current thread. Whether it's immediately removed
+from the system or inserted into the dead queue of the scheduler depends
+on its join type which was specified at spawning time. If it has the
+attribute <A HREF="#item_PTH_ATTR_JOINABLE"><CODE>PTH_ATTR_JOINABLE</CODE></A> set to <CODE>FALSE</CODE>, it's immediately removed
+and <EM>value</EM> is ignored. Else the thread is inserted into the dead queue
+and <EM>value</EM> remembered for a subsequent <A HREF="#item_pth_join"><CODE>pth_join(3)</CODE></A> call by another
+thread.
 <P></P></DL>
 <P>
 <H2><A NAME="utilities"><font face="Arial,Helvetica">Utilities</A></H2></font>
@@ -1181,7 +1184,7 @@ available:
 <DT><P><STRONG><A NAME="item_PTH_EVENT_FD"><CODE>PTH_EVENT_FD</CODE></A></STRONG><BR>
 <DD>
 This is a file descriptor event. One or more of <CODE>PTH_UNTIL_FD_READABLE</CODE>,
-<CODE>PTH_UNTIL_FD_WRITEABLE</CODE> or <CODE>PTH_UNTIL_FD_EXECPTION</CODE> have to be OR-ed into
+<CODE>PTH_UNTIL_FD_WRITEABLE</CODE> or <CODE>PTH_UNTIL_FD_EXCEPTION</CODE> have to be OR-ed into
 <EM>spec</EM> to specify on which state of the file descriptor you want to wait. The
 file descriptor itself has to be given as an additional argument. Example:
 `<A HREF="#item_pth_event"><CODE>pth_event(PTH_EVENT_FD|PTH_UNTIL_FD_READABLE, fd)</CODE></A>'.
@@ -1994,9 +1997,8 @@ placeholders and additional cleanup targets. And we create it under the name
  |     rm -f config.log config.status config.cache
  |     rm -f Makefile</PRE>
 <P>Because <STRONG>autoconf</STRONG> generates additional files, we added a canonical
-<CODE>distclean</CODE> target which cleanups this, too. Second, we write
-a (minimalistic) <STRONG>autoconf</STRONG> script specification in a file
-<CODE>configure.in</CODE>:</P>
+<CODE>distclean</CODE> target which cleans this up. Secondly, we wrote
+<CODE>configure.in</CODE>, a (minimal) <STRONG>autoconf</STRONG> script specification:</P>
 <PRE>
  $ vi configure.in
  | AC_INIT(Makefile.in)
@@ -2048,8 +2050,8 @@ the <CODE>--prefix</CODE> option when <STRONG>Pth</STRONG> was installed).</P>
 <FONT SIZE="-1">GPL</FONT></EM> or
 <EM>
 <FONT SIZE="-1">LGPL</FONT></EM> distribution license and we want to make it a stand-alone package for
-easier distribution and installation. That is, we don't want that the
-end-user first has to install <STRONG>Pth</STRONG> just to allow our <CODE>foo</CODE> package to
+easier distribution and installation. That is, we don't want to oblige the
+end-user to install <STRONG>Pth</STRONG> just to allow our <CODE>foo</CODE> package to
 compile. For this, it is a convenient practice to include the required
 libraries (here <STRONG>Pth</STRONG>) into the source tree of the package (here <CODE>foo</CODE>).
 <STRONG>Pth</STRONG> ships with all necessary support to allow us to easily achieve this
@@ -2277,7 +2279,7 @@ manager) are speeded up by inlined functions (implemented as
 pre-processor macros). Additionally any debugging code is <EM>completely</EM>
 removed from the source when not built with <CODE>-DPTH_DEBUG</CODE> (see Autoconf
 <CODE>--enable-debug</CODE> option), i.e., not only stub functions remain [see
-<CODE>pth_debug.h</CODE> for details].</P>
+<CODE>pth_debug.c</CODE> for details].</P>
 <P>
 <H1><A NAME="restrictions">
 <FONT SIZE="-1">RESTRICTIONS</FONT></A></H1>

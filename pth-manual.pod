@@ -1,6 +1,6 @@
 ##
 ##  GNU Pth - The GNU Portable Threads
-##  Copyright (c) 1999-2002 Ralf S. Engelschall <rse@engelschall.com>
+##  Copyright (c) 1999-2003 Ralf S. Engelschall <rse@engelschall.com>
 ##
 ##  This file is part of GNU Pth, a non-preemptive thread scheduling
 ##  library which can be found at http://www.gnu.org/software/pth/.
@@ -93,7 +93,7 @@ pth_event_extract,
 pth_event_concat,
 pth_event_isolate,
 pth_event_walk,
-pth_event_occurred,
+pth_event_status,
 pth_event_free.
 
 =item B<Key-Based Storage>
@@ -138,6 +138,15 @@ pth_cond_notify,
 pth_barrier_init,
 pth_barrier_reach.
 
+=item B<User-Space Context>
+
+pth_uctx_create,
+pth_uctx_make,
+pth_uctx_save,
+pth_uctx_restore,
+pth_uctx_switch,
+pth_uctx_destroy.
+
 =item B<Generalized POSIX Replacement API>
 
 pth_sigwait_ev,
@@ -156,6 +165,7 @@ pth_sendto_ev.
 
 =item B<Standard POSIX Replacement API>
 
+pth_nanosleep,
 pth_usleep,
 pth_sleep,
 pth_waitpid,
@@ -165,6 +175,7 @@ pth_sigwait,
 pth_accept,
 pth_connect,
 pth_select,
+pth_pselect,
 pth_poll,
 pth_read,
 pth_readv,
@@ -552,8 +563,8 @@ The purpose of the B<NEW> queue has to do with the fact that in B<Pth>
 a thread never directly switches to another thread. A thread always
 yields execution to the scheduler and the scheduler dispatches to the
 next thread. So a freshly spawned thread has to be kept somewhere until
-the scheduler gets a chance to pick it up for scheduling. That is 
-what the B<NEW> queue is for. 
+the scheduler gets a chance to pick it up for scheduling. That is
+what the B<NEW> queue is for.
 
 The purpose of the B<DEAD> queue is to support thread joining. When a
 thread is marked to be unjoinable, it is directly kicked out of the
@@ -703,6 +714,11 @@ The default is C<PTH_PRIO_STD>.
 Name of thread (up to 40 characters are stored only), mainly for debugging
 purposes.
 
+=item C<PTH_ATTR_DISPATCHES> (read-write) [C<int>]
+
+In bounded attribute objects, this field is incremented every time the
+context is switched to the associated thread.
+
 =item C<PTH_ATTR_JOINABLE> (read-write> [C<int>]
 
 The thread detachment type, C<TRUE> indicates a joinable thread,
@@ -788,8 +804,9 @@ attribute objects to pre-configure attributes for to be spawned threads.
 
 This initializes an attribute object I<attr> to the default values:
 C<PTH_ATTR_PRIO> := C<PTH_PRIO_STD>, C<PTH_ATTR_NAME> := `C<unknown>',
-C<PTH_ATTR_JOINABLE> := C<TRUE>, C<PTH_ATTR_CANCELSTATE> :=
-C<PTH_CANCEL_DEFAULT>, C<PTH_ATTR_STACK_SIZE> := 64*1024 and
+C<PTH_ATTR_DISPATCHES> := C<0>, C<PTH_ATTR_JOINABLE> := C<TRUE>,
+C<PTH_ATTR_CANCELSTATE> := C<PTH_CANCEL_DEFAULT>,
+C<PTH_ATTR_STACK_SIZE> := 64*1024 and
 C<PTH_ATTR_STACK_ADDR> := C<NULL>. All other C<PTH_ATTR_*> attributes are
 read-only attributes and don't receive default values in I<attr>, because they
 exists only for bounded attribute objects.
@@ -799,13 +816,14 @@ exists only for bounded attribute objects.
 This sets the attribute field I<field> in I<attr> to a value
 specified as an additional argument on the variable argument
 list. The following attribute I<fields> and argument pairs can
-be used: 
+be used:
 
  PTH_ATTR_PRIO           int
  PTH_ATTR_NAME           char *
+ PTH_ATTR_DISPATCHES     int
  PTH_ATTR_JOINABLE       int
  PTH_ATTR_CANCEL_STATE   unsigned int
- PTH_ATTR_STACK_SIZE     unsigned int 
+ PTH_ATTR_STACK_SIZE     unsigned int
  PTH_ATTR_STACK_ADDR     char *
 
 =item int B<pth_attr_get>(pth_attr_t I<attr>, int I<field>, ...);
@@ -817,6 +835,7 @@ argument pairs can be used:
 
  PTH_ATTR_PRIO           int *
  PTH_ATTR_NAME           char **
+ PTH_ATTR_DISPATCHES     int *
  PTH_ATTR_JOINABLE       int *
  PTH_ATTR_CANCEL_STATE   unsigned int *
  PTH_ATTR_STACK_SIZE     unsigned int *
@@ -849,12 +868,14 @@ of the B<Pth> library.
 This spawns a new thread with the attributes given in I<attr> (or
 C<PTH_ATTR_DEFAULT> for default attributes - which means that thread priority,
 joinability and cancel state are inherited from the current thread) with the
-starting point at routine I<entry>. This entry routine is called as
-`pth_exit(I<entry>(I<arg>))' inside the new thread unit, i.e., I<entry>'s
-return value is fed to an implicit pth_exit(3). So the thread usually can exit
-by just returning. Nevertheless the thread can also exit explicitly at any
-time by calling pth_exit(3). But keep in mind that calling the POSIX function
-exit(3) still terminates the complete process and not just the current thread.
+starting point at routine I<entry>; the dispatch count is not inherited from
+the current thread if I<attr> is not specified - rather, it is initialized
+to zero.  This entry routine is called as `pth_exit(I<entry>(I<arg>))' inside
+the new thread unit, i.e., I<entry>'s return value is fed to an implicit
+pth_exit(3). So the thread can also exit by just returning. Nevertheless
+the thread can also exit explicitly at any time by calling pth_exit(3). But
+keep in mind that calling the POSIX function exit(3) still terminates the
+complete process and not just the current thread.
 
 There is no B<Pth>-internal limit on the number of threads one can spawn,
 except the limit implied by the available virtual memory. B<Pth> internally
@@ -949,11 +970,12 @@ an application unless it tries to use this facility for real time tasks.
 This is the link between the scheduler and the event facility (see below for
 the various pth_event_xxx() functions). It's modeled like select(2), i.e., one
 gives this function one or more events (in the event ring specified by I<ev>)
-on which the current thread wants to wait.  The scheduler awakes the thread
-when one ore more of them occurred after tagging them as occurred. The I<ev>
-argument is a I<pointer> to an event ring which isn't changed except for the
-tagging. pth_wait(3) returns the number of occurred events and the application
-can use pth_event_occurred(3) to test which events occurred.
+on which the current thread wants to wait. The scheduler awakes the
+thread when one ore more of them occurred or failed after tagging
+them as such. The I<ev> argument is a I<pointer> to an event ring
+which isn't changed except for the tagging. pth_wait(3) returns the
+number of occurred or failed events and the application can use
+pth_event_status(3) to test which events occurred or failed.
 
 =item int B<pth_cancel>(pth_t I<tid>);
 
@@ -1215,12 +1237,15 @@ returns this new reached event. Additionally C<PTH_UNTIL_OCCURRED> can be
 OR-ed into I<direction> to walk to the next/previous occurred event in the
 ring I<ev>.
 
-=item int B<pth_event_occurred>(pth_event_t I<ev>);
+=item pth_status_t B<pth_event_status>(pth_event_t I<ev>);
 
-This checks whether the event I<ev> occurred. This is a fast operation because
-only a tag on I<ev> is checked which was either set or still not set by the
-scheduler. In other words: This doesn't check the event itself, it just checks
-the last knowledge of the scheduler.
+This returns the status of event I<ev>. This is a fast operation
+because only a tag on I<ev> is checked which was either set or still
+not set by the scheduler. In other words: This doesn't check the
+event itself, it just checks the last knowledge of the scheduler. The
+possible returned status codes are: C<PTH_STATUS_PENDING> (event is
+still pending), C<PTH_STATUS_OCCURRED> (event successfully occurred),
+C<PTH_STATUS_FAILED> (event failed).
 
 =item int B<pth_event_free>(pth_event_t I<ev>, int I<mode>);
 
@@ -1266,9 +1291,10 @@ and flexible inter-thread communication.
 
 =item pth_msgport_t B<pth_msgport_create>(const char *I<name>);
 
-This returns a pointer to a new message port with name I<name>. The I<name>
-can be used by other threads via pth_msgport_find(3) to find the message port
-in case they do not know directly the pointer to the message port.
+This returns a pointer to a new message port. If name I<name>
+is not C<NULL>, the I<name> can be used by other threads via
+pth_msgport_find(3) to find the message port in case they do not know
+directly the pointer to the message port.
 
 =item void B<pth_msgport_destroy>(pth_msgport_t I<mp>);
 
@@ -1461,6 +1487,86 @@ thread which reached the barrier as the last thread.
 
 =back
 
+=head2 User-Space Context
+
+The following functions provide a stand-alone sub-API for user-space
+context switching. It internally is based on the same underlying machine
+context switching mechanism the threads in B<GNU Pth> are based on.
+Hence these functions you can use for implementing your own simple
+user-space threads. The C<pth_uctx_t> context is somewhat modeled after
+POSIX ucontext(3).
+
+The time required to create (via pth_uctx_make(3)) a user-space context
+can range from just a few microseconds up to a more dramatical time
+(depending on the machine context switching method which is available on
+the platform). On the other hand, the raw performance in switching the
+user-space contexts is always very good (nearly independent of the used
+machine context switching method). For instance, on an Intel Pentium-III
+CPU with 800Mhz running under FreeBSD 4 one usually achieves about
+260,000 user-space context switches (via pth_uctx_switch(3)) per second.
+
+=over 4
+
+=item int B<pth_uctx_create>(pth_uctx_t *I<uctx>);
+
+This function creates a user-space context and stores it into I<uctx>.
+There is still no underlying user-space context configured. You still
+have to do this with pth_uctx_make(3) or pth_uctx_set(3). On success,
+this function returns C<TRUE>, else C<FALSE>.
+
+=item int B<pth_uctx_make>(pth_uctx_t I<uctx>, char *I<sk_addr>, size_t I<sk_size>, const sigset_t *I<sigmask>, void (*I<start_func>)(void *), void *I<start_arg>, pth_uctx_t I<uctx_after>);
+
+This function makes a new user-space context in I<uctx> which will
+operate on the run-time stack I<sk_addr> (which is of maximum
+size I<sk_size>), with the signals in I<sigmask> blocked (if
+I<sigmask> is not C<NULL>) and starting to execute with the call
+I<start_func>(I<start_arg>). If I<sk_addr> is C<NULL>, a stack
+is dynamically allocated. The stack size I<sk_size> has to be at
+least 16384 (16KB). If the start function I<start_func> returns and
+I<uctx_after> is not C<NULL>, an implicit user-space context switch
+to this context is performed. Else (if I<uctx_after> is C<NULL>) the
+process is terminated with exit(3). This function is somewhat modeled
+after POSIX makecontext(3). On success, this function returns C<TRUE>,
+else C<FALSE>.
+
+=item int B<pth_uctx_save>(pth_uctx_t I<uctx>);
+
+This function saves the current user-space context in I<uctx> for later
+restoring by either pth_uctx_restore(3) or pth_uctx_switch(3). This
+function is somewhat modeled after POSIX getcontext(3). If I<uctx> is
+C<NULL>, C<FALSE> is returned instead of C<TRUE>. This is the only error
+possible.
+
+=item int B<pth_uctx_restore>(pth_uctx_t I<uctx>);
+
+This function restores the current user-space context from I<uctx>,
+which previously had to be set with either pth_uctx_make(3) or
+pth_uctx_save(3). This function is somewhat modeled after POSIX
+setcontext(3). If I<uctx> is C<NULL> or I<uctx> contains no valid
+user-space context, C<FALSE> is returned instead of C<TRUE>. These are
+the only errors possible.
+
+=item int B<pth_uctx_switch>(pth_uctx_t I<uctx_from>, pth_uctx_t I<uctx_to>);
+
+This function saves the current user-space context in I<uctx_from> for
+later restoring by either pth_uctx_restore(3) or pth_uctx_switch(3) and
+restores the new user-space context from I<uctx>, which previously
+had to be set with either pth_uctx_make(3) or pth_uctx_save(3). This
+function is somewhat modeled after POSIX swapcontext(3). If I<uctx_from>
+or I<uctx_to> are C<NULL> or if I<uctx_to> contains no valid user-space
+context, C<FALSE> is returned instead of C<TRUE>. These are the only
+errors possible.
+
+=item int B<pth_uctx_destroy>(pth_uctx_t I<uctx>);
+
+This function destroys the user-space context in I<uctx>. The run-time
+stack associated with the user-space context is deallocated only if it
+was given by the application (see I<sk_addr> of pth_uctx_create(3)).
+If I<uctx> is C<NULL>, C<FALSE> is returned instead of C<TRUE>. This
+is the only error possible.
+
+=back
+
 =head2 Generalized POSIX Replacement API
 
 The following functions are generalized replacements functions for the POSIX
@@ -1584,6 +1690,18 @@ the whole process in case the file descriptors will block.
 
 =over 4
 
+=item int B<pth_nanosleep>(const struct timespec *I<rqtp>, struct timespec *I<rmtp>);
+
+This is a variant of the POSIX nanosleep(3) function. It suspends the
+current threads execution until the amount of time in I<rqtp> elapsed.
+The thread is guaranteed to not wake up before this time, but because
+of the non-preemptive scheduling nature of B<Pth>, it can be awakened
+later, of course. If I<rmtp> is not C<NULL>, the C<timespec> structure
+it references is updated to contain the unslept amount (the request time
+minus the time actually slept time). The difference between nanosleep(3)
+and pth_nanosleep(3) is that that pth_nanosleep(3) suspends only the
+execution of the current thread and not the whole process.
+
 =item int B<pth_usleep>(unsigned int I<usec>);
 
 This is a variant of the 4.3BSD usleep(3) function. It suspends the current
@@ -1644,7 +1762,7 @@ functions you should recognize that this is a great benefit.
 
 This is a variant of the 4.2BSD connect(2) function. It establishes a
 connection on a socket I<s> to target specified in I<addr> and I<addrlen>.
-The difference between connect(2) and pth_connect(3) is that 
+The difference between connect(2) and pth_connect(3) is that
 pth_connect(3) suspends only the execution of the current thread and not the
 whole process.  For more details about the arguments and return code semantics
 see connect(2).
@@ -1666,6 +1784,15 @@ descriptor sets whose addresses are passed in I<rfds>, I<wfds>, and I<efds> to
 see if some of their descriptors are ready for reading, are ready for writing,
 or have an exceptional condition pending, respectively.  For more details
 about the arguments and return code semantics see select(2).
+
+=item int B<pth_pselect>(int I<nfd>, fd_set *I<rfds>, fd_set *I<wfds>, fd_set *I<efds>, const struct timespec *I<timeout>, const sigset_t *I<sigmask>);
+
+This is a variant of the POSIX pselect(2) function, which in turn
+is a stronger variant of 4.2BSD select(2). The difference is that
+the higher-resolution C<struct timespec> is passed instead of the
+lower-resolution C<struct timeval> and that a signal mask is specified
+which is temporarily set while waiting for input. For more details about
+the arguments and return code semantics see pselect(2) and select(2).
 
 =item int B<pth_poll>(struct pollfd *I<fds>, unsigned int I<nfd>, int I<timeout>);
 
@@ -2140,9 +2267,9 @@ This variant is available on all platforms and can I<always> be enabled by
 building B<Pth> with C<--enable-syscall-soft>. This then triggers some
 C<#define>'s in the C<pth.h> header which map for instance read(3) to
 pth_read(3), etc. Currently the following functions are mapped: fork(2),
-sleep(3), sigwait(3), waitpid(2), system(3), select(2), poll(2),
-connect(2), accept(2), read(2), write(2), recv(2), send(2), recvfrom(2),
-sendto(2).
+nanosleep(3), usleep(3), sleep(3), sigwait(3), waitpid(2), system(3),
+select(2), poll(2), connect(2), accept(2), read(2), write(2), recv(2),
+send(2), recvfrom(2), sendto(2).
 
 The drawback of this approach is just that really all source files
 of the application where these function calls occur have to include
@@ -2157,8 +2284,8 @@ function exists and there it can be enabled by building B<Pth> with
 C<--enable-syscall-hard>. This then builds wrapper functions (for instances
 read(3)) into the B<Pth> library which internally call the real B<Pth>
 replacement functions (pth_read(3)). Currently the following functions
-are mapped: fork(2), sleep(3), waitpid(2), system(3), select(2),
-poll(2), connect(2), accept(2), read(2), write(2).
+are mapped: fork(2), nanosleep(3), usleep(3), sleep(3), waitpid(2),
+system(3), select(2), poll(2), connect(2), accept(2), read(2), write(2).
 
 The drawback of this approach is that it depends on syscall(2) interface
 and prototype conflicts can occur while building the wrapper functions

@@ -1,6 +1,6 @@
 ##
 ##  GNU Pth - The GNU Portable Threads
-##  Copyright (c) 1999-2003 Ralf S. Engelschall <rse@engelschall.com>
+##  Copyright (c) 1999-2004 Ralf S. Engelschall <rse@engelschall.com>
 ##
 ##  This file is part of GNU Pth, a non-preemptive thread scheduling
 ##  library which can be found at http://www.gnu.org/software/pth/.
@@ -142,8 +142,6 @@ pth_barrier_reach.
 
 pth_uctx_create,
 pth_uctx_make,
-pth_uctx_save,
-pth_uctx_restore,
 pth_uctx_switch,
 pth_uctx_destroy.
 
@@ -678,6 +676,15 @@ pth_ctrl(3) should be casted to a `C<char *>'.
 This requires a second argument of type `C<FILE *>' to which a summary
 of the internal B<Pth> library state is written to. The main information
 which is currently written out is the current state of the thread pool.
+
+=item C<PTH_CTRL_FAVOURNEW>
+
+This requires a second argument of type `C<int>' which specified whether
+the B<GNU Pth> scheduler favours new threads on startup, i.e., whether
+they are moved from the new queue to the top (argument is C<TRUE>) or
+middle (argument is C<FALSE>) of the ready queue. The default is to
+favour new threads to make sure they do not starve already at startup,
+although this slightly violates the strict priority based scheduling.
 
 =back
 
@@ -1511,8 +1518,8 @@ CPU with 800Mhz running under FreeBSD 4 one usually achieves about
 
 This function creates a user-space context and stores it into I<uctx>.
 There is still no underlying user-space context configured. You still
-have to do this with pth_uctx_make(3) or pth_uctx_set(3). On success,
-this function returns C<TRUE>, else C<FALSE>.
+have to do this with pth_uctx_make(3). On success, this function returns
+C<TRUE>, else C<FALSE>.
 
 =item int B<pth_uctx_make>(pth_uctx_t I<uctx>, char *I<sk_addr>, size_t I<sk_size>, const sigset_t *I<sigmask>, void (*I<start_func>)(void *), void *I<start_arg>, pth_uctx_t I<uctx_after>);
 
@@ -1529,41 +1536,24 @@ process is terminated with exit(3). This function is somewhat modeled
 after POSIX makecontext(3). On success, this function returns C<TRUE>,
 else C<FALSE>.
 
-=item int B<pth_uctx_save>(pth_uctx_t I<uctx>);
-
-This function saves the current user-space context in I<uctx> for later
-restoring by either pth_uctx_restore(3) or pth_uctx_switch(3). This
-function is somewhat modeled after POSIX getcontext(3). If I<uctx> is
-C<NULL>, C<FALSE> is returned instead of C<TRUE>. This is the only error
-possible.
-
-=item int B<pth_uctx_restore>(pth_uctx_t I<uctx>);
-
-This function restores the current user-space context from I<uctx>,
-which previously had to be set with either pth_uctx_make(3) or
-pth_uctx_save(3). This function is somewhat modeled after POSIX
-setcontext(3). If I<uctx> is C<NULL> or I<uctx> contains no valid
-user-space context, C<FALSE> is returned instead of C<TRUE>. These are
-the only errors possible.
-
 =item int B<pth_uctx_switch>(pth_uctx_t I<uctx_from>, pth_uctx_t I<uctx_to>);
 
 This function saves the current user-space context in I<uctx_from> for
-later restoring by either pth_uctx_restore(3) or pth_uctx_switch(3) and
-restores the new user-space context from I<uctx>, which previously
-had to be set with either pth_uctx_make(3) or pth_uctx_save(3). This
-function is somewhat modeled after POSIX swapcontext(3). If I<uctx_from>
-or I<uctx_to> are C<NULL> or if I<uctx_to> contains no valid user-space
-context, C<FALSE> is returned instead of C<TRUE>. These are the only
-errors possible.
+later restoring by another call to pth_uctx_switch(3) and restores
+the new user-space context from I<uctx_to>, which previously had to
+be set with either a previous call to pth_uctx_switch(3) or initially
+by pth_uctx_make(3). This function is somewhat modeled after POSIX
+swapcontext(3). If I<uctx_from> or I<uctx_to> are C<NULL> or if
+I<uctx_to> contains no valid user-space context, C<FALSE> is returned
+instead of C<TRUE>. These are the only errors possible.
 
 =item int B<pth_uctx_destroy>(pth_uctx_t I<uctx>);
 
 This function destroys the user-space context in I<uctx>. The run-time
 stack associated with the user-space context is deallocated only if it
-was given by the application (see I<sk_addr> of pth_uctx_create(3)).
-If I<uctx> is C<NULL>, C<FALSE> is returned instead of C<TRUE>. This
-is the only error possible.
+was not given by the application (see I<sk_addr> of pth_uctx_create(3)).
+If I<uctx> is C<NULL>, C<FALSE> is returned instead of C<TRUE>. This is
+the only error possible.
 
 =back
 

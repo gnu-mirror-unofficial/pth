@@ -21,7 +21,7 @@ H3 { font-weight: bold; font-size: 12pt; line-height: 12pt; font-family: arial,h
   GNU Pth - The GNU Portable Threads
 </div>
 <div id="sf">
-  Copyright &copy; 1999-2003
+  Copyright &copy; 1999-2004
   <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</a>
   &lt;<a href="mailto:rse@gnu.org">rse@gnu.org</a>&gt;
 </div>
@@ -46,7 +46,7 @@ H3 { font-weight: bold; font-size: 12pt; line-height: 12pt; font-family: arial,h
 		<li><a href="#the_compromise_of_pth">The Compromise of Pth</a></li>
 		<li><a href="#the_life_cycle_of_a_thread">The life cycle of a thread</a></li>
 	</ul>
-	<li><a href="#application_programming_interface_(api)">APPLICATION PROGRAMMING INTERFACE (API)</a></li>
+	<li><a href="#application_programming_interface__api_">APPLICATION PROGRAMMING INTERFACE (API)</a></li>
 	<ul>
 		<li><a href="#global_library_management">Global Library Management</a></li>
 		<li><a href="#thread_attribute_handling">Thread Attribute Handling</a></li>
@@ -66,9 +66,9 @@ H3 { font-weight: bold; font-size: 12pt; line-height: 12pt; font-family: arial,h
 	<li><a href="#example">EXAMPLE</a></li>
 	<li><a href="#build_environments">BUILD ENVIRONMENTS</a></li>
 	<ul>
-		<li><a href="#manual_build_environment_(novice)">Manual Build Environment (Novice)</a></li>
-		<li><a href="#autoconf_build_environment_(advanced)">Autoconf Build Environment (Advanced)</a></li>
-		<li><a href="#autoconf_build_environment_with_local_copy_of_pth_(expert)">Autoconf Build Environment with Local Copy of Pth (Expert)</a></li>
+		<li><a href="#manual_build_environment__novice_">Manual Build Environment (Novice)</a></li>
+		<li><a href="#autoconf_build_environment__advanced_">Autoconf Build Environment (Advanced)</a></li>
+		<li><a href="#autoconf_build_environment_with_local_copy_of_pth__expert_">Autoconf Build Environment with Local Copy of Pth (Expert)</a></li>
 	</ul>
 	<li><a href="#system_call_wrapper_facility">SYSTEM CALL WRAPPER FACILITY</a></li>
 	<ul>
@@ -171,7 +171,7 @@ pth_event_status,
 pth_event_free.
 </dd>
 <p></p>
-<dt><strong><a name="item_key%2dbased_storage"><strong>Key-Based Storage</strong></a></strong><br />
+<dt><strong><a name="item_key_2dbased_storage"><strong>Key-Based Storage</strong></a></strong><br />
 </dt>
 <dd>
 pth_key_create,
@@ -223,13 +223,11 @@ pth_barrier_init,
 pth_barrier_reach.
 </dd>
 <p></p>
-<dt><strong><a name="item_user%2dspace_context"><strong>User-Space Context</strong></a></strong><br />
+<dt><strong><a name="item_user_2dspace_context"><strong>User-Space Context</strong></a></strong><br />
 </dt>
 <dd>
 pth_uctx_create,
 pth_uctx_make,
-pth_uctx_save,
-pth_uctx_restore,
 pth_uctx_switch,
 pth_uctx_destroy.
 </dd>
@@ -354,7 +352,7 @@ threading. The following definitions of thread-related terms should at
 least help you understand thread programming enough to allow you to use
 <strong>Pth</strong>.</p>
 <dl>
-<dt><strong><a name="item_o_process_vs%2e_thread"><strong>o</strong> <strong>process</strong> vs. <strong>thread</strong></a></strong><br />
+<dt><strong><a name="item_o_process_vs_2e_thread"><strong>o</strong> <strong>process</strong> vs. <strong>thread</strong></a></strong><br />
 </dt>
 <dd>
 A process on Unix systems consists of at least the following fundamental
@@ -368,7 +366,7 @@ particular the virtual memory, it shares with the other threads of the
 same process.
 </dd>
 <p></p>
-<dt><strong><a name="item_o_kernel%2dspace_vs%2e_user%2dspace_threading"><strong>o</strong> <strong>kernel-space</strong> vs. <strong>user-space</strong> threading</a></strong><br />
+<dt><strong><a name="item_o_kernel_2dspace_vs_2e_user_2dspace_threading"><strong>o</strong> <strong>kernel-space</strong> vs. <strong>user-space</strong> threading</a></strong><br />
 </dt>
 <dd>
 Threads on a Unix platform traditionally can be implemented either
@@ -392,7 +390,7 @@ processes. User-space threads on the other hand use either preemptive or
 non-preemptive scheduling.</p>
 </dd>
 <p></p>
-<dt><strong><a name="item_o_preemptive_vs%2e_non%2dpreemptive_thread_schedul"><strong>o</strong> <strong>preemptive</strong> vs. <strong>non-preemptive</strong> thread scheduling</a></strong><br />
+<dt><strong><a name="item_o_preemptive_vs_2e_non_2dpreemptive_thread_schedul"><strong>o</strong> <strong>preemptive</strong> vs. <strong>non-preemptive</strong> thread scheduling</a></strong><br />
 </dt>
 <dd>
 In preemptive scheduling, the scheduler lets a thread execute until a
@@ -408,7 +406,7 @@ would block and instead switches back to the scheduler) or the thread
 explicitly yields control back to the scheduler in a cooperative way.
 </dd>
 <p></p>
-<dt><strong><a name="item_o_concurrency_vs%2e_parallelism"><strong>o</strong> <strong>concurrency</strong> vs. <strong>parallelism</strong></a></strong><br />
+<dt><strong><a name="item_o_concurrency_vs_2e_parallelism"><strong>o</strong> <strong>concurrency</strong> vs. <strong>parallelism</strong></a></strong><br />
 </dt>
 <dd>
 Concurrency exists when at least two threads are <em>in progress</em> at the
@@ -431,7 +429,7 @@ recognizes or is even annoyed by the delay, the responsiveness of the
 system is considered bad.
 </dd>
 <p></p>
-<dt><strong><a name="item_o_reentrant%2c_thread%2dsafe_and_asynchronous%2dsa"><strong>o</strong> <strong>reentrant</strong>, <strong>thread-safe</strong> and <strong>asynchronous-safe</strong> functions</a></strong><br />
+<dt><strong><a name="item_o_reentrant_2c_thread_2dsafe_and_asynchronous_2dsa"><strong>o</strong> <strong>reentrant</strong>, <strong>thread-safe</strong> and <strong>asynchronous-safe</strong> functions</a></strong><br />
 </dt>
 <dd>
 A reentrant function is one that behaves correctly if it is called
@@ -672,7 +670,7 @@ scope.</p>
 <p>
 </p>
 <hr />
-<h1><a name="application_programming_interface_(api)">APPLICATION PROGRAMMING INTERFACE (API)</a></h1>
+<h1><a name="application_programming_interface__api_">APPLICATION PROGRAMMING INTERFACE (API)</a></h1>
 <p>In the following the <strong>Pth</strong> <em>Application Programming Interface</em> (API)
 is discussed in detail. With the knowledge given above, it should now
 be easy to understand how to program threads with this API. In good
@@ -780,6 +778,17 @@ thread. It returns the name of the given thread, i.e., the return value of
 This requires a second argument of type `<code>FILE *</code>' to which a summary
 of the internal <strong>Pth</strong> library state is written to. The main information
 which is currently written out is the current state of the thread pool.
+</dd>
+<p></p>
+<dt><strong><a name="item_pth_ctrl_favournew"><code>PTH_CTRL_FAVOURNEW</code></a></strong><br />
+</dt>
+<dd>
+This requires a second argument of type `<code>int</code>' which specified whether
+the <strong>GNU Pth</strong> scheduler favours new threads on startup, i.e., whether
+they are moved from the new queue to the top (argument is <code>TRUE</code>) or
+middle (argument is <code>FALSE</code>) of the ready queue. The default is to
+favour new threads to make sure they do not starve already at startup,
+although this slightly violates the strict priority based scheduling.
 </dd>
 <p></p></dl>
 <p>The function returns <code>-1</code> on error.</p>
@@ -1745,8 +1754,8 @@ CPU with 800Mhz running under FreeBSD 4 one usually achieves about
 <dd>
 This function creates a user-space context and stores it into <em>uctx</em>.
 There is still no underlying user-space context configured. You still
-have to do this with <a href="#item_pth_uctx_make"><code>pth_uctx_make(3)</code></a> or pth_uctx_set(3). On success,
-this function returns <code>TRUE</code>, else <code>FALSE</code>.
+have to do this with pth_uctx_make(3). On success, this function returns
+<code>TRUE</code>, else <code>FALSE</code>.
 </dd>
 <p></p>
 <dt><strong><a name="item_pth_uctx_make">int <strong>pth_uctx_make</strong>(pth_uctx_t <em>uctx</em>, char *<em>sk_addr</em>, size_t <em>sk_size</em>, const sigset_t *<em>sigmask</em>, void (*<em>start_func</em>)(void *), void *<em>start_arg</em>, pth_uctx_t <em>uctx_after</em>);</a></strong><br />
@@ -1766,38 +1775,17 @@ after POSIX makecontext(3). On success, this function returns <code>TRUE</code>,
 else <code>FALSE</code>.
 </dd>
 <p></p>
-<dt><strong><a name="item_pth_uctx_save">int <strong>pth_uctx_save</strong>(pth_uctx_t <em>uctx</em>);</a></strong><br />
-</dt>
-<dd>
-This function saves the current user-space context in <em>uctx</em> for later
-restoring by either <a href="#item_pth_uctx_restore"><code>pth_uctx_restore(3)</code></a> or pth_uctx_switch(3). This
-function is somewhat modeled after POSIX getcontext(3). If <em>uctx</em> is
-<code>NULL</code>, <code>FALSE</code> is returned instead of <code>TRUE</code>. This is the only error
-possible.
-</dd>
-<p></p>
-<dt><strong><a name="item_pth_uctx_restore">int <strong>pth_uctx_restore</strong>(pth_uctx_t <em>uctx</em>);</a></strong><br />
-</dt>
-<dd>
-This function restores the current user-space context from <em>uctx</em>,
-which previously had to be set with either <a href="#item_pth_uctx_make"><code>pth_uctx_make(3)</code></a> or
-pth_uctx_save(3). This function is somewhat modeled after POSIX
-setcontext(3). If <em>uctx</em> is <code>NULL</code> or <em>uctx</em> contains no valid
-user-space context, <code>FALSE</code> is returned instead of <code>TRUE</code>. These are
-the only errors possible.
-</dd>
-<p></p>
 <dt><strong><a name="item_pth_uctx_switch">int <strong>pth_uctx_switch</strong>(pth_uctx_t <em>uctx_from</em>, pth_uctx_t <em>uctx_to</em>);</a></strong><br />
 </dt>
 <dd>
 This function saves the current user-space context in <em>uctx_from</em> for
-later restoring by either <a href="#item_pth_uctx_restore"><code>pth_uctx_restore(3)</code></a> or <a href="#item_pth_uctx_switch"><code>pth_uctx_switch(3)</code></a> and
-restores the new user-space context from <em>uctx</em>, which previously
-had to be set with either <a href="#item_pth_uctx_make"><code>pth_uctx_make(3)</code></a> or pth_uctx_save(3). This
-function is somewhat modeled after POSIX swapcontext(3). If <em>uctx_from</em>
-or <em>uctx_to</em> are <code>NULL</code> or if <em>uctx_to</em> contains no valid user-space
-context, <code>FALSE</code> is returned instead of <code>TRUE</code>. These are the only
-errors possible.
+later restoring by another call to <a href="#item_pth_uctx_switch"><code>pth_uctx_switch(3)</code></a> and restores
+the new user-space context from <em>uctx_to</em>, which previously had to
+be set with either a previous call to <a href="#item_pth_uctx_switch"><code>pth_uctx_switch(3)</code></a> or initially
+by pth_uctx_make(3). This function is somewhat modeled after POSIX
+swapcontext(3). If <em>uctx_from</em> or <em>uctx_to</em> are <code>NULL</code> or if
+<em>uctx_to</em> contains no valid user-space context, <code>FALSE</code> is returned
+instead of <code>TRUE</code>. These are the only errors possible.
 </dd>
 <p></p>
 <dt><strong><a name="item_pth_uctx_destroy">int <strong>pth_uctx_destroy</strong>(pth_uctx_t <em>uctx</em>);</a></strong><br />
@@ -1805,9 +1793,9 @@ errors possible.
 <dd>
 This function destroys the user-space context in <em>uctx</em>. The run-time
 stack associated with the user-space context is deallocated only if it
-was given by the application (see <em>sk_addr</em> of pth_uctx_create(3)).
-If <em>uctx</em> is <code>NULL</code>, <code>FALSE</code> is returned instead of <code>TRUE</code>. This
-is the only error possible.
+was not given by the application (see <em>sk_addr</em> of pth_uctx_create(3)).
+If <em>uctx</em> is <code>NULL</code>, <code>FALSE</code> is returned instead of <code>TRUE</code>. This is
+the only error possible.
 </dd>
 <p></p></dl>
 <p>
@@ -2278,7 +2266,7 @@ environment for a <strong>Pth</strong> based program. The possibilities supporte
 range from very simple environments to rather complex ones.</p>
 <p>
 </p>
-<h2><a name="manual_build_environment_(novice)">Manual Build Environment (Novice)</a></h2>
+<h2><a name="manual_build_environment__novice_">Manual Build Environment (Novice)</a></h2>
 <p>As a first example, assume we have the above test program staying in the
 source file <code>foo.c</code>. Then we can create a very simple build environment by
 just adding the following <code>Makefile</code>:</p>
@@ -2301,7 +2289,7 @@ just adding the following <code>Makefile</code>:</p>
 straight-forward and works fine for small projects.</p>
 <p>
 </p>
-<h2><a name="autoconf_build_environment_(advanced)">Autoconf Build Environment (Advanced)</a></h2>
+<h2><a name="autoconf_build_environment__advanced_">Autoconf Build Environment (Advanced)</a></h2>
 <p>The previous approach is simple but inflexible. First, to speed up
 building, it would be nice to not expand the compiler and linker flags
 every time the compiler is started. Second, it would be useful to
@@ -2384,7 +2372,7 @@ a note about the location by running <code>configure</code> with the option
 the <code>--prefix</code> option when <strong>Pth</strong> was installed).</p>
 <p>
 </p>
-<h2><a name="autoconf_build_environment_with_local_copy_of_pth_(expert)">Autoconf Build Environment with Local Copy of Pth (Expert)</a></h2>
+<h2><a name="autoconf_build_environment_with_local_copy_of_pth__expert_">Autoconf Build Environment with Local Copy of Pth (Expert)</a></h2>
 <p>Finally let us assume the <code>foo</code> program stays under either a <em>GPL</em> or
 <em>LGPL</em> distribution license and we want to make it a stand-alone package for
 easier distribution and installation. That is, we don't want to oblige the
@@ -2740,7 +2728,7 @@ Verbatim copying and distribution of this entire article is
 permitted in any medium, provided this notice is preserved.<BR>
 <p>
 <a href="http://www.gnu.org/software/pth/"><img src="pth-icon.jpg" border="0" align="right" alt="" width="126" height="50"></a>
-Copyright &copy; 1999-2002 <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</A>
+Copyright &copy; 1999-2004 <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</A>
 <A HREF="mailto:rse@gnu.org">&lt;rse@gnu.org&gt;</A><BR>
 Last Modified: 2001-02-13 02:08:27
 <p>

@@ -54,6 +54,7 @@ Additionally Pth provides an optional emulation API for POSIX.1c threads
 multithreaded applications.
 
 <p>
+<blockquote>
 Notice: <a href="http://www.gnu.org/software/pth/">GNU pth</a> and <a href="http://www.ossp.org/pkg/lib/pth/">OSSP pth</a>
 are exactly the same. <a href="http://www.ossp.org/pkg/lib/pth">OSSP pth</a> just became an official part of the GNU project
 some time ago. That's why its primary name is now GNU pth, although it is
@@ -61,6 +62,7 @@ still developed by the <a href="http://www.ossp.org/">OSSP project</a> only. The
 are: <a
 href="http://www.ossp.org/pkg/lib/pth/">http://www.ossp.org/pkg/lib/pth/</a>
 and <a href="ftp://ftp.ossp.org/pkg/lib/pth/">ftp://ftp.ossp.org/pkg/lib/pth/</a>.
+</blockquote>
 
 <h2>Documentation</h2>
 

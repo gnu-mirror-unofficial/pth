@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>GNU Pth - The GNU Portable Threads</title>
+<style type="text/css"><!--
+A:link { color: #3333FF; }
+A:active { color: #3333FF; }
+A:visited { color: #3333FF; }
+#sf { font-family: arial,helvetica; font-variant: normal; font-style: normal; }
+#sfh { font-weight: bold; font-size: 18pt; line-height: 18pt; font-family: arial,helvetica; font-variant: normal; font-style: normal; }
+H1 { font-weight: bold; font-size: 18pt; line-height: 18pt; font-family: arial,helvetica; font-variant: normal; font-style: normal; }
+H2 { font-weight: bold; font-size: 14pt; line-height: 14pt; font-family: arial,helvetica; font-variant: normal; font-style: normal; }
+H3 { font-weight: bold; font-size: 12pt; line-height: 12pt; font-family: arial,helvetica; font-variant: normal; font-style: normal; }
+--></style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" alink="#FF0000" vlink="#3333FF">
+<blockquote>
+<blockquote>
+<img src="pth.jpg" alt="GNU Portable Threads" width="496" height="198">
+<p>
+<DIV id="sfh">
+  GNU Pth - The GNU Portable Threads
+</div>
+<DIV id="sf">
+  Copyright &copy; 1999-2000
+  <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</a>
+  &lt;<a href="mailto:rse@gnu.org">rse@gnu.org</a>&gt;
+</div>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="2"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="8" align="bottom" border="0"></td>
+        <td rowspan="3">&nbsp;&nbsp;<b id="sf">Current State</b>&nbsp;&nbsp;</td>
+        <td colspan="2"> </td>
+    </tr>
+    <tr>
+        <td bgcolor="#cccccc" colspan="2"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="1" align="bottom" border="0"></td>
+        <td bgcolor="#cccccc" colspan="2"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="1" align="bottom" border="0"></td>
+    </tr>
+    <tr>
+         <td bgcolor="#cccccc"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="5" align="bottom" border="0"></td>
+         <td bgcolor="#ffffff"><img src="pth.imgdot-1x1-transp.gif" alt="" width="40" height="1" align="bottom" border="0"></td>
+         <td bgcolor="#ffffff"><img src="pth.imgdot-1x1-transp.gif" alt="" width="300" height="1" align="bottom" border="0"></td>
+         <td bgcolor="#cccccc"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="5" align="bottom" border="0"></td>
+    </tr>
+    <tr>
+         <td bgcolor="#cccccc"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="1" align="bottom" border="0"></td>
+         <td colspan="3" bgcolor="#ffffff">
+             <table border="0" cellspacing="6">
+                 <tr>
+                     <td><table cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td>
+Release Version: &nbsp; </td> <td>
+<a href="ftp://ftp.gnu.org/gnu/pth/pth-1.3.7.tar.gz">GNU Pth <b>1.3.7</b></a> &nbsp; </td> <td> (29-Jul-2000) </td>
+<td>&nbsp;&nbsp; <a href="ChangeLog-1.3.txt">ChangeLog</a> </td>
+</tr>
+<tr>
+<td> Development Version: &nbsp; </td> <td>
+<a href="ftp://alpha.gnu.org/gnu/pth/pth-1.4a3.tar.gz">GNU Pth <b>1.4a3</b></a> &nbsp; </td> <td> (29-Jul-2000)</td>
+<td>&nbsp;&nbsp; <a href="ChangeLog-1.4.txt">ChangeLog</a> </td>
+</tr>
+</table></td>
+                 </tr>
+             </table>
+         </td>
+         <td bgcolor="#cccccc"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="1" align="bottom" border="0"></td>
+    </tr>
+    <tr>
+         <td colspan="5" bgcolor="#cccccc"><img src="pth.imgdot-1x1-transp.gif" alt="" width="1" height="1" align="bottom" border="0"></td>
+    </tr>
+</table>
+<H2><a name="ToC1">Abstract</a></H2>
+<p>
+Pth is a very portable POSIX/ANSI-C based library for Unix platforms which
+provides non-preemptive priority-based scheduling for multiple threads of
+execution (aka ``multithreading'') inside event-driven applications. All
+threads run in the same address space of the server application, but
+each thread has it's own individual program-counter, run-time stack,
+signal mask and errno variable.
+<p>
+The thread scheduling itself is done in a cooperative way, i.e., the threads
+are managed by a priority- and event-based non-preemptive scheduler. The
+intention is that this way one can achieve better portability and run-time
+performance than with preemptive scheduling. The event facility allows
+threads to wait until various types of events occur, including pending I/O on
+filedescriptors, asynchronous signals, elapsed timers, pending I/O on message
+ports, thread and process termination, and even customized callback functions.
+<p>
+Additionally Pth provides an optional emulation API for POSIX.1c threads
+("Pthreads") which can be used for backward compatibility to existing
+multithreaded applications.
+<H2><a name="ToC2">Documentation</a></H2>
+GNU Pth is documented by a <a href="pth-manual.html">manual</a> which
+describes the functionality and API of the library in detail. This document is
+available in <a href="pth-manual.html">HTML</a>, <a
+href="pth-manual.dvi">DVI</a>, <a href="pth-manual.ps">Postscript</a> and <a
+href="pth-manual.pod">POD</a> format. Additionally there is a draft of the
+forthcoming paper <a href="rse-pmt.ps">Portable Multithreading</a>
+(Postscript) from the author. Finally the <a href="/brave-gnu-world/">Brave
+GNU World</a> column contains a short introduction to GNU Pth in its <a
+href="/brave-gnu-world/issue-7.en.html">Issue No. 7</a>.
+<H2><a name="ToC3">Distribution</a></H2>
+The distribution of the latest GNU Pth release version can be found on
+<A HREF="ftp://ftp.gnu.org/gnu/pth/">ftp://ftp.gnu.org/gnu/pth/</A>
+or one of <A HREF="/prep/ftp.html">the
+mirrors</A>. Alpha versions can be found on <A
+HREF="ftp://alpha.gnu.org/gnu/pth/">ftp://alpha.gnu.org/gnu/pth/</A>.
+For more details about the latest changes have a look at the change logfile <a
+href="ChangeLog-1.2.txt">ChangeLog-1.2.txt</a> (for Pth 1.2) or
+<a href="ChangeLog-1.3.txt">ChangeLog-1.3.txt</a> (for Pth 1.3).
+<H2><a name="ToC4">Bug Reports and Support</a></H2>
+If you think you have found a bug in GNU Pth, then you should send a report as
+complete as possible to <A
+HREF="mailto:bug-pth@gnu.org">&lt;bug-pth@gnu.org&gt;</A>. And if you can,
+please try to fix the problem and include a patch made with "<CODE>diff
+-u3</CODE>" in your report. Additionally there is a mailing list <A
+HREF="mailto:pth-users@gnu.org">&lt;pth-users@gnu.org&gt;</A> which you can
+join for support and discussions. Send a mail with ``<tt>subscribe
+pth-users</tt>'' in the body to <A
+HREF="mailto:pth-users-request@gnu.org">&lt;pth-users-request@gnu.org&gt;</A>
+to subscribe (the list is managed automatically by a Majordomo robot).
+<H2><a name="ToC5">Further Reading</a></H2>
+For more details on available multithreading software, we have collected a <a
+href="related.html">list of multithreading libraries</a>. Use this to find
+Pth related projects and packages.
+<p>
+<hr noshade size="1">
+<DIV id="sf">
+<p>
+Please send FSF &amp; GNU inquiries &amp; questions to
+<A HREF="mailto:gnu@gnu.org">gnu@gnu.org</A>.
+There are also <A HREF="/home.html#ContactInfo">other ways to
+contact</A> the FSF.
+Please send comments on these web pages to
+<A HREF="mailto:webmasters@gnu.org">webmasters@gnu.org</A>,
+send other questions to
+<A HREF="mailto:gnu@gnu.org">gnu@gnu.org</A>.
+Verbatim copying and distribution of this entire article is
+permitted in any medium, provided this notice is preserved.<BR>
+<p>
+<a href="http://www.gnu.org/software/pth/"><img src="pth-icon.jpg" border="0" align="right" alt="" width="126" height="50"></a>
+Copyright &copy; 1999-2000 <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</A>
+<A HREF="mailto:rse@gnu.org">&lt;rse@gnu.org&gt;</A><BR>
+Last Modified: 29-07-19100 17:07:34
+<p>
+Return to <A HREF="/home.html">GNU's home page</A>.
+</div>
+</blockquote>
+</blockquote>
+</body>
+</html>

@@ -558,7 +558,7 @@ scheduling, where a function isn't interrupted and this way cannot be
 reentered before it returned. This is a great portability benefit,
 because thread-safety can be achieved more easily than reentrance
 possibility. Especially this means that under <STRONG>Pth</STRONG> more existing
-third-party libraries can be used without side-effects than its the case
+third-party libraries can be used without side-effects than it's the case
 for other threading systems.</P>
 <P></P>
 <DT><P><STRONG><STRONG>o</STRONG></STRONG><BR>
@@ -632,7 +632,7 @@ a thread never directly switches to another thread.
 <FONT SIZE="-1">A</FONT> thread always
 yields execution to the scheduler and the scheduler dispatches to the
 next thread. So a freshly spawned thread has to be kept somewhere until
-the scheduler gets a chance to pick it up for scheduling. That is for
+the scheduler gets a chance to pick it up for scheduling. That is
 what the <STRONG>
 <FONT SIZE="-1">NEW</FONT></STRONG> queue is for.</P>
 <P>The purpose of the <STRONG>
@@ -662,8 +662,8 @@ scope.</P>
 <FONT SIZE="-1">(API)</FONT></A></H1>
 <P>In the following the <STRONG>Pth</STRONG> <EM>Application Programming Interface</EM>
 <FONT SIZE="-1">(API)</FONT>
-is discussed in detail. With the knowledge given above, it should be
-now easy to understand how to program threads with this
+is discussed in detail. With the knowledge given above, it should now
+be easy to understand how to program threads with this
 <FONT SIZE="-1">API.</FONT> In good
 Unix tradition, <STRONG>Pth</STRONG> functions use special return values (<CODE>NULL</CODE>
 in pointer context, <CODE>FALSE</CODE> in boolean context and <CODE>-1</CODE> in integer
@@ -698,7 +698,7 @@ usual way to terminate a <STRONG>Pth</STRONG> application is either a simple
 terminate, kills the threading system and then terminates the process) or a
 `<A HREF="#item_pth_kill"><CODE>pth_kill(); exit(0)</CODE></A>' (which immediately kills the threading system and
 terminates the process). The <A HREF="#item_pth_kill"><CODE>pth_kill()</CODE></A> return immediately with a return
-code of <CODE>FALSE</CODE> if it is called not from within the main thread. Else
+code of <CODE>FALSE</CODE> if it is not called from within the main thread. Else it
 kills the threading system and returns <CODE>TRUE</CODE>.
 <P></P>
 <DT><P><STRONG><A NAME="item_pth_ctrl">long <STRONG>pth_ctrl</STRONG>(unsigned long <EM>query</EM>, ...);</A></STRONG><BR>
@@ -858,7 +858,7 @@ This can be queried only when the attribute object is bound to a thread.
 Whether the attribute object is bound (<CODE>TRUE</CODE>) to a thread or not (<CODE>FALSE</CODE>).
 <P></P></DL>
 <P>The following
-<FONT SIZE="-1">API</FONT> functions exists to handle the attribute objects:</P>
+<FONT SIZE="-1">API</FONT> functions can be used to handle the attribute objects:</P>
 <DL>
 <DT><P><STRONG><A NAME="item_pth_attr_of">pth_attr_t <STRONG>pth_attr_of</STRONG>(pth_t <EM>tid</EM>);</A></STRONG><BR>
 <DD>
@@ -926,9 +926,9 @@ longer a valid attribute object.
 <P></P></DL>
 <P>
 <H2><A NAME="thread control"><font face="Arial,Helvetica">Thread Control</A></H2></font>
-<P>The following functions control the threading itself and form the main
-<FONT SIZE="-1">API</FONT> of
-the <STRONG>Pth</STRONG> library.</P>
+<P>The following functions control the threading itself and make up the main
+<FONT SIZE="-1">API</FONT>
+of the <STRONG>Pth</STRONG> library.</P>
 <DL>
 <DT><P><STRONG><A NAME="item_pth_spawn">pth_t <STRONG>pth_spawn</STRONG>(pth_attr_t <EM>attr</EM>, void *(*<EM>entry</EM>)(void *), void *<EM>arg</EM>);</A></STRONG><BR>
 <DD>
@@ -1021,7 +1021,7 @@ or <EM>ready</EM> thread, it is guaranteed that this thread receives execution
 control on the next dispatching step. If <EM>tid</EM> is in a different state (that
 is, not in <CODE>PTH_STATE_NEW</CODE> or <CODE>PTH_STATE_READY</CODE>) an error is reported.</P>
 <P>The function usually returns <CODE>TRUE</CODE> for success and only <CODE>FALSE</CODE> (with
-<CODE>errno</CODE> set to <CODE>EINVAL</CODE>) if <EM>tid</EM> specified and invalid or still not
+<CODE>errno</CODE> set to <CODE>EINVAL</CODE>) if <EM>tid</EM> specified an invalid or still not
 new or ready thread.</P>
 <P></P>
 <DT><P><STRONG><A NAME="item_pth_nap">int <STRONG>pth_nap</STRONG>(pth_time_t <EM>naptime</EM>);</A></STRONG><BR>
@@ -1096,7 +1096,7 @@ thread.
 <P></P></DL>
 <P>
 <H2><A NAME="utilities"><font face="Arial,Helvetica">Utilities</A></H2></font>
-<P>The following functions are utility functions.</P>
+<P>Utility functions.</P>
 <DL>
 <DT><P><STRONG><A NAME="item_pth_fdmode">int <STRONG>pth_fdmode</STRONG>(int <EM>fd</EM>, int <EM>mode</EM>);</A></STRONG><BR>
 <DD>
@@ -1378,7 +1378,7 @@ This replies a message <EM>m</EM> to the message port of the sender.
 <P></P></DL>
 <P>
 <H2><A NAME="thread cleanups"><font face="Arial,Helvetica">Thread Cleanups</A></H2></font>
-<P>The following functions provide per-thread cleanup functions.</P>
+<P>Per-thread cleanup functions.</P>
 <DL>
 <DT><P><STRONG><A NAME="item_pth_cleanup_push">int <STRONG>pth_cleanup_push</STRONG>(void (*<EM>handler</EM>)(void *), void *<EM>arg</EM>);</A></STRONG><BR>
 <DD>
@@ -1670,7 +1670,7 @@ the whole process in case the file descriptors will block.</P>
 This is a variant of the
 <FONT SIZE="-1">4.3BSD</FONT> <CODE>usleep(3)</CODE> function. It suspends the current
 threads execution until <EM>usec</EM> microseconds (= <EM>usec</EM>*1/1000000 sec)
-elapsed. The thread is guaranteed to not awakened before this time, but
+elapsed. The thread is guaranteed to not wake up before this time, but
 because of the non-preemptive scheduling nature of <STRONG>Pth</STRONG>, it can be awakened
 later, of course. The difference between <CODE>usleep(3)</CODE> and <A HREF="#item_pth_usleep"><CODE>pth_usleep(3)</CODE></A> is that
 that <A HREF="#item_pth_usleep"><CODE>pth_usleep(3)</CODE></A> suspends only the execution of the current thread and not
@@ -1681,9 +1681,9 @@ the whole process.
 This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>sleep(3)</CODE> function. It suspends the current
 threads execution until <EM>sec</EM> seconds elapsed. The thread is guaranteed to
-not awakened before this time, but because of the non-preemptive scheduling
+not wake up before this time, but because of the non-preemptive scheduling
 nature of <STRONG>Pth</STRONG>, it can be awakened later, of course. The difference between
-<CODE>sleep(3)</CODE> and <A HREF="#item_pth_sleep"><CODE>pth_sleep(3)</CODE></A> is that that <A HREF="#item_pth_sleep"><CODE>pth_sleep(3)</CODE></A> suspends only the
+<CODE>sleep(3)</CODE> and <A HREF="#item_pth_sleep"><CODE>pth_sleep(3)</CODE></A> is that <A HREF="#item_pth_sleep"><CODE>pth_sleep(3)</CODE></A> suspends only the
 execution of the current thread and not the whole process.
 <P></P>
 <DT><P><STRONG><A NAME="item_pth_waitpid">pid_t <STRONG>pth_waitpid</STRONG>(pid_t <EM>pid</EM>, int *<EM>status</EM>, int <EM>options</EM>);</A></STRONG><BR>
@@ -1692,7 +1692,7 @@ This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>waitpid(2)</CODE> function. It suspends the
 current threads execution until <EM>status</EM> information is available for a
 terminated child process <EM>pid</EM>. The difference between <CODE>waitpid(2)</CODE> and
-<A HREF="#item_pth_waitpid"><CODE>pth_waitpid(3)</CODE></A> is that that <A HREF="#item_pth_waitpid"><CODE>pth_waitpid(3)</CODE></A> suspends only the execution of the
+<A HREF="#item_pth_waitpid"><CODE>pth_waitpid(3)</CODE></A> is that <A HREF="#item_pth_waitpid"><CODE>pth_waitpid(3)</CODE></A> suspends only the execution of the
 current thread and not the whole process. For more details about the
 arguments and return code semantics see waitpid(2).
 <P></P>
@@ -1702,7 +1702,7 @@ This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>system(3)</CODE> function. It executes the
 shell command <EM>cmd</EM> with Bourne Shell (<CODE>sh</CODE>) and suspends the current
 threads execution until this command terminates. The difference between
-<CODE>system(3)</CODE> and <A HREF="#item_pth_system"><CODE>pth_system(3)</CODE></A> is that that <A HREF="#item_pth_system"><CODE>pth_system(3)</CODE></A> suspends only
+<CODE>system(3)</CODE> and <A HREF="#item_pth_system"><CODE>pth_system(3)</CODE></A> is that <A HREF="#item_pth_system"><CODE>pth_system(3)</CODE></A> suspends only
 the execution of the current thread and not the whole process. For more
 details about the arguments and return code semantics see system(3).
 <P></P>
@@ -1731,7 +1731,7 @@ functions you should recognize that this is a great benefit.
 This is a variant of the
 <FONT SIZE="-1">4.2BSD</FONT> <CODE>connect(2)</CODE> function. It establishes a
 connection on a socket <EM>s</EM> to target specified in <EM>addr</EM> and <EM>addrlen</EM>.
-The difference between <CODE>connect(2)</CODE> and <A HREF="#item_pth_connect"><CODE>pth_connect(3)</CODE></A> is that that
+The difference between <CODE>connect(2)</CODE> and <A HREF="#item_pth_connect"><CODE>pth_connect(3)</CODE></A> is that
 <A HREF="#item_pth_connect"><CODE>pth_connect(3)</CODE></A> suspends only the execution of the current thread and not the
 whole process. For more details about the arguments and return code semantics
 see connect(2).
@@ -1743,7 +1743,7 @@ This is a variant of the
 a socket by extracting the first connection request on the queue of pending
 connections, creating a new socket with the same properties of <EM>s</EM> and
 allocates a new file descriptor for the socket (which is returned). The
-difference between <CODE>accept(2)</CODE> and <A HREF="#item_pth_accept"><CODE>pth_accept(3)</CODE></A> is that that <A HREF="#item_pth_accept"><CODE>pth_accept(3)</CODE></A>
+difference between <CODE>accept(2)</CODE> and <A HREF="#item_pth_accept"><CODE>pth_accept(3)</CODE></A> is that <A HREF="#item_pth_accept"><CODE>pth_accept(3)</CODE></A>
 suspends only the execution of the current thread and not the whole process.
 For more details about the arguments and return code semantics see accept(2).
 <P></P>
@@ -1771,7 +1771,7 @@ semantics see poll(2).
 This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>read(2)</CODE> function. It reads up to <EM>nbytes</EM>
 bytes into <EM>buf</EM> from file descriptor <EM>fd</EM>. The difference between <CODE>read(2)</CODE>
-and <A HREF="#item_pth_read"><CODE>pth_read(2)</CODE></A> is that that <A HREF="#item_pth_read"><CODE>pth_read(2)</CODE></A> suspends execution of the current
+and <A HREF="#item_pth_read"><CODE>pth_read(2)</CODE></A> is that <A HREF="#item_pth_read"><CODE>pth_read(2)</CODE></A> suspends execution of the current
 thread until the file descriptor is ready for reading. For more details about
 the arguments and return code semantics see read(2).
 <P></P>
@@ -1780,7 +1780,7 @@ the arguments and return code semantics see read(2).
 This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>readv(2)</CODE> function. It reads data from
 file descriptor <EM>fd</EM> into the first <EM>iovcnt</EM> rows of the <EM>iov</EM> vector. The
-difference between <CODE>readv(2)</CODE> and <A HREF="#item_pth_readv"><CODE>pth_readv(2)</CODE></A> is that that <A HREF="#item_pth_readv"><CODE>pth_readv(2)</CODE></A>
+difference between <CODE>readv(2)</CODE> and <A HREF="#item_pth_readv"><CODE>pth_readv(2)</CODE></A> is that <A HREF="#item_pth_readv"><CODE>pth_readv(2)</CODE></A>
 suspends execution of the current thread until the file descriptor is ready for
 reading. For more details about the arguments and return code semantics see
 readv(2).
@@ -1790,7 +1790,7 @@ readv(2).
 This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>write(2)</CODE> function. It writes <EM>nbytes</EM> bytes
 from <EM>buf</EM> to file descriptor <EM>fd</EM>. The difference between <CODE>write(2)</CODE> and
-<A HREF="#item_pth_write"><CODE>pth_write(2)</CODE></A> is that that <A HREF="#item_pth_write"><CODE>pth_write(2)</CODE></A> suspends execution of the current
+<A HREF="#item_pth_write"><CODE>pth_write(2)</CODE></A> is that <A HREF="#item_pth_write"><CODE>pth_write(2)</CODE></A> suspends execution of the current
 thread until the file descriptor is ready for writing. For more details about
 the arguments and return code semantics see write(2).
 <P></P>
@@ -1799,7 +1799,7 @@ the arguments and return code semantics see write(2).
 This is a variant of the
 <FONT SIZE="-1">POSIX</FONT> <CODE>writev(2)</CODE> function. It writes data to
 file descriptor <EM>fd</EM> from the first <EM>iovcnt</EM> rows of the <EM>iov</EM> vector. The
-difference between <CODE>writev(2)</CODE> and <A HREF="#item_pth_writev"><CODE>pth_writev(2)</CODE></A> is that that <A HREF="#item_pth_writev"><CODE>pth_writev(2)</CODE></A>
+difference between <CODE>writev(2)</CODE> and <A HREF="#item_pth_writev"><CODE>pth_writev(2)</CODE></A> is that <A HREF="#item_pth_writev"><CODE>pth_writev(2)</CODE></A>
 suspends execution of the current thread until the file descriptor is ready for
 reading. For more details about the arguments and return code semantics see
 writev(2).
@@ -1833,7 +1833,7 @@ This is a variant of the SUSv2 <CODE>recv(2)</CODE> function and equal to
 This is a variant of the SUSv2 <CODE>recvfrom(2)</CODE> function. It reads up to
 <EM>nbytes</EM> bytes into <EM>buf</EM> from file descriptor <EM>fd</EM> while using
 <EM>flags</EM> and <EM>from</EM>/<EM>fromlen</EM>. The difference between <CODE>recvfrom(2)</CODE> and
-<A HREF="#item_pth_recvfrom"><CODE>pth_recvfrom(2)</CODE></A> is that that <A HREF="#item_pth_recvfrom"><CODE>pth_recvfrom(2)</CODE></A> suspends execution of the
+<A HREF="#item_pth_recvfrom"><CODE>pth_recvfrom(2)</CODE></A> is that <A HREF="#item_pth_recvfrom"><CODE>pth_recvfrom(2)</CODE></A> suspends execution of the
 current thread until the file descriptor is ready for reading. For more
 details about the arguments and return code semantics see recvfrom(2).
 <P></P>
@@ -1848,7 +1848,7 @@ This is a variant of the SUSv2 <CODE>send(2)</CODE> function and equal to
 This is a variant of the SUSv2 <CODE>sendto(2)</CODE> function. It writes <EM>nbytes</EM>
 bytes from <EM>buf</EM> to file descriptor <EM>fd</EM> while using <EM>flags</EM> and
 <EM>to</EM>/<EM>tolen</EM>. The difference between <CODE>sendto(2)</CODE> and <A HREF="#item_pth_sendto"><CODE>pth_sendto(2)</CODE></A> is
-that that <A HREF="#item_pth_sendto"><CODE>pth_sendto(2)</CODE></A> suspends execution of the current thread until
+that <A HREF="#item_pth_sendto"><CODE>pth_sendto(2)</CODE></A> suspends execution of the current thread until
 the file descriptor is ready for writing. For more details about the
 arguments and return code semantics see sendto(2).
 <P></P></DL>
@@ -1963,10 +1963,10 @@ just adding the following <CODE>Makefile</CODE>:</P>
 straight-forward and works fine for small projects.</P>
 <P>
 <H2><A NAME="autoconf build environment (advanced)"><font face="Arial,Helvetica">Autoconf Build Environment (Advanced)</A></H2></font>
-<P>The previous approach is simple but unflexible. First, to speed up
+<P>The previous approach is simple but inflexible. First, to speed up
 building, it would be nice to not expand the compiler and linker flags
 every time the compiler is started. Second, it would be useful to
-also be able to build against an uninstalled <STRONG>Pth</STRONG>, that is, against
+also be able to build against uninstalled <STRONG>Pth</STRONG>, that is, against
 a <STRONG>Pth</STRONG> source tree which was just configured and built, but not
 installed. Third, it would be also useful to allow checking of the
 <STRONG>Pth</STRONG> version to make sure it is at least a minimum required version.
@@ -1998,15 +1998,15 @@ placeholders and additional cleanup targets. And we create it under the name
  |     rm -f Makefile</PRE>
 <P>Because <STRONG>autoconf</STRONG> generates additional files, we added a canonical
 <CODE>distclean</CODE> target which cleans this up. Secondly, we wrote
-<CODE>configure.in</CODE>, a (minimal) <STRONG>autoconf</STRONG> script specification:</P>
+<CODE>configure.ac</CODE>, a (minimal) <STRONG>autoconf</STRONG> script specification:</P>
 <PRE>
- $ vi configure.in
+ $ vi configure.ac
  | AC_INIT(Makefile.in)
  | AC_CHECK_PTH(1.3.0)
  | AC_OUTPUT(Makefile)</PRE>
 <P>Then we let <STRONG>autoconf</STRONG>'s <CODE>aclocal</CODE> program generate for us an <CODE>aclocal.m4</CODE>
 file containing <STRONG>Pth</STRONG>'s <CODE>AC_CHECK_PTH</CODE> macro. Then we generate the final
-<CODE>configure</CODE> script out of this <CODE>aclocal.m4</CODE> file and the <CODE>configure.in</CODE>
+<CODE>configure</CODE> script out of this <CODE>aclocal.m4</CODE> file and the <CODE>configure.ac</CODE>
 file:</P>
 <PRE>
  $ aclocal --acdir=`pth-config --acdir`
@@ -2017,7 +2017,7 @@ file:</P>
  -rw-r--r--  1 rse  users    176 Nov  3 11:11 Makefile.in
  -rw-r--r--  1 rse  users  15314 Nov  3 11:16 aclocal.m4
  -rwxr-xr-x  1 rse  users  52045 Nov  3 11:16 configure
- -rw-r--r--  1 rse  users     63 Nov  3 11:11 configure.in
+ -rw-r--r--  1 rse  users     63 Nov  3 11:11 configure.ac
  -rw-r--r--  1 rse  users   4227 Nov  3 11:11 foo.c</PRE>
 <P>If we now run <CODE>configure</CODE> we get a correct <CODE>Makefile</CODE> which
 immediately can be used to build <CODE>foo</CODE> (assuming that <STRONG>Pth</STRONG> is already
@@ -2095,9 +2095,9 @@ advanced version which supports subdirectory movement:</P>
  |     rm -f foo foo.o
  |     rm -f config.log config.status config.cache
  |     rm -f Makefile</PRE>
-<P>Then we create a slightly different <STRONG>autoconf</STRONG> script <CODE>configure.in</CODE>:</P>
+<P>Then we create a slightly different <STRONG>autoconf</STRONG> script <CODE>configure.ac</CODE>:</P>
 <PRE>
- $ vi configure.in
+ $ vi configure.ac
  | AC_INIT(Makefile.in)
  | AC_CONFIG_AUX_DIR(pth)
  | AC_CHECK_PTH(1.3.0, subdir:pth --disable-tests)
@@ -2115,7 +2115,7 @@ was added just to make <STRONG>autoconf</STRONG> happy, because it wants to find
 <P>Now we let <STRONG>autoconf</STRONG>'s <CODE>aclocal</CODE> program again generate for us an
 <CODE>aclocal.m4</CODE> file with the contents of <STRONG>Pth</STRONG>'s <CODE>AC_CHECK_PTH</CODE> macro.
 Finally we generate the <CODE>configure</CODE> script out of this <CODE>aclocal.m4</CODE>
-file and the <CODE>configure.in</CODE> file.</P>
+file and the <CODE>configure.ac</CODE> file.</P>
 <PRE>
  $ aclocal --acdir=`pth-config --acdir`
  $ autoconf</PRE>
@@ -2137,7 +2137,7 @@ the <STRONG>Pth</STRONG> sources to a minimum with the <EM>striptease</EM> featu
  -rw-r--r--  1 rse  users    709 Nov  3 11:51 Makefile.in
  -rw-r--r--  1 rse  users  16431 Nov  3 12:20 aclocal.m4
  -rwxr-xr-x  1 rse  users  57403 Nov  3 12:21 configure
- -rw-r--r--  1 rse  users    129 Nov  3 12:21 configure.in
+ -rw-r--r--  1 rse  users    129 Nov  3 12:21 configure.ac
  -rw-r--r--  1 rse  users   4227 Nov  3 11:11 foo.c
  drwxr-xr-x  2 rse  users   3584 Nov  3 12:36 pth
  $ ls -l pth/
@@ -2273,7 +2273,7 @@ queue linkage attributes are part of the thread control blocks and the
 queues are actually implemented as rings with a selected element as the
 entry point [see <CODE>pth_tcb.h</CODE> and <CODE>pth_pqueue.c</CODE> for details].</P>
 <P>Most time critical code sections (especially the dispatcher and event
-manager) are speeded up by inlined functions (implemented as
+manager) are speeded up by inline functions (implemented as
 <FONT SIZE="-1">ANSI</FONT>
 <FONT SIZE="-1">C</FONT>
 pre-processor macros). Additionally any debugging code is <EM>completely</EM>

@@ -18,7 +18,7 @@ libraries for Unix operating systems.
 <li><b>Pth</b> - <i>GNU Portable Threads</i><br>
     <href url="http://www.gnu.org/software/pth/"><br>
     <href url="ftp://ftp.gnu.org/gnu/pth/"><br>
-    Ralf S. Engelschall, 1999-2000
+    Ralf S. Engelschall, 1999-2005
 
 <p>
 <li><b>CMU LWP</b> - <i>CMU Lightweight Processes</i><br>
@@ -32,6 +32,11 @@ libraries for Unix operating systems.
     Frank Mueller, 1992-1999
 
 <p>
+<li><b>PT</b> - <i>Protothreads</i><br>
+    <href url="http://www.sics.se/~adam/pt/"><br>
+     Adam Dunkels, 2005.
+
+<p>
 <li><b>ST</b> - <i>SGI State Threads Library</i><br>
     <href url="http://oss.sgi.com/projects/state-threads/"><br>
     Silicon Graphics, 2000.
@@ -39,7 +44,7 @@ libraries for Unix operating systems.
 <p>
 <li><b>NSPR</b> - <i>Netscape Portable Runtime</i><br>
     <href url="http://www.mozilla.org/docs/refList/refNSPR/"><br>
-    Netscape Corporation, Mozilla Project, 1998-2000.
+    Netscape Corporation, Mozilla Project, 1998-2005.
 
 <p>
 <li><b>pmp</b> - <i>Patched MIT POSIX Threads</i><br>

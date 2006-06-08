@@ -21,14 +21,16 @@ H3 { font-weight: bold; font-size: 12pt; line-height: 12pt; font-family: arial,h
   GNU Pth - The GNU Portable Threads
 </div>
 <div id="sf">
-  Copyright &copy; 1999-2005
+  Copyright &copy; 1999-2006
   <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</a>
   &lt;<a href="mailto:rse@gnu.org">rse@gnu.org</a>&gt;
 </div>
+<?xml version="1.0" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>B&lt;pth&gt; - GNU Portable Threads</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rev="made" href="mailto:rse@en1.engelschall.com" />
 </head>
 <body style="background-color: white">
@@ -104,30 +106,27 @@ H3 { font-weight: bold; font-size: 12pt; line-height: 12pt; font-family: arial,h
 <hr />
 <h1><a name="synopsis">SYNOPSIS</a></h1>
 <dl>
-<dt><strong><a name="item_global_library_management"><strong>Global Library Management</strong></a></strong><br />
-</dt>
+<dt><strong><a name="item_global_library_management"><strong>Global Library Management</strong></a></strong>
 <dd>
-pth_init,
+<p>pth_init,
 pth_kill,
 pth_ctrl,
-pth_version.
+pth_version.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_thread_attribute_handling"><strong>Thread Attribute Handling</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_thread_attribute_handling"><strong>Thread Attribute Handling</strong></a></strong>
 <dd>
-pth_attr_of,
+<p>pth_attr_of,
 pth_attr_new,
 pth_attr_init,
 pth_attr_set,
 pth_attr_get,
-pth_attr_destroy.
+pth_attr_destroy.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_thread_control"><strong>Thread Control</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_thread_control"><strong>Thread Control</strong></a></strong>
 <dd>
-pth_spawn,
+<p>pth_spawn,
 pth_once,
 pth_self,
 pth_suspend,
@@ -139,78 +138,70 @@ pth_cancel,
 pth_abort,
 pth_raise,
 pth_join,
-pth_exit.
+pth_exit.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_utilities"><strong>Utilities</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_utilities"><strong>Utilities</strong></a></strong>
 <dd>
-pth_fdmode,
+<p>pth_fdmode,
 pth_time,
 pth_timeout,
-pth_sfiodisc.
+pth_sfiodisc.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_cancellation_management"><strong>Cancellation Management</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_cancellation_management"><strong>Cancellation Management</strong></a></strong>
 <dd>
-pth_cancel_point,
-pth_cancel_state.
+<p>pth_cancel_point,
+pth_cancel_state.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_event_handling"><strong>Event Handling</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_event_handling"><strong>Event Handling</strong></a></strong>
 <dd>
-pth_event,
+<p>pth_event,
 pth_event_typeof,
 pth_event_extract,
 pth_event_concat,
 pth_event_isolate,
 pth_event_walk,
 pth_event_status,
-pth_event_free.
+pth_event_free.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_key_2dbased_storage"><strong>Key-Based Storage</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_key_2dbased_storage"><strong>Key-Based Storage</strong></a></strong>
 <dd>
-pth_key_create,
+<p>pth_key_create,
 pth_key_delete,
 pth_key_setdata,
-pth_key_getdata.
+pth_key_getdata.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_message_port_communication"><strong>Message Port Communication</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_message_port_communication"><strong>Message Port Communication</strong></a></strong>
 <dd>
-pth_msgport_create,
+<p>pth_msgport_create,
 pth_msgport_destroy,
 pth_msgport_find,
 pth_msgport_pending,
 pth_msgport_put,
 pth_msgport_get,
-pth_msgport_reply.
+pth_msgport_reply.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_thread_cleanups"><strong>Thread Cleanups</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_thread_cleanups"><strong>Thread Cleanups</strong></a></strong>
 <dd>
-pth_cleanup_push,
-pth_cleanup_pop.
+<p>pth_cleanup_push,
+pth_cleanup_pop.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_process_forking"><strong>Process Forking</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_process_forking"><strong>Process Forking</strong></a></strong>
 <dd>
-pth_atfork_push,
+<p>pth_atfork_push,
 pth_atfork_pop,
-pth_fork.
+pth_fork.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_synchronization"><strong>Synchronization</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_synchronization"><strong>Synchronization</strong></a></strong>
 <dd>
-pth_mutex_init,
+<p>pth_mutex_init,
 pth_mutex_acquire,
 pth_mutex_release,
 pth_rwlock_init,
@@ -220,22 +211,20 @@ pth_cond_init,
 pth_cond_await,
 pth_cond_notify,
 pth_barrier_init,
-pth_barrier_reach.
+pth_barrier_reach.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_user_2dspace_context"><strong>User-Space Context</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_user_2dspace_context"><strong>User-Space Context</strong></a></strong>
 <dd>
-pth_uctx_create,
+<p>pth_uctx_create,
 pth_uctx_make,
 pth_uctx_switch,
-pth_uctx_destroy.
+pth_uctx_destroy.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_generalized_posix_replacement_api"><strong>Generalized POSIX Replacement API</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_generalized_posix_replacement_api"><strong>Generalized POSIX Replacement API</strong></a></strong>
 <dd>
-pth_sigwait_ev,
+<p>pth_sigwait_ev,
 pth_accept_ev,
 pth_connect_ev,
 pth_select_ev,
@@ -247,13 +236,12 @@ pth_writev_ev,
 pth_recv_ev,
 pth_recvfrom_ev,
 pth_send_ev,
-pth_sendto_ev.
+pth_sendto_ev.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_standard_posix_replacement_api"><strong>Standard POSIX Replacement API</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_standard_posix_replacement_api"><strong>Standard POSIX Replacement API</strong></a></strong>
 <dd>
-pth_nanosleep,
+<p>pth_nanosleep,
 pth_usleep,
 pth_sleep,
 pth_waitpid,
@@ -274,9 +262,10 @@ pth_pwrite,
 pth_recv,
 pth_recvfrom,
 pth_send,
-pth_sendto.
+pth_sendto.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <hr />
@@ -352,10 +341,9 @@ threading. The following definitions of thread-related terms should at
 least help you understand thread programming enough to allow you to use
 <strong>Pth</strong>.</p>
 <dl>
-<dt><strong><a name="item_o_process_vs_2e_thread"><strong>o</strong> <strong>process</strong> vs. <strong>thread</strong></a></strong><br />
-</dt>
+<dt><strong><a name="item_o_process_vs_2e_thread"><strong>o</strong> <strong>process</strong> vs. <strong>thread</strong></a></strong>
 <dd>
-A process on Unix systems consists of at least the following fundamental
+<p>A process on Unix systems consists of at least the following fundamental
 ingredients: <em>virtual memory table</em>, <em>program code</em>, <em>program
 counter</em>, <em>heap memory</em>, <em>stack memory</em>, <em>stack pointer</em>, <em>file
 descriptor set</em>, <em>signal table</em>. On every process switch, the kernel
@@ -363,13 +351,12 @@ saves and restores these ingredients for the individual processes. On
 the other hand, a thread consists of only a private program counter,
 stack memory, stack pointer and signal table. All other ingredients, in
 particular the virtual memory, it shares with the other threads of the
-same process.
+same process.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_o_kernel_2dspace_vs_2e_user_2dspace_threading"><strong>o</strong> <strong>kernel-space</strong> vs. <strong>user-space</strong> threading</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_o_kernel_2dspace_vs_2e_user_2dspace_threading"><strong>o</strong> <strong>kernel-space</strong> vs. <strong>user-space</strong> threading</a></strong>
 <dd>
-Threads on a Unix platform traditionally can be implemented either
+<p>Threads on a Unix platform traditionally can be implemented either
 inside kernel-space or user-space. When threads are implemented by the
 kernel, the thread context switches are performed by the kernel without
 the application's knowledge. Similarly, when threads are implemented in
@@ -377,7 +364,7 @@ user-space, the thread context switches are performed by an application
 library, without the kernel's knowledge. There also are hybrid threading
 approaches where, typically, a user-space library binds one or more
 user-space threads to one or more kernel-space threads (there usually
-called light-weight processes - or in short LWPs).
+called light-weight processes - or in short LWPs).</p>
 </dd>
 <dd>
 <p>User-space threads are usually more portable and can perform faster
@@ -389,11 +376,10 @@ usually scheduled in preemptive way side-by-side with the underlying
 processes. User-space threads on the other hand use either preemptive or
 non-preemptive scheduling.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_o_preemptive_vs_2e_non_2dpreemptive_thread_schedul"><strong>o</strong> <strong>preemptive</strong> vs. <strong>non-preemptive</strong> thread scheduling</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_o_preemptive_vs_2e_non_2dpreemptive_thread_schedul"><strong>o</strong> <strong>preemptive</strong> vs. <strong>non-preemptive</strong> thread scheduling</a></strong>
 <dd>
-In preemptive scheduling, the scheduler lets a thread execute until a
+<p>In preemptive scheduling, the scheduler lets a thread execute until a
 blocking situation occurs (usually a function call which would block)
 or the assigned timeslice elapses. Then it detracts control from the
 thread without a chance for the thread to object. This is usually
@@ -403,41 +389,38 @@ user-space threads), like <code>SIGALRM</code> or <code>SIGVTALRM</code>. In non
 scheduling, once a thread received control from the scheduler it keeps
 it until either a blocking situation occurs (again a function call which
 would block and instead switches back to the scheduler) or the thread
-explicitly yields control back to the scheduler in a cooperative way.
+explicitly yields control back to the scheduler in a cooperative way.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_o_concurrency_vs_2e_parallelism"><strong>o</strong> <strong>concurrency</strong> vs. <strong>parallelism</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_o_concurrency_vs_2e_parallelism"><strong>o</strong> <strong>concurrency</strong> vs. <strong>parallelism</strong></a></strong>
 <dd>
-Concurrency exists when at least two threads are <em>in progress</em> at the
+<p>Concurrency exists when at least two threads are <em>in progress</em> at the
 same time. Parallelism arises when at least two threads are <em>executing</em>
 simultaneously. Real parallelism can be only achieved on multiprocessor
 machines, of course. But one also usually speaks of parallelism or
 <em>high concurrency</em> in the context of preemptive thread scheduling
 and of <em>low concurrency</em> in the context of non-preemptive thread
-scheduling.
+scheduling.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_o_responsiveness"><strong>o</strong> <strong>responsiveness</strong></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_o_responsiveness"><strong>o</strong> <strong>responsiveness</strong></a></strong>
 <dd>
-The responsiveness of a system can be described by the user visible
+<p>The responsiveness of a system can be described by the user visible
 delay until the system responses to an external request. When this delay
 is small enough and the user doesn't recognize a noticeable delay,
 the responsiveness of the system is considered good. When the user
 recognizes or is even annoyed by the delay, the responsiveness of the
-system is considered bad.
+system is considered bad.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_o_reentrant_2c_thread_2dsafe_and_asynchronous_2dsa"><strong>o</strong> <strong>reentrant</strong>, <strong>thread-safe</strong> and <strong>asynchronous-safe</strong> functions</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_o_reentrant_2c_thread_2dsafe_and_asynchronous_2dsa"><strong>o</strong> <strong>reentrant</strong>, <strong>thread-safe</strong> and <strong>asynchronous-safe</strong> functions</a></strong>
 <dd>
-A reentrant function is one that behaves correctly if it is called
+<p>A reentrant function is one that behaves correctly if it is called
 simultaneously by several threads and then also executes simultaneously.
 Functions that access global state, such as memory or files, of course,
 need to be carefully designed in order to be reentrant. Two traditional
 approaches to solve these problems are caller-supplied states and
-thread-specific data.
+thread-specific data.</p>
 </dd>
 <dd>
 <p>Thread-safety is the avoidance of <em>data races</em>, i.e., situations
@@ -466,15 +449,16 @@ few system functions are officially declared by POSIX as guaranteed to
 be asynchronous-safe. Asynchronous-safe functions usually have to be
 already reentrant.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="userspace_threads">User-Space Threads</a></h2>
 <p>User-space threads can be implemented in various way. The two
 traditional approaches are:</p>
 <ol>
-<li></li>
-<strong>Matrix-based explicit dispatching between small units of execution:</strong>
+<li>
+<p><strong>Matrix-based explicit dispatching between small units of execution:</strong></p>
 <p>Here the global procedures of the application are split into small
 execution units (each is required to not run for more than a few
 milliseconds) and those units are implemented by separate functions.
@@ -498,9 +482,9 @@ global dispatching matrix to follow it). Additionally, all threads
 operate on the same execution stack. Although this saves memory, it is
 often nasty, because one cannot switch between threads in the middle of
 a function. Thus the scheduling borders are the function borders.</p>
-<p></p>
-<li></li>
-<strong>Context-based implicit scheduling between threads of execution:</strong>
+</li>
+<li>
+<p><strong>Context-based implicit scheduling between threads of execution:</strong></p>
 <p>Here the idea is that one programs the application as with forked
 processes, i.e., one spawns a thread of execution and this runs from the
 begin to the end without an interrupted control flow. But the control
@@ -527,7 +511,8 @@ or one has to hope that some semi-portable package exists for it. And
 even those semi-portable packages usually have to deal with assembler
 code and other nasty internals and are not easy to port to forthcoming
 platforms.</p>
-<p></p></ol>
+</li>
+</ol>
 <p>So, in short: the matrix-dispatching approach is portable and fast, but
 nasty to program. The thread scheduling approach is easy to program,
 but suffers from synchronization and portability problems caused by its
@@ -544,10 +529,9 @@ keep the implications of non-preemptive thread scheduling in mind when
 working with <strong>Pth</strong>. The following list summarizes a few essential
 points:</p>
 <dl>
-<dt><strong><a name="item_o"><strong>o</strong></a></strong><br />
-</dt>
+<dt><strong><a name="item_o"><strong>o</strong></a></strong>
 <dd>
-<strong>Pth provides maximum portability, but NOT the fanciest features</strong>.
+<p><strong>Pth provides maximum portability, but NOT the fanciest features</strong>.</p>
 </dd>
 <dd>
 <p>This is, because it uses a nifty and portable POSIX/ANSI-C approach for
@@ -558,12 +542,11 @@ hand, this way not all fancy threading features can be implemented.
 Nevertheless the available facilities are enough to provide a robust and
 full-featured threading system.</p>
 </dd>
-<p></p>
-<dt><strong><strong>o</strong></strong><br />
-</dt>
+</li>
+<dt><strong><strong>o</strong></strong>
 <dd>
-<strong>Pth increases the responsiveness and concurrency of an event-driven
-application, but NOT the concurrency of number-crunching applications</strong>.
+<p><strong>Pth increases the responsiveness and concurrency of an event-driven
+application, but NOT the concurrency of number-crunching applications</strong>.</p>
 </dd>
 <dd>
 <p>The reason is the non-preemptive scheduling. Number-crunching
@@ -578,11 +561,10 @@ occurs, as it is the case for preemptive scheduling. That's why <strong>Pth</str
 is mainly intended for server type applications, although there is no
 technical restriction.</p>
 </dd>
-<p></p>
-<dt><strong><strong>o</strong></strong><br />
-</dt>
+</li>
+<dt><strong><strong>o</strong></strong>
 <dd>
-<strong>Pth requires thread-safe functions, but NOT reentrant functions</strong>.
+<p><strong>Pth requires thread-safe functions, but NOT reentrant functions</strong>.</p>
 </dd>
 <dd>
 <p>This nice fact exists again because of the nature of non-preemptive
@@ -593,12 +575,11 @@ possibility. Especially this means that under <strong>Pth</strong> more existing
 third-party libraries can be used without side-effects than it's the case
 for other threading systems.</p>
 </dd>
-<p></p>
-<dt><strong><strong>o</strong></strong><br />
-</dt>
+</li>
+<dt><strong><strong>o</strong></strong>
 <dd>
-<strong>Pth doesn't require any kernel support, but can NOT
-benefit from multiprocessor machines</strong>.
+<p><strong>Pth doesn't require any kernel support, but can NOT
+benefit from multiprocessor machines</strong>.</p>
 </dd>
 <dd>
 <p>This means that <strong>Pth</strong> runs on almost all Unix kernels, because the
@@ -609,7 +590,8 @@ support would be needed. In practice, this is no problem, because
 multiprocessor systems are rare, and portability is almost more
 important than highest concurrency.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="the_life_cycle_of_a_thread">The life cycle of a thread</a></h2>
@@ -685,21 +667,19 @@ caller.</p>
 <p>The following functions act on the library as a whole. They are used to
 initialize and shutdown the scheduler and fetch information from it.</p>
 <dl>
-<dt><strong><a name="item_pth_init">int <strong>pth_init</strong>(void);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_init">int <strong>pth_init</strong>(void);</a></strong>
 <dd>
-This initializes the <strong>Pth</strong> library. It has to be the first <strong>Pth</strong> API
+<p>This initializes the <strong>Pth</strong> library. It has to be the first <strong>Pth</strong> API
 function call in an application, and is mandatory. It's usually done at
 the begin of the <code>main()</code> function of the application. This implicitly
 spawns the internal scheduler thread and transforms the single execution
 unit of the current process into a thread (the `main' thread). It
-returns <code>TRUE</code> on success and <code>FALSE</code> on error.
+returns <code>TRUE</code> on success and <code>FALSE</code> on error.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_kill">int <strong>pth_kill</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_kill">int <strong>pth_kill</strong>(void);</a></strong>
 <dd>
-This kills the <strong>Pth</strong> library. It should be the last <strong>Pth</strong> API function call
+<p>This kills the <strong>Pth</strong> library. It should be the last <strong>Pth</strong> API function call
 in an application, but is not really required. It's usually done at the end of
 the main function of the application. At least, it has to be called from within
 the main thread. It implicitly kills all threads and transforms back the
@@ -710,24 +690,22 @@ terminate, kills the threading system and then terminates the process) or a
 `<a href="#item_pth_kill"><code>pth_kill(); exit(0)</code></a>' (which immediately kills the threading system and
 terminates the process). The <a href="#item_pth_kill"><code>pth_kill()</code></a> return immediately with a return
 code of <code>FALSE</code> if it is not called from within the main thread. Else it
-kills the threading system and returns <code>TRUE</code>.
+kills the threading system and returns <code>TRUE</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_ctrl">long <strong>pth_ctrl</strong>(unsigned long <em>query</em>, ...);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_ctrl">long <strong>pth_ctrl</strong>(unsigned long <em>query</em>, ...);</a></strong>
 <dd>
-This is a generalized query/control function for the <strong>Pth</strong> library. The
+<p>This is a generalized query/control function for the <strong>Pth</strong> library. The
 argument <em>query</em> is a bitmask formed out of one or more <code>PTH_CTRL_</code><em>XXXX</em>
-queries. Currently the following queries are supported:
+queries. Currently the following queries are supported:</p>
 </dd>
 <dl>
-<dt><strong><a name="item_pth_ctrl_getthreads"><code>PTH_CTRL_GETTHREADS</code></a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_ctrl_getthreads"><code>PTH_CTRL_GETTHREADS</code></a></strong>
 <dd>
-This returns the total number of threads currently in existence. This query
+<p>This returns the total number of threads currently in existence. This query
 actually is formed out of the combination of queries for threads in a
 particular state, i.e., the <a href="#item_pth_ctrl_getthreads"><code>PTH_CTRL_GETTHREADS</code></a> query is equal to the
-OR-combination of all the following specialized queries:
+OR-combination of all the following specialized queries:</p>
 </dd>
 <dd>
 <p><code>PTH_CTRL_GETTHREADS_NEW</code> for the number of threads in the
@@ -742,68 +720,64 @@ threads in the suspended queue (threads waiting to be resumed) and
 <code>PTH_CTRL_GETTHREADS_DEAD</code> for the number of threads in the new queue
 (terminated threads waiting for a join).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_ctrl_getavload"><code>PTH_CTRL_GETAVLOAD</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_ctrl_getavload"><code>PTH_CTRL_GETAVLOAD</code></a></strong>
 <dd>
-This requires a second argument of type `<code>float *</code>' (pointer to a floating
+<p>This requires a second argument of type `<code>float *</code>' (pointer to a floating
 point variable). It stores a floating point value describing the exponential
 averaged load of the scheduler in this variable. The load is a function from
 the number of threads in the ready queue of the schedulers dispatching unit.
 So a load around 1.0 means there is only one ready thread (the standard
 situation when the application has no high load). A higher load value means
 there a more threads ready who want to do CPU bursts. The average load value
-updates once per second only. The return value for this query is always 0.
+updates once per second only. The return value for this query is always 0.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_ctrl_getprio"><code>PTH_CTRL_GETPRIO</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_ctrl_getprio"><code>PTH_CTRL_GETPRIO</code></a></strong>
 <dd>
-This requires a second argument of type `<code>pth_t</code>' which identifies a
+<p>This requires a second argument of type `<code>pth_t</code>' which identifies a
 thread. It returns the priority (ranging from <code>PTH_PRIO_MIN</code> to
-<code>PTH_PRIO_MAX</code>) of the given thread.
+<code>PTH_PRIO_MAX</code>) of the given thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_ctrl_getname"><code>PTH_CTRL_GETNAME</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_ctrl_getname"><code>PTH_CTRL_GETNAME</code></a></strong>
 <dd>
-This requires a second argument of type `<code>pth_t</code>' which identifies a
+<p>This requires a second argument of type `<code>pth_t</code>' which identifies a
 thread. It returns the name of the given thread, i.e., the return value of
-<a href="#item_pth_ctrl"><code>pth_ctrl(3)</code></a> should be casted to a `<code>char *</code>'.
+<a href="#item_pth_ctrl"><code>pth_ctrl(3)</code></a> should be casted to a `<code>char *</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_ctrl_dumpstate"><code>PTH_CTRL_DUMPSTATE</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_ctrl_dumpstate"><code>PTH_CTRL_DUMPSTATE</code></a></strong>
 <dd>
-This requires a second argument of type `<code>FILE *</code>' to which a summary
+<p>This requires a second argument of type `<code>FILE *</code>' to which a summary
 of the internal <strong>Pth</strong> library state is written to. The main information
-which is currently written out is the current state of the thread pool.
+which is currently written out is the current state of the thread pool.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_ctrl_favournew"><code>PTH_CTRL_FAVOURNEW</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_ctrl_favournew"><code>PTH_CTRL_FAVOURNEW</code></a></strong>
 <dd>
-This requires a second argument of type `<code>int</code>' which specified whether
+<p>This requires a second argument of type `<code>int</code>' which specified whether
 the <strong>GNU Pth</strong> scheduler favours new threads on startup, i.e., whether
 they are moved from the new queue to the top (argument is <code>TRUE</code>) or
 middle (argument is <code>FALSE</code>) of the ready queue. The default is to
 favour new threads to make sure they do not starve already at startup,
-although this slightly violates the strict priority based scheduling.
+although this slightly violates the strict priority based scheduling.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>The function returns <code>-1</code> on error.</p>
-<dt><strong><a name="item_pth_version">long <strong>pth_version</strong>(void);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_version">long <strong>pth_version</strong>(void);</a></strong>
 <dd>
-This function returns a hex-value `0x<em>V</em><em>RR</em><em>T</em><em>LL</em>' which describes the
+<p>This function returns a hex-value `0x<em>V</em><em>RR</em><em>T</em><em>LL</em>' which describes the
 current <strong>Pth</strong> library version. <em>V</em> is the version, <em>RR</em> the revisions,
 <em>LL</em> the level and <em>T</em> the type of the level (alphalevel=0, betalevel=1,
 patchlevel=2, etc). For instance <strong>Pth</strong> version 1.0b1 is encoded as 0x100101.
 The reason for this unusual mapping is that this way the version number is
 steadily <em>increasing</em>. The same value is also available under compile time as
-<code>PTH_VERSION</code>.
+<code>PTH_VERSION</code>.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="thread_attribute_handling">Thread Attribute Handling</a></h2>
@@ -812,152 +786,134 @@ attribute objects are used to store attributes for to be spawned threads.
 Bounded attribute objects are used to modify attributes of already existing
 threads. The following attribute fields exists in attribute objects:</p>
 <dl>
-<dt><strong><a name="item_pth_attr_prio"><code>PTH_ATTR_PRIO</code> (read-write) [<code>int</code>]</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_attr_prio"><code>PTH_ATTR_PRIO</code> (read-write) [<code>int</code>]</a></strong>
 <dd>
-Thread Priority between <code>PTH_PRIO_MIN</code> and <code>PTH_PRIO_MAX</code>.
-The default is <code>PTH_PRIO_STD</code>.
+<p>Thread Priority between <code>PTH_PRIO_MIN</code> and <code>PTH_PRIO_MAX</code>.
+The default is <code>PTH_PRIO_STD</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_name"><code>PTH_ATTR_NAME</code> (read-write) [<code>char *</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_name"><code>PTH_ATTR_NAME</code> (read-write) [<code>char *</code>]</a></strong>
 <dd>
-Name of thread (up to 40 characters are stored only), mainly for debugging
-purposes.
+<p>Name of thread (up to 40 characters are stored only), mainly for debugging
+purposes.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_dispatches"><code>PTH_ATTR_DISPATCHES</code> (read-write) [<code>int</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_dispatches"><code>PTH_ATTR_DISPATCHES</code> (read-write) [<code>int</code>]</a></strong>
 <dd>
-In bounded attribute objects, this field is incremented every time the
-context is switched to the associated thread.
+<p>In bounded attribute objects, this field is incremented every time the
+context is switched to the associated thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_joinable"><code>PTH_ATTR_JOINABLE</code> (read-write&gt; [<code>int</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_joinable"><code>PTH_ATTR_JOINABLE</code> (read-write&gt; [<code>int</code>]</a></strong>
 <dd>
-The thread detachment type, <code>TRUE</code> indicates a joinable thread,
+<p>The thread detachment type, <code>TRUE</code> indicates a joinable thread,
 <code>FALSE</code> indicates a detached thread. When a thread is detached,
 after termination it is immediately kicked out of the system instead of
-inserted into the dead queue.
+inserted into the dead queue.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_cancel_state"><code>PTH_ATTR_CANCEL_STATE</code> (read-write) [<code>unsigned int</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_cancel_state"><code>PTH_ATTR_CANCEL_STATE</code> (read-write) [<code>unsigned int</code>]</a></strong>
 <dd>
-The thread cancellation state, i.e., a combination of <code>PTH_CANCEL_ENABLE</code> or
+<p>The thread cancellation state, i.e., a combination of <code>PTH_CANCEL_ENABLE</code> or
 <code>PTH_CANCEL_DISABLE</code> and <code>PTH_CANCEL_DEFERRED</code> or
-<code>PTH_CANCEL_ASYNCHRONOUS</code>.
+<code>PTH_CANCEL_ASYNCHRONOUS</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_stack_size"><code>PTH_ATTR_STACK_SIZE</code> (read-write) [<code>unsigned int</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_stack_size"><code>PTH_ATTR_STACK_SIZE</code> (read-write) [<code>unsigned int</code>]</a></strong>
 <dd>
-The thread stack size in bytes. Use lower values than 64 KB with great care!
+<p>The thread stack size in bytes. Use lower values than 64 KB with great care!</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_stack_addr"><code>PTH_ATTR_STACK_ADDR</code> (read-write) [<code>char *</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_stack_addr"><code>PTH_ATTR_STACK_ADDR</code> (read-write) [<code>char *</code>]</a></strong>
 <dd>
-A pointer to the lower address of a chunk of malloc(3)'ed memory for the
-stack.
+<p>A pointer to the lower address of a chunk of malloc(3)'ed memory for the
+stack.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_time_spawn"><code>PTH_ATTR_TIME_SPAWN</code> (read-only) [<code>pth_time_t</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_time_spawn"><code>PTH_ATTR_TIME_SPAWN</code> (read-only) [<code>pth_time_t</code>]</a></strong>
 <dd>
-The time when the thread was spawned.
-This can be queried only when the attribute object is bound to a thread.
+<p>The time when the thread was spawned.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_time_last"><code>PTH_ATTR_TIME_LAST</code> (read-only) [<code>pth_time_t</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_time_last"><code>PTH_ATTR_TIME_LAST</code> (read-only) [<code>pth_time_t</code>]</a></strong>
 <dd>
-The time when the thread was last dispatched.
-This can be queried only when the attribute object is bound to a thread.
+<p>The time when the thread was last dispatched.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_time_ran"><code>PTH_ATTR_TIME_RAN</code> (read-only) [<code>pth_time_t</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_time_ran"><code>PTH_ATTR_TIME_RAN</code> (read-only) [<code>pth_time_t</code>]</a></strong>
 <dd>
-The total time the thread was running.
-This can be queried only when the attribute object is bound to a thread.
+<p>The total time the thread was running.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_start_func"><code>PTH_ATTR_START_FUNC</code> (read-only) [<code>void *(*)(void *)</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_start_func"><code>PTH_ATTR_START_FUNC</code> (read-only) [<code>void *(*)(void *)</code>]</a></strong>
 <dd>
-The thread start function.
-This can be queried only when the attribute object is bound to a thread.
+<p>The thread start function.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_start_arg"><code>PTH_ATTR_START_ARG</code> (read-only) [<code>void *</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_start_arg"><code>PTH_ATTR_START_ARG</code> (read-only) [<code>void *</code>]</a></strong>
 <dd>
-The thread start argument.
-This can be queried only when the attribute object is bound to a thread.
+<p>The thread start argument.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_state"><code>PTH_ATTR_STATE</code> (read-only) [<code>pth_state_t</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_state"><code>PTH_ATTR_STATE</code> (read-only) [<code>pth_state_t</code>]</a></strong>
 <dd>
-The scheduling state of the thread, i.e., either <code>PTH_STATE_NEW</code>,
+<p>The scheduling state of the thread, i.e., either <code>PTH_STATE_NEW</code>,
 <code>PTH_STATE_READY</code>, <code>PTH_STATE_WAITING</code>, or <code>PTH_STATE_DEAD</code>
-This can be queried only when the attribute object is bound to a thread.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_events"><code>PTH_ATTR_EVENTS</code> (read-only) [<code>pth_event_t</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_events"><code>PTH_ATTR_EVENTS</code> (read-only) [<code>pth_event_t</code>]</a></strong>
 <dd>
-The event ring the thread is waiting for.
-This can be queried only when the attribute object is bound to a thread.
+<p>The event ring the thread is waiting for.
+This can be queried only when the attribute object is bound to a thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_bound"><code>PTH_ATTR_BOUND</code> (read-only) [<code>int</code>]</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_bound"><code>PTH_ATTR_BOUND</code> (read-only) [<code>int</code>]</a></strong>
 <dd>
-Whether the attribute object is bound (<code>TRUE</code>) to a thread or not (<code>FALSE</code>).
+<p>Whether the attribute object is bound (<code>TRUE</code>) to a thread or not (<code>FALSE</code>).</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>The following API functions can be used to handle the attribute objects:</p>
 <dl>
-<dt><strong><a name="item_pth_attr_of">pth_attr_t <strong>pth_attr_of</strong>(pth_t <em>tid</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_attr_of">pth_attr_t <strong>pth_attr_of</strong>(pth_t <em>tid</em>);</a></strong>
 <dd>
-This returns a new attribute object <em>bound</em> to thread <em>tid</em>. Any queries on
+<p>This returns a new attribute object <em>bound</em> to thread <em>tid</em>. Any queries on
 this object directly fetch attributes from <em>tid</em>. And attribute modifications
-directly change <em>tid</em>. Use such attribute objects to modify existing threads.
+directly change <em>tid</em>. Use such attribute objects to modify existing threads.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_new">pth_attr_t <strong>pth_attr_new</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_new">pth_attr_t <strong>pth_attr_new</strong>(void);</a></strong>
 <dd>
-This returns a new <em>unbound</em> attribute object. An implicit <a href="#item_pth_attr_init"><code>pth_attr_init()</code></a> is
+<p>This returns a new <em>unbound</em> attribute object. An implicit <a href="#item_pth_attr_init"><code>pth_attr_init()</code></a> is
 done on it. Any queries on this object just fetch stored attributes from it.
 And attribute modifications just change the stored attributes. Use such
-attribute objects to pre-configure attributes for to be spawned threads.
+attribute objects to pre-configure attributes for to be spawned threads.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_init">int <strong>pth_attr_init</strong>(pth_attr_t <em>attr</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_init">int <strong>pth_attr_init</strong>(pth_attr_t <em>attr</em>);</a></strong>
 <dd>
-This initializes an attribute object <em>attr</em> to the default values:
+<p>This initializes an attribute object <em>attr</em> to the default values:
 <a href="#item_pth_attr_prio"><code>PTH_ATTR_PRIO</code></a> := <code>PTH_PRIO_STD</code>, <a href="#item_pth_attr_name"><code>PTH_ATTR_NAME</code></a> := `<code>unknown</code>',
 <a href="#item_pth_attr_dispatches"><code>PTH_ATTR_DISPATCHES</code></a> := <code>0</code>, <a href="#item_pth_attr_joinable"><code>PTH_ATTR_JOINABLE</code></a> := <code>TRUE</code>,
 <code>PTH_ATTR_CANCELSTATE</code> := <code>PTH_CANCEL_DEFAULT</code>,
 <a href="#item_pth_attr_stack_size"><code>PTH_ATTR_STACK_SIZE</code></a> := 64*1024 and
 <a href="#item_pth_attr_stack_addr"><code>PTH_ATTR_STACK_ADDR</code></a> := <code>NULL</code>. All other <code>PTH_ATTR_*</code> attributes are
 read-only attributes and don't receive default values in <em>attr</em>, because they
-exists only for bounded attribute objects.
+exists only for bounded attribute objects.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_set">int <strong>pth_attr_set</strong>(pth_attr_t <em>attr</em>, int <em>field</em>, ...);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_set">int <strong>pth_attr_set</strong>(pth_attr_t <em>attr</em>, int <em>field</em>, ...);</a></strong>
 <dd>
-This sets the attribute field <em>field</em> in <em>attr</em> to a value
+<p>This sets the attribute field <em>field</em> in <em>attr</em> to a value
 specified as an additional argument on the variable argument
 list. The following attribute <em>fields</em> and argument pairs can
-be used:
+be used:</p>
 </dd>
 <dd>
 <pre>
@@ -969,14 +925,13 @@ be used:
  PTH_ATTR_STACK_SIZE     unsigned int
  PTH_ATTR_STACK_ADDR     char *</pre>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_get">int <strong>pth_attr_get</strong>(pth_attr_t <em>attr</em>, int <em>field</em>, ...);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_get">int <strong>pth_attr_get</strong>(pth_attr_t <em>attr</em>, int <em>field</em>, ...);</a></strong>
 <dd>
-This retrieves the attribute field <em>field</em> in <em>attr</em> and stores its
+<p>This retrieves the attribute field <em>field</em> in <em>attr</em> and stores its
 value in the variable specified through a pointer in an additional
 argument on the variable argument list. The following <em>fields</em> and
-argument pairs can be used:
+argument pairs can be used:</p>
 </dd>
 <dd>
 <pre>
@@ -996,24 +951,23 @@ argument pairs can be used:
  PTH_ATTR_EVENTS         pth_event_t *
  PTH_ATTR_BOUND          int *</pre>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_attr_destroy">int <strong>pth_attr_destroy</strong>(pth_attr_t <em>attr</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_attr_destroy">int <strong>pth_attr_destroy</strong>(pth_attr_t <em>attr</em>);</a></strong>
 <dd>
-This destroys a attribute object <em>attr</em>. After this <em>attr</em> is no
-longer a valid attribute object.
+<p>This destroys a attribute object <em>attr</em>. After this <em>attr</em> is no
+longer a valid attribute object.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="thread_control">Thread Control</a></h2>
 <p>The following functions control the threading itself and make up the main API
 of the <strong>Pth</strong> library.</p>
 <dl>
-<dt><strong><a name="item_pth_spawn">pth_t <strong>pth_spawn</strong>(pth_attr_t <em>attr</em>, void *(*<em>entry</em>)(void *), void *<em>arg</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_spawn">pth_t <strong>pth_spawn</strong>(pth_attr_t <em>attr</em>, void *(*<em>entry</em>)(void *), void *<em>arg</em>);</a></strong>
 <dd>
-This spawns a new thread with the attributes given in <em>attr</em> (or
+<p>This spawns a new thread with the attributes given in <em>attr</em> (or
 <code>PTH_ATTR_DEFAULT</code> for default attributes - which means that thread priority,
 joinability and cancel state are inherited from the current thread) with the
 starting point at routine <em>entry</em>; the dispatch count is not inherited from
@@ -1023,7 +977,7 @@ the new thread unit, i.e., <em>entry</em>'s return value is fed to an implicit
 pth_exit(3). So the thread can also exit by just returning. Nevertheless
 the thread can also exit explicitly at any time by calling pth_exit(3). But
 keep in mind that calling the POSIX function <code>exit(3)</code> still terminates the
-complete process and not just the current thread.
+complete process and not just the current thread.</p>
 </dd>
 <dd>
 <p>There is no <strong>Pth</strong>-internal limit on the number of threads one can spawn,
@@ -1031,65 +985,59 @@ except the limit implied by the available virtual memory. <strong>Pth</strong> i
 keeps track of thread in dynamic data structures. The function returns
 <code>NULL</code> on error.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_once">int <strong>pth_once</strong>(pth_once_t *<em>ctrlvar</em>, void (*<em>func</em>)(void *), void *<em>arg</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_once">int <strong>pth_once</strong>(pth_once_t *<em>ctrlvar</em>, void (*<em>func</em>)(void *), void *<em>arg</em>);</a></strong>
 <dd>
-This is a convenience function which uses a control variable of type
+<p>This is a convenience function which uses a control variable of type
 <code>pth_once_t</code> to make sure a constructor function <em>func</em> is called only once
 as `<em>func</em>(<em>arg</em>)' in the system. In other words: Only the first call to
 <a href="#item_pth_once"><code>pth_once(3)</code></a> by any thread in the system succeeds. The variable referenced via
 <em>ctrlvar</em> should be declared as `<code>pth_once_t</code> <em>variable-name</em> =
-<code>PTH_ONCE_INIT</code>;' before calling this function.
+<code>PTH_ONCE_INIT</code>;' before calling this function.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_self">pth_t <strong>pth_self</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_self">pth_t <strong>pth_self</strong>(void);</a></strong>
 <dd>
-This just returns the unique thread handle of the currently running thread.
+<p>This just returns the unique thread handle of the currently running thread.
 This handle itself has to be treated as an opaque entity by the application.
 It's usually used as an argument to other functions who require an argument of
-type <code>pth_t</code>.
+type <code>pth_t</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_suspend">int <strong>pth_suspend</strong>(pth_t <em>tid</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_suspend">int <strong>pth_suspend</strong>(pth_t <em>tid</em>);</a></strong>
 <dd>
-This suspends a thread <em>tid</em> until it is manually resumed again via
+<p>This suspends a thread <em>tid</em> until it is manually resumed again via
 pth_resume(3). For this, the thread is moved to the <strong>SUSPENDED</strong> queue
 and this way is completely out of the scheduler's event handling and
 thread dispatching scope. Suspending the current thread is not allowed.
-The function returns <code>TRUE</code> on success and <code>FALSE</code> on errors.
+The function returns <code>TRUE</code> on success and <code>FALSE</code> on errors.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_resume">int <strong>pth_resume</strong>(pth_t <em>tid</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_resume">int <strong>pth_resume</strong>(pth_t <em>tid</em>);</a></strong>
 <dd>
-This function resumes a previously suspended thread <em>tid</em>, i.e. <em>tid</em>
+<p>This function resumes a previously suspended thread <em>tid</em>, i.e. <em>tid</em>
 has to stay on the <strong>SUSPENDED</strong> queue. The thread is moved to the
 <strong>NEW</strong>, <strong>READY</strong> or <strong>WAITING</strong> queue (dependent on what its state was
 when the <a href="#item_pth_suspend"><code>pth_suspend(3)</code></a> call were made) and this way again enters the
 event handling and thread dispatching scope of the scheduler. The
-function returns <code>TRUE</code> on success and <code>FALSE</code> on errors.
+function returns <code>TRUE</code> on success and <code>FALSE</code> on errors.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_raise">int <strong>pth_raise</strong>(pth_t <em>tid</em>, int <em>sig</em>)</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_raise">int <strong>pth_raise</strong>(pth_t <em>tid</em>, int <em>sig</em>)</a></strong>
 <dd>
-This function raises a signal for delivery to thread <em>tid</em> only. When one
+<p>This function raises a signal for delivery to thread <em>tid</em> only. When one
 just raises a signal via <code>raise(3)</code> or kill(2), its delivered to an arbitrary
 thread which has this signal not blocked. With <a href="#item_pth_raise"><code>pth_raise(3)</code></a> one can send a
 signal to a thread and its guarantees that only this thread gets the signal
 delivered. But keep in mind that nevertheless the signals <em>action</em> is still
 configured <em>process</em>-wide. When <em>sig</em> is 0 plain thread checking is
 performed, i.e., `<a href="#item_pth_raise"><code>pth_raise(tid, 0)</code></a>' returns <code>TRUE</code> when thread <em>tid</em>
-still exists in the <strong>PTH</strong> system but doesn't send any signal to it.
+still exists in the <strong>PTH</strong> system but doesn't send any signal to it.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_yield">int <strong>pth_yield</strong>(pth_t <em>tid</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_yield">int <strong>pth_yield</strong>(pth_t <em>tid</em>);</a></strong>
 <dd>
-This explicitly yields back the execution control to the scheduler thread.
+<p>This explicitly yields back the execution control to the scheduler thread.
 Usually the execution is implicitly transferred back to the scheduler when a
 thread waits for an event. But when a thread has to do larger CPU bursts, it
 can be reasonable to interrupt it explicitly by doing a few <a href="#item_pth_yield"><code>pth_yield(3)</code></a> calls
@@ -1097,7 +1045,7 @@ to give other threads a chance to execute, too. This obviously is the
 cooperating part of <strong>Pth</strong>. A thread <em>has not</em> to yield execution, of
 course. But when you want to program a server application with good response
 times the threads should be cooperative, i.e., when they should split their CPU
-bursts into smaller units with this call.
+bursts into smaller units with this call.</p>
 </dd>
 <dd>
 <p>Usually one specifies <em>tid</em> as <code>NULL</code> to indicate to the scheduler that it
@@ -1115,11 +1063,10 @@ is, not in <code>PTH_STATE_NEW</code> or <code>PTH_STATE_READY</code>) an error 
 <code>errno</code> set to <code>EINVAL</code>) if <em>tid</em> specified an invalid or still not
 new or ready thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_nap">int <strong>pth_nap</strong>(pth_time_t <em>naptime</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_nap">int <strong>pth_nap</strong>(pth_time_t <em>naptime</em>);</a></strong>
 <dd>
-This functions suspends the execution of the current thread until <em>naptime</em>
+<p>This functions suspends the execution of the current thread until <em>naptime</em>
 is elapsed. <em>naptime</em> is of type <code>pth_time_t</code> and this way has theoretically
 a resolution of one microsecond. In practice you should neither rely on this
 nor that the thread is awakened exactly after <em>naptime</em> has elapsed. It's
@@ -1128,13 +1075,12 @@ of the non-preemptive nature of <strong>Pth</strong> it can last longer (when an
 kept the CPU for a long time). Additionally the resolution is dependent of the
 implementation of timers by the operating system and these usually have only a
 resolution of 10 microseconds or larger. But usually this isn't important for
-an application unless it tries to use this facility for real time tasks.
+an application unless it tries to use this facility for real time tasks.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_wait">int <strong>pth_wait</strong>(pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_wait">int <strong>pth_wait</strong>(pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is the link between the scheduler and the event facility (see below for
+<p>This is the link between the scheduler and the event facility (see below for
 the various <code>pth_event_xxx()</code> functions). It's modeled like select(2), i.e., one
 gives this function one or more events (in the event ring specified by <em>ev</em>)
 on which the current thread wants to wait. The scheduler awakes the
@@ -1142,13 +1088,12 @@ thread when one ore more of them occurred or failed after tagging
 them as such. The <em>ev</em> argument is a <em>pointer</em> to an event ring
 which isn't changed except for the tagging. <a href="#item_pth_wait"><code>pth_wait(3)</code></a> returns the
 number of occurred or failed events and the application can use
-<a href="#item_pth_event_status"><code>pth_event_status(3)</code></a> to test which events occurred or failed.
+<a href="#item_pth_event_status"><code>pth_event_status(3)</code></a> to test which events occurred or failed.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_cancel">int <strong>pth_cancel</strong>(pth_t <em>tid</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_cancel">int <strong>pth_cancel</strong>(pth_t <em>tid</em>);</a></strong>
 <dd>
-This cancels a thread <em>tid</em>. How the cancellation is done depends on the
+<p>This cancels a thread <em>tid</em>. How the cancellation is done depends on the
 cancellation state of <em>tid</em> which the thread can configure itself. When its
 state is <code>PTH_CANCEL_DISABLE</code> a cancellation request is just made pending.
 When it is <code>PTH_CANCEL_ENABLE</code> it depends on the cancellation type what is
@@ -1158,53 +1103,50 @@ immediately canceled before <a href="#item_pth_cancel"><code>pth_cancel(3)</code
 cancellation is equal to implicitly forcing the thread to call
 `<a href="#item_pth_exit"><code>pth_exit(PTH_CANCELED)</code></a>' at one of his cancellation points. In <strong>Pth</strong>
 thread enter a cancellation point either explicitly via <a href="#item_pth_cancel_point"><code>pth_cancel_point(3)</code></a> or
-implicitly by waiting for an event.
+implicitly by waiting for an event.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_abort">int <strong>pth_abort</strong>(pth_t <em>tid</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_abort">int <strong>pth_abort</strong>(pth_t <em>tid</em>);</a></strong>
 <dd>
-This is the cruel way to cancel a thread <em>tid</em>. When it's already dead and
+<p>This is the cruel way to cancel a thread <em>tid</em>. When it's already dead and
 waits to be joined it just joins it (via `<a href="#item_pth_join"><code>pth_join(</code></a><em>tid</em><code>, NULL)</code>') and
 this way kicks it out of the system. Else it forces the thread to be not
 joinable and to allow asynchronous cancellation and then cancels it via
-`<a href="#item_pth_cancel"><code>pth_cancel(</code></a><em>tid</em><code>)</code>'.
+`<a href="#item_pth_cancel"><code>pth_cancel(</code></a><em>tid</em><code>)</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_join">int <strong>pth_join</strong>(pth_t <em>tid</em>, void **<em>value</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_join">int <strong>pth_join</strong>(pth_t <em>tid</em>, void **<em>value</em>);</a></strong>
 <dd>
-This joins the current thread with the thread specified via <em>tid</em>.
+<p>This joins the current thread with the thread specified via <em>tid</em>.
 It first suspends the current thread until the <em>tid</em> thread has
 terminated. Then it is awakened and stores the value of <em>tid</em>'s
 <a href="#item_pth_exit"><code>pth_exit(3)</code></a> call into *<em>value</em> (if <em>value</em> and not <code>NULL</code>) and
 returns to the caller. A thread can be joined only when it has the
 attribute <a href="#item_pth_attr_joinable"><code>PTH_ATTR_JOINABLE</code></a> set to <code>TRUE</code> (the default). A thread
 can only be joined once, i.e., after the <a href="#item_pth_join"><code>pth_join(3)</code></a> call the thread
-<em>tid</em> is completely removed from the system.
+<em>tid</em> is completely removed from the system.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_exit">void <strong>pth_exit</strong>(void *<em>value</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_exit">void <strong>pth_exit</strong>(void *<em>value</em>);</a></strong>
 <dd>
-This terminates the current thread. Whether it's immediately removed
+<p>This terminates the current thread. Whether it's immediately removed
 from the system or inserted into the dead queue of the scheduler depends
 on its join type which was specified at spawning time. If it has the
 attribute <a href="#item_pth_attr_joinable"><code>PTH_ATTR_JOINABLE</code></a> set to <code>FALSE</code>, it's immediately removed
 and <em>value</em> is ignored. Else the thread is inserted into the dead queue
 and <em>value</em> remembered for a subsequent <a href="#item_pth_join"><code>pth_join(3)</code></a> call by another
-thread.
+thread.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="utilities">Utilities</a></h2>
 <p>Utility functions.</p>
 <dl>
-<dt><strong><a name="item_pth_fdmode">int <strong>pth_fdmode</strong>(int <em>fd</em>, int <em>mode</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_fdmode">int <strong>pth_fdmode</strong>(int <em>fd</em>, int <em>mode</em>);</a></strong>
 <dd>
-This switches the non-blocking mode flag on file descriptor <em>fd</em>. The
+<p>This switches the non-blocking mode flag on file descriptor <em>fd</em>. The
 argument <em>mode</em> can be <code>PTH_FDMODE_BLOCK</code> for switching <em>fd</em> into blocking
 I/O mode, <code>PTH_FDMODE_NONBLOCK</code> for switching <em>fd</em> into non-blocking I/O
 mode or <code>PTH_FDMODE_POLL</code> for just polling the current mode. The current mode
@@ -1213,30 +1155,27 @@ is returned (either <code>PTH_FDMODE_BLOCK</code> or <code>PTH_FDMODE_NONBLOCK</
 longer a requirement to manually switch a file descriptor into non-blocking
 mode in order to use it. This is automatically done temporarily inside <strong>Pth</strong>.
 Instead when you now switch a file descriptor explicitly into non-blocking
-mode, <a href="#item_pth_read"><code>pth_read(3)</code></a> or <a href="#item_pth_write"><code>pth_write(3)</code></a> will never block the current thread.
+mode, <a href="#item_pth_read"><code>pth_read(3)</code></a> or <a href="#item_pth_write"><code>pth_write(3)</code></a> will never block the current thread.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_time">pth_time_t <strong>pth_time</strong>(long <em>sec</em>, long <em>usec</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_time">pth_time_t <strong>pth_time</strong>(long <em>sec</em>, long <em>usec</em>);</a></strong>
 <dd>
-This is a constructor for a <code>pth_time_t</code> structure which is a convenient
+<p>This is a constructor for a <code>pth_time_t</code> structure which is a convenient
 function to avoid temporary structure values. It returns a <em>pth_time_t</em>
-structure which holds the absolute time value specified by <em>sec</em> and <em>usec</em>.
+structure which holds the absolute time value specified by <em>sec</em> and <em>usec</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_timeout">pth_time_t <strong>pth_timeout</strong>(long <em>sec</em>, long <em>usec</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_timeout">pth_time_t <strong>pth_timeout</strong>(long <em>sec</em>, long <em>usec</em>);</a></strong>
 <dd>
-This is a constructor for a <code>pth_time_t</code> structure which is a convenient
+<p>This is a constructor for a <code>pth_time_t</code> structure which is a convenient
 function to avoid temporary structure values. It returns a <em>pth_time_t</em>
 structure which holds the absolute time value calculated by adding <em>sec</em> and
-<em>usec</em> to the current time.
+<em>usec</em> to the current time.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_sfiodisc">Sfdisc_t *<strong>pth_sfiodisc</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_sfiodisc">Sfdisc_t *<strong>pth_sfiodisc</strong>(void);</a></strong>
 <dd>
-This functions is always available, but only reasonably usable when <strong>Pth</strong>
+<p>This functions is always available, but only reasonably usable when <strong>Pth</strong>
 was built with <strong>Sfio</strong> support (<code>--with-sfio</code> option) and <code>PTH_EXT_SFIO</code> is
 then defined by <code>pth.h</code>. It is useful for applications which want to use the
 comprehensive <strong>Sfio</strong> I/O library with the <strong>Pth</strong> threading library. Then this
@@ -1246,19 +1185,19 @@ stream use <a href="#item_pth_read"><code>pth_read(3)/pth_write(2)</code></a> in
 is that this way I/O on the <strong>Sfio</strong> stream does only block the current thread
 instead of the whole process. The application has to <code>free(3)</code> the <code>Sfdisc_t</code>
 structure when it is no longer needed. The Sfio package can be found at
-<a href="http://www.research.att.com/sw/tools/sfio/.">http://www.research.att.com/sw/tools/sfio/.</a>
+<a href="http://www.research.att.com/sw/tools/sfio/.">http://www.research.att.com/sw/tools/sfio/.</a></p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="cancellation_management">Cancellation Management</a></h2>
 <p><strong>Pth</strong> supports POSIX style thread cancellation via <a href="#item_pth_cancel"><code>pth_cancel(3)</code></a> and the
 following two related functions:</p>
 <dl>
-<dt><strong><a name="item_pth_cancel_state">void <strong>pth_cancel_state</strong>(int <em>newstate</em>, int *<em>oldstate</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_cancel_state">void <strong>pth_cancel_state</strong>(int <em>newstate</em>, int *<em>oldstate</em>);</a></strong>
 <dd>
-This manages the cancellation state of the current thread. When <em>oldstate</em>
+<p>This manages the cancellation state of the current thread. When <em>oldstate</em>
 is not <code>NULL</code> the function stores the old cancellation state under the
 variable pointed to by <em>oldstate</em>. When <em>newstate</em> is not <code>0</code> it sets the
 new cancellation state. <em>oldstate</em> is created before <em>newstate</em> is set. A
@@ -1268,18 +1207,18 @@ state is a combination of <code>PTH_CANCEL_ENABLE</code> or <code>PTH_CANCEL_DIS
 default state where cancellation is possible but only at cancellation points.
 Use <code>PTH_CANCEL_DISABLE</code> to complete disable cancellation for a thread and
 <code>PTH_CANCEL_ASYNCHRONOUS</code> for allowing asynchronous cancellations, i.e.,
-cancellations which can happen at any time.
+cancellations which can happen at any time.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_cancel_point">void <strong>pth_cancel_point</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_cancel_point">void <strong>pth_cancel_point</strong>(void);</a></strong>
 <dd>
-This explicitly enter a cancellation point. When the current cancellation
+<p>This explicitly enter a cancellation point. When the current cancellation
 state is <code>PTH_CANCEL_DISABLE</code> or no cancellation request is pending, this has
 no side-effect and returns immediately. Else it calls
-`<a href="#item_pth_exit"><code>pth_exit(PTH_CANCELED)</code></a>'.
+`<a href="#item_pth_exit"><code>pth_exit(PTH_CANCELED)</code></a>'.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="event_handling">Event Handling</a></h2>
@@ -1287,28 +1226,25 @@ no side-effect and returns immediately. Else it calls
 through the <a href="#item_pth_wait"><code>pth_wait(3)</code></a> function. The following functions provide the handling
 of event rings.</p>
 <dl>
-<dt><strong><a name="item_pth_event">pth_event_t <strong>pth_event</strong>(unsigned long <em>spec</em>, ...);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_event">pth_event_t <strong>pth_event</strong>(unsigned long <em>spec</em>, ...);</a></strong>
 <dd>
-This creates a new event ring consisting of a single initial event. The type
+<p>This creates a new event ring consisting of a single initial event. The type
 of the generated event is specified by <em>spec</em>. The following types are
-available:
+available:</p>
 </dd>
 <dl>
-<dt><strong><a name="item_pth_event_fd"><code>PTH_EVENT_FD</code></a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_event_fd"><code>PTH_EVENT_FD</code></a></strong>
 <dd>
-This is a file descriptor event. One or more of <code>PTH_UNTIL_FD_READABLE</code>,
+<p>This is a file descriptor event. One or more of <code>PTH_UNTIL_FD_READABLE</code>,
 <code>PTH_UNTIL_FD_WRITEABLE</code> or <code>PTH_UNTIL_FD_EXCEPTION</code> have to be OR-ed into
 <em>spec</em> to specify on which state of the file descriptor you want to wait. The
 file descriptor itself has to be given as an additional argument. Example:
-`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_FD|PTH_UNTIL_FD_READABLE, fd)</code></a>'.
+`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_FD|PTH_UNTIL_FD_READABLE, fd)</code></a>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_select"><code>PTH_EVENT_SELECT</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_select"><code>PTH_EVENT_SELECT</code></a></strong>
 <dd>
-This is a multiple file descriptor event modeled directly after the <code>select(2)</code>
+<p>This is a multiple file descriptor event modeled directly after the <code>select(2)</code>
 call (actually it is also used to implement <a href="#item_pth_select"><code>pth_select(3)</code></a> internally). It's a
 convenient way to wait for a large set of file descriptors at once and at each
 file descriptor for a different type of state. Additionally as a nice
@@ -1316,7 +1252,7 @@ side-effect one receives the number of file descriptors which causes the event
 to be occurred (using BSD semantics, i.e., when a file descriptor occurred in
 two sets it's counted twice). The arguments correspond directly to the
 <code>select(2)</code> function arguments except that there is no timeout argument (because
-timeouts already can be handled via <a href="#item_pth_event_time"><code>PTH_EVENT_TIME</code></a> events).
+timeouts already can be handled via <a href="#item_pth_event_time"><code>PTH_EVENT_TIME</code></a> events).</p>
 </dd>
 <dd>
 <p>Example: `<a href="#item_pth_event"><code>pth_event(PTH_EVENT_SELECT, &amp;rc, nfd, rfds, wfds, efds)</code></a>' where
@@ -1324,11 +1260,10 @@ timeouts already can be handled via <a href="#item_pth_event_time"><code>PTH_EVE
 <code>rfds</code>, <code>wfds</code> and <code>efds</code> have to be of type `<code>fd_set *</code>' (see
 select(2)). The number of occurred file descriptors are stored in <code>rc</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_sigs"><code>PTH_EVENT_SIGS</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_sigs"><code>PTH_EVENT_SIGS</code></a></strong>
 <dd>
-This is a signal set event. The two additional arguments have to be a pointer
+<p>This is a signal set event. The two additional arguments have to be a pointer
 to a signal set (type `<code>sigset_t *</code>') and a pointer to a signal number
 variable (type `<code>int *</code>'). This event waits until one of the signals in
 the signal set occurred. As a result the occurred signal number is stored in
@@ -1336,43 +1271,39 @@ the second additional argument. Keep in mind that the <strong>Pth</strong> sched
 block signals automatically. So when you want to wait for a signal with this
 event you've to block it via <code>sigprocmask(2)</code> or it will be delivered without
 your notice. Example: `<code>sigemptyset(&amp;set); sigaddset(&amp;set, SIGINT);
-pth_event(PTH_EVENT_SIG, &amp;set, &amp;sig);</code>'.
+pth_event(PTH_EVENT_SIG, &amp;set, &amp;sig);</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_time"><code>PTH_EVENT_TIME</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_time"><code>PTH_EVENT_TIME</code></a></strong>
 <dd>
-This is a time point event. The additional argument has to be of type
+<p>This is a time point event. The additional argument has to be of type
 <code>pth_time_t</code> (usually on-the-fly generated via pth_time(3)). This events
 waits until the specified time point has elapsed. Keep in mind that the value
 is an absolute time point and not an offset. When you want to wait for a
 specified amount of time, you've to add the current time to the offset
 (usually on-the-fly achieved via pth_timeout(3)). Example:
-`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_TIME, pth_timeout(2,0))</code></a>'.
+`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_TIME, pth_timeout(2,0))</code></a>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_msg"><code>PTH_EVENT_MSG</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_msg"><code>PTH_EVENT_MSG</code></a></strong>
 <dd>
-This is a message port event. The additional argument has to be of type
+<p>This is a message port event. The additional argument has to be of type
 <code>pth_msgport_t</code>. This events waits until one or more messages were received
-on the specified message port. Example: `<a href="#item_pth_event"><code>pth_event(PTH_EVENT_MSG, mp)</code></a>'.
+on the specified message port. Example: `<a href="#item_pth_event"><code>pth_event(PTH_EVENT_MSG, mp)</code></a>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_tid"><code>PTH_EVENT_TID</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_tid"><code>PTH_EVENT_TID</code></a></strong>
 <dd>
-This is a thread event. The additional argument has to be of type <code>pth_t</code>.
+<p>This is a thread event. The additional argument has to be of type <code>pth_t</code>.
 One of <code>PTH_UNTIL_TID_NEW</code>, <code>PTH_UNTIL_TID_READY</code>, <code>PTH_UNTIL_TID_WAITING</code>
 or <code>PTH_UNTIL_TID_DEAD</code> has to be OR-ed into <em>spec</em> to specify on which
 state of the thread you want to wait. Example:
-`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_TID|PTH_UNTIL_TID_DEAD, tid)</code></a>'.
+`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_TID|PTH_UNTIL_TID_DEAD, tid)</code></a>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_func"><code>PTH_EVENT_FUNC</code></a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_func"><code>PTH_EVENT_FUNC</code></a></strong>
 <dd>
-This is a custom callback function event. Three additional arguments
+<p>This is a custom callback function event. Three additional arguments
 have to be given with the following types: `<code>int (*)(void *)</code>',
 `<code>void *</code>' and `<code>pth_time_t</code>'. The first is a function pointer to
 a check function and the second argument is a user-supplied context
@@ -1382,26 +1313,25 @@ careful!) and the thread is kept sleeping while the function returns
 <code>FALSE</code>. Once it returned <code>TRUE</code> the thread will be awakened. The
 check interval is defined by the third argument, i.e., the check
 function is polled again not until this amount of time elapsed. Example:
-`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_FUNC, func, arg, pth_time(0,500000))</code></a>'.
+`<a href="#item_pth_event"><code>pth_event(PTH_EVENT_FUNC, func, arg, pth_time(0,500000))</code></a>'.</p>
 </dd>
-<p></p></dl>
-<dt><strong><a name="item_pth_event_typeof">unsigned long <strong>pth_event_typeof</strong>(pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+</dl>
+<dt><strong><a name="item_pth_event_typeof">unsigned long <strong>pth_event_typeof</strong>(pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This returns the type of event <em>ev</em>. It's a combination of the describing
+<p>This returns the type of event <em>ev</em>. It's a combination of the describing
 <code>PTH_EVENT_XX</code> and <code>PTH_UNTIL_XX</code> value. This is especially useful to know
-which arguments have to be supplied to the <a href="#item_pth_event_extract"><code>pth_event_extract(3)</code></a> function.
+which arguments have to be supplied to the <a href="#item_pth_event_extract"><code>pth_event_extract(3)</code></a> function.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_extract">int <strong>pth_event_extract</strong>(pth_event_t <em>ev</em>, ...);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_extract">int <strong>pth_event_extract</strong>(pth_event_t <em>ev</em>, ...);</a></strong>
 <dd>
-When <a href="#item_pth_event"><code>pth_event(3)</code></a> is treated like sprintf(3), then this function is
+<p>When <a href="#item_pth_event"><code>pth_event(3)</code></a> is treated like sprintf(3), then this function is
 sscanf(3), i.e., it is the inverse operation of pth_event(3). This means that
 it can be used to extract the ingredients of an event. The ingredients are
 stored into variables which are given as pointers on the variable argument
 list. Which pointers have to be present depends on the event type and has to
-be determined by the caller before via pth_event_typeof(3).
+be determined by the caller before via pth_event_typeof(3).</p>
 </dd>
 <dd>
 <p>To make it clear, when you constructed <em>ev</em> via `<a href="#item_pth_event"><code>ev =
@@ -1412,178 +1342,163 @@ keep in mind that you have to always supply <em>pointers</em> to <em>variables</
 these variables have to be of the same type as the argument of <a href="#item_pth_event"><code>pth_event(3)</code></a>
 required.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_concat">pth_event_t <strong>pth_event_concat</strong>(pth_event_t <em>ev</em>, ...);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_concat">pth_event_t <strong>pth_event_concat</strong>(pth_event_t <em>ev</em>, ...);</a></strong>
 <dd>
-This concatenates one or more additional event rings to the event ring <em>ev</em>
+<p>This concatenates one or more additional event rings to the event ring <em>ev</em>
 and returns <em>ev</em>. The end of the argument list has to be marked with a
 <code>NULL</code> argument. Use this function to create real events rings out of the
-single-event rings created by pth_event(3).
+single-event rings created by pth_event(3).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_isolate">pth_event_t <strong>pth_event_isolate</strong>(pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_isolate">pth_event_t <strong>pth_event_isolate</strong>(pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This isolates the event <em>ev</em> from possibly appended events in the event ring.
+<p>This isolates the event <em>ev</em> from possibly appended events in the event ring.
 When in <em>ev</em> only one event exists, this returns <code>NULL</code>. When remaining
-events exists, they form a new event ring which is returned.
+events exists, they form a new event ring which is returned.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_walk">pth_event_t <strong>pth_event_walk</strong>(pth_event_t <em>ev</em>, int <em>direction</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_walk">pth_event_t <strong>pth_event_walk</strong>(pth_event_t <em>ev</em>, int <em>direction</em>);</a></strong>
 <dd>
-This walks to the next (when <em>direction</em> is <code>PTH_WALK_NEXT</code>) or previews
+<p>This walks to the next (when <em>direction</em> is <code>PTH_WALK_NEXT</code>) or previews
 (when <em>direction</em> is <code>PTH_WALK_PREV</code>) event in the event ring <em>ev</em> and
 returns this new reached event. Additionally <code>PTH_UNTIL_OCCURRED</code> can be
 OR-ed into <em>direction</em> to walk to the next/previous occurred event in the
-ring <em>ev</em>.
+ring <em>ev</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_status">pth_status_t <strong>pth_event_status</strong>(pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_status">pth_status_t <strong>pth_event_status</strong>(pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This returns the status of event <em>ev</em>. This is a fast operation
+<p>This returns the status of event <em>ev</em>. This is a fast operation
 because only a tag on <em>ev</em> is checked which was either set or still
 not set by the scheduler. In other words: This doesn't check the
 event itself, it just checks the last knowledge of the scheduler. The
 possible returned status codes are: <code>PTH_STATUS_PENDING</code> (event is
 still pending), <code>PTH_STATUS_OCCURRED</code> (event successfully occurred),
-<code>PTH_STATUS_FAILED</code> (event failed).
+<code>PTH_STATUS_FAILED</code> (event failed).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_event_free">int <strong>pth_event_free</strong>(pth_event_t <em>ev</em>, int <em>mode</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_event_free">int <strong>pth_event_free</strong>(pth_event_t <em>ev</em>, int <em>mode</em>);</a></strong>
 <dd>
-This deallocates the event <em>ev</em> (when <em>mode</em> is <code>PTH_FREE_THIS</code>) or all
+<p>This deallocates the event <em>ev</em> (when <em>mode</em> is <code>PTH_FREE_THIS</code>) or all
 events appended to the event ring under <em>ev</em> (when <em>mode</em> is
-<code>PTH_FREE_ALL</code>).
+<code>PTH_FREE_ALL</code>).</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="keybased_storage">Key-Based Storage</a></h2>
 <p>The following functions provide thread-local storage through unique keys
 similar to the POSIX <strong>Pthread</strong> API. Use this for thread specific global data.</p>
 <dl>
-<dt><strong><a name="item_pth_key_create">int <strong>pth_key_create</strong>(pth_key_t *<em>key</em>, void (*<em>func</em>)(void *));</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_key_create">int <strong>pth_key_create</strong>(pth_key_t *<em>key</em>, void (*<em>func</em>)(void *));</a></strong>
 <dd>
-This created a new unique key and stores it in <em>key</em>. Additionally <em>func</em>
+<p>This created a new unique key and stores it in <em>key</em>. Additionally <em>func</em>
 can specify a destructor function which is called on the current threads
-termination with the <em>key</em>.
+termination with the <em>key</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_key_delete">int <strong>pth_key_delete</strong>(pth_key_t <em>key</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_key_delete">int <strong>pth_key_delete</strong>(pth_key_t <em>key</em>);</a></strong>
 <dd>
-This explicitly destroys a key <em>key</em>.
+<p>This explicitly destroys a key <em>key</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_key_setdata">int <strong>pth_key_setdata</strong>(pth_key_t <em>key</em>, const void *<em>value</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_key_setdata">int <strong>pth_key_setdata</strong>(pth_key_t <em>key</em>, const void *<em>value</em>);</a></strong>
 <dd>
-This stores <em>value</em> under <em>key</em>.
+<p>This stores <em>value</em> under <em>key</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_key_getdata">void *<strong>pth_key_getdata</strong>(pth_key_t <em>key</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_key_getdata">void *<strong>pth_key_getdata</strong>(pth_key_t <em>key</em>);</a></strong>
 <dd>
-This retrieves the value under <em>key</em>.
+<p>This retrieves the value under <em>key</em>.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="message_port_communication">Message Port Communication</a></h2>
 <p>The following functions provide message ports which can be used for efficient
 and flexible inter-thread communication.</p>
 <dl>
-<dt><strong><a name="item_pth_msgport_create">pth_msgport_t <strong>pth_msgport_create</strong>(const char *<em>name</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_msgport_create">pth_msgport_t <strong>pth_msgport_create</strong>(const char *<em>name</em>);</a></strong>
 <dd>
-This returns a pointer to a new message port. If name <em>name</em>
+<p>This returns a pointer to a new message port. If name <em>name</em>
 is not <code>NULL</code>, the <em>name</em> can be used by other threads via
 <a href="#item_pth_msgport_find"><code>pth_msgport_find(3)</code></a> to find the message port in case they do not know
-directly the pointer to the message port.
+directly the pointer to the message port.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_msgport_destroy">void <strong>pth_msgport_destroy</strong>(pth_msgport_t <em>mp</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_msgport_destroy">void <strong>pth_msgport_destroy</strong>(pth_msgport_t <em>mp</em>);</a></strong>
 <dd>
-This destroys a message port <em>mp</em>. Before all pending messages on it are
-replied to their origin message port.
+<p>This destroys a message port <em>mp</em>. Before all pending messages on it are
+replied to their origin message port.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_msgport_find">pth_msgport_t <strong>pth_msgport_find</strong>(const char *<em>name</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_msgport_find">pth_msgport_t <strong>pth_msgport_find</strong>(const char *<em>name</em>);</a></strong>
 <dd>
-This finds a message port in the system by <em>name</em> and returns the pointer to
-it.
+<p>This finds a message port in the system by <em>name</em> and returns the pointer to
+it.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_msgport_pending">int <strong>pth_msgport_pending</strong>(pth_msgport_t <em>mp</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_msgport_pending">int <strong>pth_msgport_pending</strong>(pth_msgport_t <em>mp</em>);</a></strong>
 <dd>
-This returns the number of pending messages on message port <em>mp</em>.
+<p>This returns the number of pending messages on message port <em>mp</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_msgport_put">int <strong>pth_msgport_put</strong>(pth_msgport_t <em>mp</em>, pth_message_t *<em>m</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_msgport_put">int <strong>pth_msgport_put</strong>(pth_msgport_t <em>mp</em>, pth_message_t *<em>m</em>);</a></strong>
 <dd>
-This puts (or sends) a message <em>m</em> to message port <em>mp</em>.
+<p>This puts (or sends) a message <em>m</em> to message port <em>mp</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_msgport_get">pth_message_t *<strong>pth_msgport_get</strong>(pth_msgport_t <em>mp</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_msgport_get">pth_message_t *<strong>pth_msgport_get</strong>(pth_msgport_t <em>mp</em>);</a></strong>
 <dd>
-This gets (or receives) the top message from message port <em>mp</em>. Incoming
+<p>This gets (or receives) the top message from message port <em>mp</em>. Incoming
 messages are always kept in a queue, so there can be more pending messages, of
-course.
+course.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_msgport_reply">int <strong>pth_msgport_reply</strong>(pth_message_t *<em>m</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_msgport_reply">int <strong>pth_msgport_reply</strong>(pth_message_t *<em>m</em>);</a></strong>
 <dd>
-This replies a message <em>m</em> to the message port of the sender.
+<p>This replies a message <em>m</em> to the message port of the sender.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="thread_cleanups">Thread Cleanups</a></h2>
 <p>Per-thread cleanup functions.</p>
 <dl>
-<dt><strong><a name="item_pth_cleanup_push">int <strong>pth_cleanup_push</strong>(void (*<em>handler</em>)(void *), void *<em>arg</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_cleanup_push">int <strong>pth_cleanup_push</strong>(void (*<em>handler</em>)(void *), void *<em>arg</em>);</a></strong>
 <dd>
-This pushes the routine <em>handler</em> onto the stack of cleanup routines for the
+<p>This pushes the routine <em>handler</em> onto the stack of cleanup routines for the
 current thread. These routines are called in LIFO order when the thread
-terminates.
+terminates.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_cleanup_pop">int <strong>pth_cleanup_pop</strong>(int <em>execute</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_cleanup_pop">int <strong>pth_cleanup_pop</strong>(int <em>execute</em>);</a></strong>
 <dd>
-This pops the top-most routine from the stack of cleanup routines for the
-current thread. When <em>execute</em> is <code>TRUE</code> the routine is additionally called.
+<p>This pops the top-most routine from the stack of cleanup routines for the
+current thread. When <em>execute</em> is <code>TRUE</code> the routine is additionally called.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="process_forking">Process Forking</a></h2>
 <p>The following functions provide some special support for process forking
 situations inside the threading environment.</p>
 <dl>
-<dt><strong><a name="item_pth_atfork_push">int <strong>pth_atfork_push</strong>(void (*<em>prepare</em>)(void *), void (*)(void *<em>parent</em>), void (*)(void *<em>child</em>), void *<em>arg</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_atfork_push">int <strong>pth_atfork_push</strong>(void (*<em>prepare</em>)(void *), void (*)(void *<em>parent</em>), void (*)(void *<em>child</em>), void *<em>arg</em>);</a></strong>
 <dd>
-This function declares forking handlers to be called before and after
+<p>This function declares forking handlers to be called before and after
 pth_fork(3), in the context of the thread that called pth_fork(3). The
 <em>prepare</em> handler is called before <code>fork(2)</code> processing commences. The
 <em>parent</em> handler is called after <code>fork(2)</code> processing completes in the parent
 process. The <em>child</em> handler is called after <code>fork(2)</code> processing completed in
 the child process. If no handling is desired at one or more of these three
 points, the corresponding handler can be given as <code>NULL</code>. Each handler is
-called with <em>arg</em> as the argument.
+called with <em>arg</em> as the argument.</p>
 </dd>
 <dd>
 <p>The order of calls to <a href="#item_pth_atfork_push"><code>pth_atfork_push(3)</code></a> is significant. The <em>parent</em> and
@@ -1591,27 +1506,26 @@ called with <em>arg</em> as the argument.
 calls to pth_atfork_push(3), i.e., FIFO. The <em>prepare</em> fork handlers are
 called in the opposite order, i.e., LIFO.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_atfork_pop">int <strong>pth_atfork_pop</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_atfork_pop">int <strong>pth_atfork_pop</strong>(void);</a></strong>
 <dd>
-This removes the top-most handlers on the forking handler stack which were
+<p>This removes the top-most handlers on the forking handler stack which were
 established with the last <a href="#item_pth_atfork_push"><code>pth_atfork_push(3)</code></a> call. It returns <code>FALSE</code> when no
-more handlers couldn't be removed from the stack.
+more handlers couldn't be removed from the stack.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_fork">pid_t <strong>pth_fork</strong>(void);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_fork">pid_t <strong>pth_fork</strong>(void);</a></strong>
 <dd>
-This is a variant of <code>fork(2)</code> with the difference that the current thread only
+<p>This is a variant of <code>fork(2)</code> with the difference that the current thread only
 is forked into a separate process, i.e., in the parent process nothing changes
 while in the child process all threads are gone except for the scheduler and
 the calling thread. When you really want to duplicate all threads in the
 current process you should use <code>fork(2)</code> directly. But this is usually not
 reasonable. Additionally this function takes care of forking handlers as
-established by pth_fork_push(3).
+established by pth_fork_push(3).</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="synchronization">Synchronization</a></h2>
@@ -1628,109 +1542,99 @@ threads can make progress and enter your critical code section, too. This is
 especially true for critical code sections which implicitly or explicitly use
 the event mechanism.</p>
 <dl>
-<dt><strong><a name="item_pth_mutex_init">int <strong>pth_mutex_init</strong>(pth_mutex_t *<em>mutex</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_mutex_init">int <strong>pth_mutex_init</strong>(pth_mutex_t *<em>mutex</em>);</a></strong>
 <dd>
-This dynamically initializes a mutex variable of type `<code>pth_mutex_t</code>'.
+<p>This dynamically initializes a mutex variable of type `<code>pth_mutex_t</code>'.
 Alternatively one can also use static initialization via `<code>pth_mutex_t
-mutex = PTH_MUTEX_INIT</code>'.
+mutex = PTH_MUTEX_INIT</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_mutex_acquire">int <strong>pth_mutex_acquire</strong>(pth_mutex_t *<em>mutex</em>, int <em>try</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_mutex_acquire">int <strong>pth_mutex_acquire</strong>(pth_mutex_t *<em>mutex</em>, int <em>try</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This acquires a mutex <em>mutex</em>. If the mutex is already locked by another
+<p>This acquires a mutex <em>mutex</em>. If the mutex is already locked by another
 thread, the current threads execution is suspended until the mutex is unlocked
 again or additionally the extra events in <em>ev</em> occurred (when <em>ev</em> is not
 <code>NULL</code>). Recursive locking is explicitly supported, i.e., a thread is allowed
 to acquire a mutex more than once before its released. But it then also has be
 released the same number of times until the mutex is again lockable by others.
 When <em>try</em> is <code>TRUE</code> this function never suspends execution. Instead it
-returns <code>FALSE</code> with <code>errno</code> set to <code>EBUSY</code>.
+returns <code>FALSE</code> with <code>errno</code> set to <code>EBUSY</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_mutex_release">int <strong>pth_mutex_release</strong>(pth_mutex_t *<em>mutex</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_mutex_release">int <strong>pth_mutex_release</strong>(pth_mutex_t *<em>mutex</em>);</a></strong>
 <dd>
-This decrements the recursion locking count on <em>mutex</em> and when it is zero it
-releases the mutex <em>mutex</em>.
+<p>This decrements the recursion locking count on <em>mutex</em> and when it is zero it
+releases the mutex <em>mutex</em>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_rwlock_init">int <strong>pth_rwlock_init</strong>(pth_rwlock_t *<em>rwlock</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_rwlock_init">int <strong>pth_rwlock_init</strong>(pth_rwlock_t *<em>rwlock</em>);</a></strong>
 <dd>
-This dynamically initializes a read-write lock variable of type
+<p>This dynamically initializes a read-write lock variable of type
 `<code>pth_rwlock_t</code>'. Alternatively one can also use static initialization
-via `<code>pth_rwlock_t rwlock = PTH_RWLOCK_INIT</code>'.
+via `<code>pth_rwlock_t rwlock = PTH_RWLOCK_INIT</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_rwlock_acquire">int <strong>pth_rwlock_acquire</strong>(pth_rwlock_t *<em>rwlock</em>, int <em>op</em>, int <em>try</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_rwlock_acquire">int <strong>pth_rwlock_acquire</strong>(pth_rwlock_t *<em>rwlock</em>, int <em>op</em>, int <em>try</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This acquires a read-only (when <em>op</em> is <code>PTH_RWLOCK_RD</code>) or a read-write
+<p>This acquires a read-only (when <em>op</em> is <code>PTH_RWLOCK_RD</code>) or a read-write
 (when <em>op</em> is <code>PTH_RWLOCK_RW</code>) lock <em>rwlock</em>. When the lock is only locked
 by other threads in read-only mode, the lock succeeds. But when one thread
 holds a read-write lock, all locking attempts suspend the current thread until
 this lock is released again. Additionally in <em>ev</em> events can be given to let
 the locking timeout, etc. When <em>try</em> is <code>TRUE</code> this function never suspends
-execution. Instead it returns <code>FALSE</code> with <code>errno</code> set to <code>EBUSY</code>.
+execution. Instead it returns <code>FALSE</code> with <code>errno</code> set to <code>EBUSY</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_rwlock_release">int <strong>pth_rwlock_release</strong>(pth_rwlock_t *<em>rwlock</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_rwlock_release">int <strong>pth_rwlock_release</strong>(pth_rwlock_t *<em>rwlock</em>);</a></strong>
 <dd>
-This releases a previously acquired (read-only or read-write) lock.
+<p>This releases a previously acquired (read-only or read-write) lock.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_cond_init">int <strong>pth_cond_init</strong>(pth_cond_t *<em>cond</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_cond_init">int <strong>pth_cond_init</strong>(pth_cond_t *<em>cond</em>);</a></strong>
 <dd>
-This dynamically initializes a condition variable variable of type
+<p>This dynamically initializes a condition variable variable of type
 `<code>pth_cond_t</code>'. Alternatively one can also use static initialization via
-`<code>pth_cond_t cond = PTH_COND_INIT</code>'.
+`<code>pth_cond_t cond = PTH_COND_INIT</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_cond_await">int <strong>pth_cond_await</strong>(pth_cond_t *<em>cond</em>, pth_mutex_t *<em>mutex</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_cond_await">int <strong>pth_cond_await</strong>(pth_cond_t *<em>cond</em>, pth_mutex_t *<em>mutex</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This awaits a condition situation. The caller has to follow the semantics of
+<p>This awaits a condition situation. The caller has to follow the semantics of
 the POSIX condition variables: <em>mutex</em> has to be acquired before this
 function is called. The execution of the current thread is then suspended
 either until the events in <em>ev</em> occurred (when <em>ev</em> is not <code>NULL</code>) or
 <em>cond</em> was notified by another thread via pth_cond_notify(3). While the
 thread is waiting, <em>mutex</em> is released. Before it returns <em>mutex</em> is
-reacquired.
+reacquired.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_cond_notify">int <strong>pth_cond_notify</strong>(pth_cond_t *<em>cond</em>, int <em>broadcast</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_cond_notify">int <strong>pth_cond_notify</strong>(pth_cond_t *<em>cond</em>, int <em>broadcast</em>);</a></strong>
 <dd>
-This notified one or all threads which are waiting on <em>cond</em>. When
+<p>This notified one or all threads which are waiting on <em>cond</em>. When
 <em>broadcast</em> is <code>TRUE</code> all thread are notified, else only a single
-(unspecified) one.
+(unspecified) one.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_barrier_init">int <strong>pth_barrier_init</strong>(pth_barrier_t *<em>barrier</em>, int <em>threshold</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_barrier_init">int <strong>pth_barrier_init</strong>(pth_barrier_t *<em>barrier</em>, int <em>threshold</em>);</a></strong>
 <dd>
-This dynamically initializes a barrier variable of type `<code>pth_barrier_t</code>'.
+<p>This dynamically initializes a barrier variable of type `<code>pth_barrier_t</code>'.
 Alternatively one can also use static initialization via `<code>pth_barrier_t
-barrier = PTH_BARRIER_INIT(</code><em>threadhold</em><code>)</code>'.
+barrier = PTH_BARRIER_INIT(</code><em>threadhold</em><code>)</code>'.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_barrier_reach">int <strong>pth_barrier_reach</strong>(pth_barrier_t *<em>barrier</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_barrier_reach">int <strong>pth_barrier_reach</strong>(pth_barrier_t *<em>barrier</em>);</a></strong>
 <dd>
-This function reaches a barrier <em>barrier</em>. If this is the last thread (as
+<p>This function reaches a barrier <em>barrier</em>. If this is the last thread (as
 specified by <em>threshold</em> on init of <em>barrier</em>) all threads are awakened.
 Else the current thread is suspended until the last thread reached the barrier
 and this way awakes all threads. The function returns (beside <code>FALSE</code> on
 error) the value <code>TRUE</code> for any thread which neither reached the barrier as
 the first nor the last thread; <code>PTH_BARRIER_HEADLIGHT</code> for the thread which
 reached the barrier as the first thread and <code>PTH_BARRIER_TAILLIGHT</code> for the
-thread which reached the barrier as the last thread.
+thread which reached the barrier as the last thread.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="userspace_context">User-Space Context</a></h2>
@@ -1749,19 +1653,17 @@ machine context switching method). For instance, on an Intel Pentium-III
 CPU with 800Mhz running under FreeBSD 4 one usually achieves about
 260,000 user-space context switches (via <a href="#item_pth_uctx_switch"><code>pth_uctx_switch(3))</code></a> per second.</p>
 <dl>
-<dt><strong><a name="item_pth_uctx_create">int <strong>pth_uctx_create</strong>(pth_uctx_t *<em>uctx</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_uctx_create">int <strong>pth_uctx_create</strong>(pth_uctx_t *<em>uctx</em>);</a></strong>
 <dd>
-This function creates a user-space context and stores it into <em>uctx</em>.
+<p>This function creates a user-space context and stores it into <em>uctx</em>.
 There is still no underlying user-space context configured. You still
 have to do this with pth_uctx_make(3). On success, this function returns
-<code>TRUE</code>, else <code>FALSE</code>.
+<code>TRUE</code>, else <code>FALSE</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_uctx_make">int <strong>pth_uctx_make</strong>(pth_uctx_t <em>uctx</em>, char *<em>sk_addr</em>, size_t <em>sk_size</em>, const sigset_t *<em>sigmask</em>, void (*<em>start_func</em>)(void *), void *<em>start_arg</em>, pth_uctx_t <em>uctx_after</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_uctx_make">int <strong>pth_uctx_make</strong>(pth_uctx_t <em>uctx</em>, char *<em>sk_addr</em>, size_t <em>sk_size</em>, const sigset_t *<em>sigmask</em>, void (*<em>start_func</em>)(void *), void *<em>start_arg</em>, pth_uctx_t <em>uctx_after</em>);</a></strong>
 <dd>
-This function makes a new user-space context in <em>uctx</em> which will
+<p>This function makes a new user-space context in <em>uctx</em> which will
 operate on the run-time stack <em>sk_addr</em> (which is of maximum
 size <em>sk_size</em>), with the signals in <em>sigmask</em> blocked (if
 <em>sigmask</em> is not <code>NULL</code>) and starting to execute with the call
@@ -1772,32 +1674,31 @@ least 16384 (16KB). If the start function <em>start_func</em> returns and
 to this context is performed. Else (if <em>uctx_after</em> is <code>NULL</code>) the
 process is terminated with exit(3). This function is somewhat modeled
 after POSIX makecontext(3). On success, this function returns <code>TRUE</code>,
-else <code>FALSE</code>.
+else <code>FALSE</code>.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_uctx_switch">int <strong>pth_uctx_switch</strong>(pth_uctx_t <em>uctx_from</em>, pth_uctx_t <em>uctx_to</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_uctx_switch">int <strong>pth_uctx_switch</strong>(pth_uctx_t <em>uctx_from</em>, pth_uctx_t <em>uctx_to</em>);</a></strong>
 <dd>
-This function saves the current user-space context in <em>uctx_from</em> for
+<p>This function saves the current user-space context in <em>uctx_from</em> for
 later restoring by another call to <a href="#item_pth_uctx_switch"><code>pth_uctx_switch(3)</code></a> and restores
 the new user-space context from <em>uctx_to</em>, which previously had to
 be set with either a previous call to <a href="#item_pth_uctx_switch"><code>pth_uctx_switch(3)</code></a> or initially
 by pth_uctx_make(3). This function is somewhat modeled after POSIX
 swapcontext(3). If <em>uctx_from</em> or <em>uctx_to</em> are <code>NULL</code> or if
 <em>uctx_to</em> contains no valid user-space context, <code>FALSE</code> is returned
-instead of <code>TRUE</code>. These are the only errors possible.
+instead of <code>TRUE</code>. These are the only errors possible.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_uctx_destroy">int <strong>pth_uctx_destroy</strong>(pth_uctx_t <em>uctx</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_uctx_destroy">int <strong>pth_uctx_destroy</strong>(pth_uctx_t <em>uctx</em>);</a></strong>
 <dd>
-This function destroys the user-space context in <em>uctx</em>. The run-time
+<p>This function destroys the user-space context in <em>uctx</em>. The run-time
 stack associated with the user-space context is deallocated only if it
 was not given by the application (see <em>sk_addr</em> of pth_uctx_create(3)).
 If <em>uctx</em> is <code>NULL</code>, <code>FALSE</code> is returned instead of <code>TRUE</code>. This is
-the only error possible.
+the only error possible.</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="generalized_posix_replacement_api">Generalized POSIX Replacement API</a></h2>
@@ -1806,136 +1707,124 @@ API, i.e., they are similar to the functions under `<strong>Standard POSIX
 Replacement API</strong>' but all have an additional event argument which can be used
 for timeouts, etc.</p>
 <dl>
-<dt><strong><a name="item_pth_sigwait_ev">int <strong>pth_sigwait_ev</strong>(const sigset_t *<em>set</em>, int *<em>sig</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_sigwait_ev">int <strong>pth_sigwait_ev</strong>(const sigset_t *<em>set</em>, int *<em>sig</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_sigwait"><code>pth_sigwait(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_sigwait"><code>pth_sigwait(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_sigwait"><code>pth_sigwait(3)</code></a> suspends the current threads execution it
 usually only uses the signal event on <em>set</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_connect_ev">int <strong>pth_connect_ev</strong>(int <em>s</em>, const struct sockaddr *<em>addr</em>, socklen_t <em>addrlen</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_connect_ev">int <strong>pth_connect_ev</strong>(int <em>s</em>, const struct sockaddr *<em>addr</em>, socklen_t <em>addrlen</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_connect"><code>pth_connect(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_connect"><code>pth_connect(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_connect"><code>pth_connect(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>s</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_accept_ev">int <strong>pth_accept_ev</strong>(int <em>s</em>, struct sockaddr *<em>addr</em>, socklen_t *<em>addrlen</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_accept_ev">int <strong>pth_accept_ev</strong>(int <em>s</em>, struct sockaddr *<em>addr</em>, socklen_t *<em>addrlen</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_accept"><code>pth_accept(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_accept"><code>pth_accept(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_accept"><code>pth_accept(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>s</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_select_ev">int <strong>pth_select_ev</strong>(int <em>nfd</em>, fd_set *<em>rfds</em>, fd_set *<em>wfds</em>, fd_set *<em>efds</em>, struct timeval *<em>timeout</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_select_ev">int <strong>pth_select_ev</strong>(int <em>nfd</em>, fd_set *<em>rfds</em>, fd_set *<em>wfds</em>, fd_set *<em>efds</em>, struct timeval *<em>timeout</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_select"><code>pth_select(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_select"><code>pth_select(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_select"><code>pth_select(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>rfds</em>, <em>wfds</em> and <em>efds</em> to awake. With
 this function any number of extra events can be used to awake the current
-thread (remember that <em>ev</em> actually is an event <em>ring</em>).
+thread (remember that <em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_poll_ev">int <strong>pth_poll_ev</strong>(struct pollfd *<em>fds</em>, unsigned int <em>nfd</em>, int <em>timeout</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_poll_ev">int <strong>pth_poll_ev</strong>(struct pollfd *<em>fds</em>, unsigned int <em>nfd</em>, int <em>timeout</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_poll"><code>pth_poll(3)</code></a> (see below), but has an additional event argument
+<p>This is equal to <a href="#item_pth_poll"><code>pth_poll(3)</code></a> (see below), but has an additional event argument
 <em>ev</em>. When <a href="#item_pth_poll"><code>pth_poll(3)</code></a> suspends the current threads execution it usually only
 uses the I/O event on <em>fds</em> to awake. With this function any number of extra
 events can be used to awake the current thread (remember that <em>ev</em> actually
-is an event <em>ring</em>).
+is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_read_ev">ssize_t <strong>pth_read_ev</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_read_ev">ssize_t <strong>pth_read_ev</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_read"><code>pth_read(3)</code></a> (see below), but has an additional event argument
+<p>This is equal to <a href="#item_pth_read"><code>pth_read(3)</code></a> (see below), but has an additional event argument
 <em>ev</em>. When <a href="#item_pth_read"><code>pth_read(3)</code></a> suspends the current threads execution it usually only
 uses the I/O event on <em>fd</em> to awake. With this function any number of extra
 events can be used to awake the current thread (remember that <em>ev</em> actually
-is an event <em>ring</em>).
+is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_readv_ev">ssize_t <strong>pth_readv_ev</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_readv_ev">ssize_t <strong>pth_readv_ev</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_readv"><code>pth_readv(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_readv"><code>pth_readv(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_readv"><code>pth_readv(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>fd</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_write_ev">ssize_t <strong>pth_write_ev</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_write_ev">ssize_t <strong>pth_write_ev</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_write"><code>pth_write(3)</code></a> (see below), but has an additional event argument
+<p>This is equal to <a href="#item_pth_write"><code>pth_write(3)</code></a> (see below), but has an additional event argument
 <em>ev</em>. When <a href="#item_pth_write"><code>pth_write(3)</code></a> suspends the current threads execution it usually
 only uses the I/O event on <em>fd</em> to awake. With this function any number of
 extra events can be used to awake the current thread (remember that <em>ev</em>
-actually is an event <em>ring</em>).
+actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_writev_ev">ssize_t <strong>pth_writev_ev</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_writev_ev">ssize_t <strong>pth_writev_ev</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_writev"><code>pth_writev(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_writev"><code>pth_writev(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_writev"><code>pth_writev(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>fd</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_recv_ev">ssize_t <strong>pth_recv_ev</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_recv_ev">ssize_t <strong>pth_recv_ev</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_recv"><code>pth_recv(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_recv"><code>pth_recv(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_recv"><code>pth_recv(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>fd</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_recvfrom_ev">ssize_t <strong>pth_recvfrom_ev</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, struct sockaddr *<em>from</em>, socklen_t *<em>fromlen</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_recvfrom_ev">ssize_t <strong>pth_recvfrom_ev</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, struct sockaddr *<em>from</em>, socklen_t *<em>fromlen</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_recvfrom"><code>pth_recvfrom(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_recvfrom"><code>pth_recvfrom(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_recvfrom"><code>pth_recvfrom(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>fd</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_send_ev">ssize_t <strong>pth_send_ev</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_send_ev">ssize_t <strong>pth_send_ev</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_send"><code>pth_send(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_send"><code>pth_send(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_send"><code>pth_send(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>fd</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_sendto_ev">ssize_t <strong>pth_sendto_ev</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, const struct sockaddr *<em>to</em>, socklen_t <em>tolen</em>, pth_event_t <em>ev</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_sendto_ev">ssize_t <strong>pth_sendto_ev</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, const struct sockaddr *<em>to</em>, socklen_t <em>tolen</em>, pth_event_t <em>ev</em>);</a></strong>
 <dd>
-This is equal to <a href="#item_pth_sendto"><code>pth_sendto(3)</code></a> (see below), but has an additional event
+<p>This is equal to <a href="#item_pth_sendto"><code>pth_sendto(3)</code></a> (see below), but has an additional event
 argument <em>ev</em>. When <a href="#item_pth_sendto"><code>pth_sendto(3)</code></a> suspends the current threads execution it
 usually only uses the I/O event on <em>fd</em> to awake. With this function any
 number of extra events can be used to awake the current thread (remember that
-<em>ev</em> actually is an event <em>ring</em>).
+<em>ev</em> actually is an event <em>ring</em>).</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <h2><a name="standard_posix_replacement_api">Standard POSIX Replacement API</a></h2>
@@ -1943,10 +1832,9 @@ number of extra events can be used to awake the current thread (remember that
 The difference is mainly that they suspend the current thread only instead of
 the whole process in case the file descriptors will block.</p>
 <dl>
-<dt><strong><a name="item_pth_nanosleep">int <strong>pth_nanosleep</strong>(const struct timespec *<em>rqtp</em>, struct timespec *<em>rmtp</em>);</a></strong><br />
-</dt>
+<dt><strong><a name="item_pth_nanosleep">int <strong>pth_nanosleep</strong>(const struct timespec *<em>rqtp</em>, struct timespec *<em>rmtp</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>nanosleep(3)</code> function. It suspends the
+<p>This is a variant of the POSIX <code>nanosleep(3)</code> function. It suspends the
 current threads execution until the amount of time in <em>rqtp</em> elapsed.
 The thread is guaranteed to not wake up before this time, but because
 of the non-preemptive scheduling nature of <strong>Pth</strong>, it can be awakened
@@ -1954,229 +1842,209 @@ later, of course. If <em>rmtp</em> is not <code>NULL</code>, the <code>timespec<
 it references is updated to contain the unslept amount (the request time
 minus the time actually slept time). The difference between <code>nanosleep(3)</code>
 and <a href="#item_pth_nanosleep"><code>pth_nanosleep(3)</code></a> is that that <a href="#item_pth_nanosleep"><code>pth_nanosleep(3)</code></a> suspends only the
-execution of the current thread and not the whole process.
+execution of the current thread and not the whole process.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_usleep">int <strong>pth_usleep</strong>(unsigned int <em>usec</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_usleep">int <strong>pth_usleep</strong>(unsigned int <em>usec</em>);</a></strong>
 <dd>
-This is a variant of the 4.3BSD <code>usleep(3)</code> function. It suspends the current
+<p>This is a variant of the 4.3BSD <code>usleep(3)</code> function. It suspends the current
 threads execution until <em>usec</em> microseconds (= <em>usec</em>*1/1000000 sec)
 elapsed. The thread is guaranteed to not wake up before this time, but
 because of the non-preemptive scheduling nature of <strong>Pth</strong>, it can be awakened
 later, of course. The difference between <code>usleep(3)</code> and <a href="#item_pth_usleep"><code>pth_usleep(3)</code></a> is that
 that <a href="#item_pth_usleep"><code>pth_usleep(3)</code></a> suspends only the execution of the current thread and not
-the whole process.
+the whole process.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_sleep">unsigned int <strong>pth_sleep</strong>(unsigned int <em>sec</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_sleep">unsigned int <strong>pth_sleep</strong>(unsigned int <em>sec</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>sleep(3)</code> function. It suspends the current
+<p>This is a variant of the POSIX <code>sleep(3)</code> function. It suspends the current
 threads execution until <em>sec</em> seconds elapsed. The thread is guaranteed to
 not wake up before this time, but because of the non-preemptive scheduling
 nature of <strong>Pth</strong>, it can be awakened later, of course. The difference between
 <code>sleep(3)</code> and <a href="#item_pth_sleep"><code>pth_sleep(3)</code></a> is that <a href="#item_pth_sleep"><code>pth_sleep(3)</code></a> suspends only the
-execution of the current thread and not the whole process.
+execution of the current thread and not the whole process.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_waitpid">pid_t <strong>pth_waitpid</strong>(pid_t <em>pid</em>, int *<em>status</em>, int <em>options</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_waitpid">pid_t <strong>pth_waitpid</strong>(pid_t <em>pid</em>, int *<em>status</em>, int <em>options</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>waitpid(2)</code> function. It suspends the
+<p>This is a variant of the POSIX <code>waitpid(2)</code> function. It suspends the
 current threads execution until <em>status</em> information is available for a
 terminated child process <em>pid</em>. The difference between <code>waitpid(2)</code> and
 <a href="#item_pth_waitpid"><code>pth_waitpid(3)</code></a> is that <a href="#item_pth_waitpid"><code>pth_waitpid(3)</code></a> suspends only the execution of the
 current thread and not the whole process. For more details about the
-arguments and return code semantics see waitpid(2).
+arguments and return code semantics see waitpid(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_system">int <strong>pth_system</strong>(const char *<em>cmd</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_system">int <strong>pth_system</strong>(const char *<em>cmd</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>system(3)</code> function. It executes the
+<p>This is a variant of the POSIX <code>system(3)</code> function. It executes the
 shell command <em>cmd</em> with Bourne Shell (<code>sh</code>) and suspends the current
 threads execution until this command terminates. The difference between
 <code>system(3)</code> and <a href="#item_pth_system"><code>pth_system(3)</code></a> is that <a href="#item_pth_system"><code>pth_system(3)</code></a> suspends only
 the execution of the current thread and not the whole process. For more
-details about the arguments and return code semantics see system(3).
+details about the arguments and return code semantics see system(3).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_sigmask">int <strong>pth_sigmask</strong>(int <em>how</em>, const sigset_t *<em>set</em>, sigset_t *<em>oset</em>)</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_sigmask">int <strong>pth_sigmask</strong>(int <em>how</em>, const sigset_t *<em>set</em>, sigset_t *<em>oset</em>)</a></strong>
 <dd>
-This is the <strong>Pth</strong> thread-related equivalent of POSIX <code>sigprocmask(2)</code> respectively
+<p>This is the <strong>Pth</strong> thread-related equivalent of POSIX <code>sigprocmask(2)</code> respectively
 pthread_sigmask(3). The arguments <em>how</em>, <em>set</em> and <em>oset</em> directly relate
 to sigprocmask(2), because <strong>Pth</strong> internally just uses <code>sigprocmask(2)</code> here. So
 alternatively you can also directly call sigprocmask(2), but for consistency
-reasons you should use this function pth_sigmask(3).
+reasons you should use this function pth_sigmask(3).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_sigwait">int <strong>pth_sigwait</strong>(const sigset_t *<em>set</em>, int *<em>sig</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_sigwait">int <strong>pth_sigwait</strong>(const sigset_t *<em>set</em>, int *<em>sig</em>);</a></strong>
 <dd>
-This is a variant of the POSIX.1c <code>sigwait(3)</code> function. It suspends the current
+<p>This is a variant of the POSIX.1c <code>sigwait(3)</code> function. It suspends the current
 threads execution until a signal in <em>set</em> occurred and stores the signal
 number in <em>sig</em>. The important point is that the signal is not delivered to a
 signal handler. Instead it's caught by the scheduler only in order to awake
 the <a href="#item_pth_sigwait"><code>pth_sigwait()</code></a> call. The trick and noticeable point here is that this way
 you get an asynchronous aware application that is written completely
 synchronously. When you think about the problem of <em>asynchronous safe</em>
-functions you should recognize that this is a great benefit.
+functions you should recognize that this is a great benefit.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_connect">int <strong>pth_connect</strong>(int <em>s</em>, const struct sockaddr *<em>addr</em>, socklen_t <em>addrlen</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_connect">int <strong>pth_connect</strong>(int <em>s</em>, const struct sockaddr *<em>addr</em>, socklen_t <em>addrlen</em>);</a></strong>
 <dd>
-This is a variant of the 4.2BSD <code>connect(2)</code> function. It establishes a
+<p>This is a variant of the 4.2BSD <code>connect(2)</code> function. It establishes a
 connection on a socket <em>s</em> to target specified in <em>addr</em> and <em>addrlen</em>.
 The difference between <code>connect(2)</code> and <a href="#item_pth_connect"><code>pth_connect(3)</code></a> is that
 <a href="#item_pth_connect"><code>pth_connect(3)</code></a> suspends only the execution of the current thread and not the
 whole process. For more details about the arguments and return code semantics
-see connect(2).
+see connect(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_accept">int <strong>pth_accept</strong>(int <em>s</em>, struct sockaddr *<em>addr</em>, socklen_t *<em>addrlen</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_accept">int <strong>pth_accept</strong>(int <em>s</em>, struct sockaddr *<em>addr</em>, socklen_t *<em>addrlen</em>);</a></strong>
 <dd>
-This is a variant of the 4.2BSD <code>accept(2)</code> function. It accepts a connection on
+<p>This is a variant of the 4.2BSD <code>accept(2)</code> function. It accepts a connection on
 a socket by extracting the first connection request on the queue of pending
 connections, creating a new socket with the same properties of <em>s</em> and
 allocates a new file descriptor for the socket (which is returned). The
 difference between <code>accept(2)</code> and <a href="#item_pth_accept"><code>pth_accept(3)</code></a> is that <a href="#item_pth_accept"><code>pth_accept(3)</code></a>
 suspends only the execution of the current thread and not the whole process.
-For more details about the arguments and return code semantics see accept(2).
+For more details about the arguments and return code semantics see accept(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_select">int <strong>pth_select</strong>(int <em>nfd</em>, fd_set *<em>rfds</em>, fd_set *<em>wfds</em>, fd_set *<em>efds</em>, struct timeval *<em>timeout</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_select">int <strong>pth_select</strong>(int <em>nfd</em>, fd_set *<em>rfds</em>, fd_set *<em>wfds</em>, fd_set *<em>efds</em>, struct timeval *<em>timeout</em>);</a></strong>
 <dd>
-This is a variant of the 4.2BSD <code>select(2)</code> function. It examines the I/O
+<p>This is a variant of the 4.2BSD <code>select(2)</code> function. It examines the I/O
 descriptor sets whose addresses are passed in <em>rfds</em>, <em>wfds</em>, and <em>efds</em> to
 see if some of their descriptors are ready for reading, are ready for writing,
 or have an exceptional condition pending, respectively. For more details
-about the arguments and return code semantics see select(2).
+about the arguments and return code semantics see select(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_pselect">int <strong>pth_pselect</strong>(int <em>nfd</em>, fd_set *<em>rfds</em>, fd_set *<em>wfds</em>, fd_set *<em>efds</em>, const struct timespec *<em>timeout</em>, const sigset_t *<em>sigmask</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_pselect">int <strong>pth_pselect</strong>(int <em>nfd</em>, fd_set *<em>rfds</em>, fd_set *<em>wfds</em>, fd_set *<em>efds</em>, const struct timespec *<em>timeout</em>, const sigset_t *<em>sigmask</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>pselect(2)</code> function, which in turn
+<p>This is a variant of the POSIX <code>pselect(2)</code> function, which in turn
 is a stronger variant of 4.2BSD select(2). The difference is that
 the higher-resolution <code>struct timespec</code> is passed instead of the
 lower-resolution <code>struct timeval</code> and that a signal mask is specified
 which is temporarily set while waiting for input. For more details about
-the arguments and return code semantics see <code>pselect(2)</code> and select(2).
+the arguments and return code semantics see <code>pselect(2)</code> and select(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_poll">int <strong>pth_poll</strong>(struct pollfd *<em>fds</em>, unsigned int <em>nfd</em>, int <em>timeout</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_poll">int <strong>pth_poll</strong>(struct pollfd *<em>fds</em>, unsigned int <em>nfd</em>, int <em>timeout</em>);</a></strong>
 <dd>
-This is a variant of the SysV <code>poll(2)</code> function. It examines the I/O
+<p>This is a variant of the SysV <code>poll(2)</code> function. It examines the I/O
 descriptors which are passed in the array <em>fds</em> to see if some of them are
 ready for reading, are ready for writing, or have an exceptional condition
 pending, respectively. For more details about the arguments and return code
-semantics see poll(2).
+semantics see poll(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_read">ssize_t <strong>pth_read</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_read">ssize_t <strong>pth_read</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>read(2)</code> function. It reads up to <em>nbytes</em>
+<p>This is a variant of the POSIX <code>read(2)</code> function. It reads up to <em>nbytes</em>
 bytes into <em>buf</em> from file descriptor <em>fd</em>. The difference between <code>read(2)</code>
 and <a href="#item_pth_read"><code>pth_read(2)</code></a> is that <a href="#item_pth_read"><code>pth_read(2)</code></a> suspends execution of the current
 thread until the file descriptor is ready for reading. For more details about
-the arguments and return code semantics see read(2).
+the arguments and return code semantics see read(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_readv">ssize_t <strong>pth_readv</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_readv">ssize_t <strong>pth_readv</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>readv(2)</code> function. It reads data from
+<p>This is a variant of the POSIX <code>readv(2)</code> function. It reads data from
 file descriptor <em>fd</em> into the first <em>iovcnt</em> rows of the <em>iov</em> vector. The
 difference between <code>readv(2)</code> and <a href="#item_pth_readv"><code>pth_readv(2)</code></a> is that <a href="#item_pth_readv"><code>pth_readv(2)</code></a>
 suspends execution of the current thread until the file descriptor is ready for
 reading. For more details about the arguments and return code semantics see
-readv(2).
+readv(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_write">ssize_t <strong>pth_write</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_write">ssize_t <strong>pth_write</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>write(2)</code> function. It writes <em>nbytes</em> bytes
+<p>This is a variant of the POSIX <code>write(2)</code> function. It writes <em>nbytes</em> bytes
 from <em>buf</em> to file descriptor <em>fd</em>. The difference between <code>write(2)</code> and
 <a href="#item_pth_write"><code>pth_write(2)</code></a> is that <a href="#item_pth_write"><code>pth_write(2)</code></a> suspends execution of the current
 thread until the file descriptor is ready for writing. For more details about
-the arguments and return code semantics see write(2).
+the arguments and return code semantics see write(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_writev">ssize_t <strong>pth_writev</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_writev">ssize_t <strong>pth_writev</strong>(int <em>fd</em>, const struct iovec *<em>iovec</em>, int <em>iovcnt</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>writev(2)</code> function. It writes data to
+<p>This is a variant of the POSIX <code>writev(2)</code> function. It writes data to
 file descriptor <em>fd</em> from the first <em>iovcnt</em> rows of the <em>iov</em> vector. The
 difference between <code>writev(2)</code> and <a href="#item_pth_writev"><code>pth_writev(2)</code></a> is that <a href="#item_pth_writev"><code>pth_writev(2)</code></a>
 suspends execution of the current thread until the file descriptor is ready for
 reading. For more details about the arguments and return code semantics see
-writev(2).
+writev(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_pread">ssize_t <strong>pth_pread</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, off_t <em>offset</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_pread">ssize_t <strong>pth_pread</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, off_t <em>offset</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>pread(3)</code> function. It performs the same action
+<p>This is a variant of the POSIX <code>pread(3)</code> function. It performs the same action
 as a regular read(2), except that it reads from a given position in the file
 without changing the file pointer. The first three arguments are the same as
 for <a href="#item_pth_read"><code>pth_read(3)</code></a> with the addition of a fourth argument <em>offset</em> for the
-desired position inside the file.
+desired position inside the file.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_pwrite">ssize_t <strong>pth_pwrite</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, off_t <em>offset</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_pwrite">ssize_t <strong>pth_pwrite</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, off_t <em>offset</em>);</a></strong>
 <dd>
-This is a variant of the POSIX <code>pwrite(3)</code> function. It performs the same
+<p>This is a variant of the POSIX <code>pwrite(3)</code> function. It performs the same
 action as a regular write(2), except that it writes to a given position in the
 file without changing the file pointer. The first three arguments are the same
 as for <a href="#item_pth_write"><code>pth_write(3)</code></a> with the addition of a fourth argument <em>offset</em> for the
-desired position inside the file.
+desired position inside the file.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_recv">ssize_t <strong>pth_recv</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_recv">ssize_t <strong>pth_recv</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>);</a></strong>
 <dd>
-This is a variant of the SUSv2 <code>recv(2)</code> function and equal to
-``pth_recvfrom(fd, buf, nbytes, flags, NULL, 0)''.
+<p>This is a variant of the SUSv2 <code>recv(2)</code> function and equal to
+``pth_recvfrom(fd, buf, nbytes, flags, NULL, 0)''.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_recvfrom">ssize_t <strong>pth_recvfrom</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, struct sockaddr *<em>from</em>, socklen_t *<em>fromlen</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_recvfrom">ssize_t <strong>pth_recvfrom</strong>(int <em>fd</em>, void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, struct sockaddr *<em>from</em>, socklen_t *<em>fromlen</em>);</a></strong>
 <dd>
-This is a variant of the SUSv2 <code>recvfrom(2)</code> function. It reads up to
+<p>This is a variant of the SUSv2 <code>recvfrom(2)</code> function. It reads up to
 <em>nbytes</em> bytes into <em>buf</em> from file descriptor <em>fd</em> while using
 <em>flags</em> and <em>from</em>/<em>fromlen</em>. The difference between <code>recvfrom(2)</code> and
 <a href="#item_pth_recvfrom"><code>pth_recvfrom(2)</code></a> is that <a href="#item_pth_recvfrom"><code>pth_recvfrom(2)</code></a> suspends execution of the
 current thread until the file descriptor is ready for reading. For more
-details about the arguments and return code semantics see recvfrom(2).
+details about the arguments and return code semantics see recvfrom(2).</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_send">ssize_t <strong>pth_send</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_send">ssize_t <strong>pth_send</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>);</a></strong>
 <dd>
-This is a variant of the SUSv2 <code>send(2)</code> function and equal to
-``pth_sendto(fd, buf, nbytes, flags, NULL, 0)''.
+<p>This is a variant of the SUSv2 <code>send(2)</code> function and equal to
+``pth_sendto(fd, buf, nbytes, flags, NULL, 0)''.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_pth_sendto">ssize_t <strong>pth_sendto</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, const struct sockaddr *<em>to</em>, socklen_t <em>tolen</em>);</a></strong><br />
-</dt>
+</li>
+<dt><strong><a name="item_pth_sendto">ssize_t <strong>pth_sendto</strong>(int <em>fd</em>, const void *<em>buf</em>, size_t <em>nbytes</em>, int <em>flags</em>, const struct sockaddr *<em>to</em>, socklen_t <em>tolen</em>);</a></strong>
 <dd>
-This is a variant of the SUSv2 <code>sendto(2)</code> function. It writes <em>nbytes</em>
+<p>This is a variant of the SUSv2 <code>sendto(2)</code> function. It writes <em>nbytes</em>
 bytes from <em>buf</em> to file descriptor <em>fd</em> while using <em>flags</em> and
 <em>to</em>/<em>tolen</em>. The difference between <code>sendto(2)</code> and <a href="#item_pth_sendto"><code>pth_sendto(2)</code></a> is
 that <a href="#item_pth_sendto"><code>pth_sendto(2)</code></a> suspends execution of the current thread until
 the file descriptor is ready for writing. For more details about the
-arguments and return code semantics see sendto(2).
+arguments and return code semantics see sendto(2).</p>
 </dd>
-<p></p></dl>
+</li>
+</dl>
 <p>
 </p>
 <hr />
@@ -2728,7 +2596,7 @@ Verbatim copying and distribution of this entire article is
 permitted in any medium, provided this notice is preserved.<BR>
 <p>
 <a href="http://www.gnu.org/software/pth/"><img src="pth-icon.jpg" border="0" align="right" alt="" width="126" height="50"></a>
-Copyright &copy; 1999-2005 <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</A>
+Copyright &copy; 1999-2006 <a href="http://www.gnu.org/people/people.html">Ralf S. Engelschall</A>
 <A HREF="mailto:rse@gnu.org">&lt;rse@gnu.org&gt;</A><BR>
 Last Modified: 2001-02-13 02:08:27
 <p>

@@ -18,7 +18,7 @@ libraries for Unix operating systems.
 <li><b>Pth</b> - <i>GNU Portable Threads</i><br>
     <href url="http://www.gnu.org/software/pth/"><br>
     <href url="ftp://ftp.gnu.org/gnu/pth/"><br>
-    Ralf S. Engelschall, 1999-2005
+    Ralf S. Engelschall, 1999-2006
 
 <p>
 <li><b>CMU LWP</b> - <i>CMU Lightweight Processes</i><br>
